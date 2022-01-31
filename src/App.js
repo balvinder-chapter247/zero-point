@@ -8,9 +8,7 @@ import Routing from './routes';
 function App() {
  
   return (
-    <Provider store={store}>
-      <Routing/>
-    </Provider>
+   <Routing/>
   );
 }
 

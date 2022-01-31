@@ -1,5 +1,4 @@
 export const AppRoutes = {
-    HOME: '/',
-    ABOUT_US:'/about-us',
-    CONTACT_US:'/contact-us'
-  };
+  HOME: '/welcome',
+  MY_COURSES:'/my-courses'
+};
