@@ -14,7 +14,7 @@ const Home = () => {
     }
     return (
         <>
-            <p onClick={thise}>Home</p>
+            <p onClick={thise}>Home ths is</p>
             <ToastContainer />
         </>
     )

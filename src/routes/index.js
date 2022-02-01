@@ -11,7 +11,7 @@ import { RestrictRoute } from './routes';
 const Routing = () => {
   const history = createHistory();
   // const loader = GlobalLoader();
-
+    
   return (
     <Provider store={store}>
       <Router history={history}>
@@ -21,9 +21,9 @@ const Routing = () => {
               <RestrictRoute {...routes} />
             ))}
            
-           <Route
+           {/* <Route
               render={() => <Redirect to={{ pathname: AppRoutes.HOME }} />}
-            />
+            /> */}
           </Switch>
         </React.Suspense>
       </Router>

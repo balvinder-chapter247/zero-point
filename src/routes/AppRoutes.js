@@ -1,4 +1,4 @@
 export const AppRoutes = {
-  HOME: '/welcome',
+  HOME: '/',
   MY_COURSES:'/my-courses'
 };
