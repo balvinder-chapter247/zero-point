@@ -24,7 +24,7 @@ const Marketplace = () => {
                             NewestCourse.map((courseList) => 
                             <div className="course-item bg-white shadow-sm shadow-md hover:shadow-lg transition duration-500">
                                 <img className="h-56 w-full object-cover" src={courseList.courseImage} />
-                                <div className="p-4 course-detail relative">
+                                <div className="p-4">
                                     <Link to="" className="font-medium block">{courseList.courseName}</Link>
                                     <div className="course-owner flex items-center">
                                         <p>{courseList.courseOwner}</p>
@@ -63,7 +63,7 @@ const Marketplace = () => {
                                 featuredCourses.map((featuredCoursesList) => 
                                 <div className="course-item bg-white shadow-sm shadow-md hover:shadow-lg transition duration-500">
                                     <img className="h-56 w-full object-cover" src={featuredCoursesList.courseImage} />
-                                    <div className="p-4 course-detail relative">
+                                    <div className="p-4">
                                         <Link to="" className="font-medium block">{featuredCoursesList.courseName}</Link>
                                         <div className="course-owner flex items-center">
                                             <p>{featuredCoursesList.courseOwner}</p>
