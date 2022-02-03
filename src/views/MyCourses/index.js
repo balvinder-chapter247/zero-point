@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import coursesItem from './CoursesItem';
+import coursesItem from './DataFake/CoursesItem';
 import  './MyCourse.css'
+import MyCourseList from './MyCoursesList';
 const MyCourses =()=>
 {
     return(
@@ -23,7 +24,8 @@ const MyCourses =()=>
                         <option value="3">Created Courses</option>
                     </select>
                 </div>
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
+                <MyCourseList data={coursesItem} />
+                {/* <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
                     {
                         coursesItem.map((courseList) => 
                         <div className="course-item bg-white shadow-sm hover:shadow-lg transition duration-500">
@@ -40,7 +42,7 @@ const MyCourses =()=>
                         </div>
                         )
                     }
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-1 py-4 justify-center">
                     <Link to="" className="flex items-center px-4 py-2 text-gray-500 bg-gray-300 rounded-md">
                         Previous

@@ -1,3 +1,98 @@
-.theme-color{
-    color:"pink"
+@import "var";
+@import "mixin";
+.theme-color {
+    color: "pink"
+}
+
+.bg-gray {
+    background-color: $bg-gray;
+}
+
+.login-signup-box {
+    max-width: 440px;
+    margin: auto;
+}
+
+.login-sepreter {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.login-sepreter span {
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #8d8d8d;
+    display: block;
+    max-width: max-content;
+    background-color: #fff;
+    z-index: 9;
+}
+
+.login-sepreter .or:before {
+    content: '';
+    position: absolute;
+    background: #ccc;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    z-index: -1;
+}
+
+.login-social .icon {
+    border: 2px solid #ccc;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: all 0.4s ease-in-out;
+}
+
+.login-social .icon.google {
+    border-color: #db4437;
+    color: #db4437;
+    &:hover {
+        background-color: #db4437;
+        color: #fff;
+    }
+}
+
+.login-social .icon.fb {
+    border-color: #3c5a9a;
+    color: #3c5a9a;
+    &:hover {
+        background-color: #3c5a9a;
+        color: #fff;
+    }
+}
+
+.login-social .icon.linkedin {
+    border-color: #0077b5;
+    color: #0077b5;
+    &:hover {
+        background-color: #0077b5;
+        color: #fff;
+    }
+}
+
+.login-box {
+    background-color: #2464f9;
+    max-width: 900px;
+    margin: auto;
+}
+
+.signin-btn {
+    border: 1px solid #fff;
+    max-width: 160px;
+    &:hover {
+        background-color: #fff;
+        color: #2464f9;
+        transition: all 0.4s ease-in-out;
+    }
 }

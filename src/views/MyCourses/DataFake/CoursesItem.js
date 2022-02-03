@@ -1,4 +1,4 @@
-export default [
+const coursesItem = [
     {
         id: "1",
         courseImage: "https://myheart.net/wp-content/uploads/2013/12/dreamstimelarge_211129061.jpg",
@@ -66,3 +66,5 @@ export default [
           courseButton: "Start Course"
       },
   ];
+
+  export default coursesItem
