@@ -3,11 +3,11 @@ import SuscriptionBox from '../../components/suscriptionBox.js'
 const Footer = () => {
     return (
         <>
-            <footer className="text-center lg:text-left bg-blue text-white">
+            <footer className="text-center lg:text-left theme-bg-color text-white">
                 <div className="flex justify-center items-center lg:justify-around p-6 border-b ">
                     <SuscriptionBox />
                     <div className="flex justify-center">
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 ">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                                 className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 320 512">
@@ -16,7 +16,7 @@ const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 ">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
                                 className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 <path fill="currentColor"
@@ -24,7 +24,7 @@ const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 ">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
                                 className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                                 <path fill="currentColor"
@@ -32,7 +32,7 @@ const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 ">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                                 className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
@@ -40,7 +40,7 @@ const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="mr-6 text-gray-600">
+                        <a href="#!" className="mr-6 ">
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                                 className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 448 512">
@@ -49,7 +49,7 @@ const Footer = () => {
                                 </path>
                             </svg>
                         </a>
-                        <a href="#!" className="text-gray-600">
+                        <a href="#!" >
                             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                                 className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                                 <path fill="currentColor"
@@ -61,7 +61,7 @@ const Footer = () => {
                 </div>
                 <div className="mx-6 py-10 text-center md:text-left">
                     <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div className="">
+                        <div >
                             <h6 className="
             uppercase
             font-semibold
@@ -85,41 +85,41 @@ const Footer = () => {
                                 sit amet, consectetur adipisicing elit.
                             </p>
                         </div>
-                        <div className="">
+                        <div >
                             <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                                 Products
                             </h6>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Angular</a>
+                                <a href="#!" >Angular</a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">React</a>
+                                <a href="#!" >React</a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Vue</a>
+                                <a href="#!" >Vue</a>
                             </p>
                             <p>
-                                <a href="#!" className="text-gray-600">Laravel</a>
+                                <a href="#!" >Laravel</a>
                             </p>
                         </div>
-                        <div className="">
+                        <div >
                             <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                                 Useful links
                             </h6>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Pricing</a>
+                                <a href="#!" >Pricing</a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Settings</a>
+                                <a href="#!" >Settings</a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Orders</a>
+                                <a href="#!" >Orders</a>
                             </p>
                             <p>
-                                <a href="#!" className="text-gray-600">Help</a>
+                                <a href="#!" >Help</a>
                             </p>
                         </div>
-                        <div className="">
+                        <div >
                             <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                                 Contact
                             </h6>
@@ -165,9 +165,9 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center p-6 bg-gray-200">
+                <div className="text-center p-6 ">
                     <span>© 2021 Copyright:</span>
-                    <a className="text-gray-600 font-semibold" href="https://tailwind-elements.com/">Tailwind Elements</a>
+                    <a className=" font-semibold" href="https://tailwind-elements.com/">Tailwind Elements</a>
                 </div>
             </footer>
         </>

@@ -1,6 +1,6 @@
 import './App.css';
 import Routing from './routes';
-// import './scss/index.scss'
+import './scss/style.scss'
 function App() {
  
   return (
