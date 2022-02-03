@@ -3,7 +3,7 @@ export const SuscriptionSchema = {
       presence: { allowEmpty: false, message: 'is required' },
       email: true,
       length: {
-        maximum: 300,
+        maximum:30,
       },
     },
   };
