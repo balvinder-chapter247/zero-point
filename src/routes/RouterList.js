@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../layout'
+import '../scss/common.css'
 import { AppRoutes } from './AppRoutes';
 const Home = React.lazy(() => import('../views/Home'));
 const MyCourses=React.lazy(() => import('../views/MyCourses'));

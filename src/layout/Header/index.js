@@ -18,7 +18,7 @@ const classNames =(...classes)=>
 
 const  Header =()=> {
   return (
-    <Disclosure as="nav" className="bg-blue">
+    <Disclosure as="nav" className="theme-bg-color">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ const  Header =()=> {
                     {navigation.map((item) => (
                       <Link to={item.href} key={item.name}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        item.current ? 'text-white' : 'hover:text-white',
                         'px-3 py-2 rounded-md text-sm font-medium'
                       )}>
                         {item.name}
