@@ -3,7 +3,7 @@ import SuscriptionBox from '../../components/suscriptionBox.js'
 const Footer = () => {
     return (
         <>
-            <footer className="text-center lg:text-left theme-bg-color text-white">
+            <footer className="text-center lg:text-left bg-theme-color text-white">
                 <div className="flex justify-center items-center lg:justify-around p-6 border-b ">
                     <SuscriptionBox />
                     <div className="flex justify-center">

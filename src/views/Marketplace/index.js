@@ -11,7 +11,7 @@ const Marketplace = () => {
 
     return (
         <>
-            <main className="bg-theme-color">
+            <main className="">
                 <div className="course-header border-b">
 
                     <div className="container m-auto px-4 flex justify-between py-4 ">
