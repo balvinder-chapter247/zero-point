@@ -15,34 +15,34 @@
     margin: auto;
 }
 
-.login-sepreter {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
+// .login-sepreter {
+//     display: flex;
+//     justify-content: center;
+//     margin: 20px 0;
+// }
 
-.login-sepreter span {
-    border: 1px solid #ccc;
-    padding: 6px;
-    border-radius: 4px;
-    font-weight: 600;
-    color: #8d8d8d;
-    display: block;
-    max-width: max-content;
-    background-color: #fff;
-    z-index: 9;
-}
+// .login-sepreter span {
+//     border: 1px solid #ccc;
+//     padding: 6px;
+//     border-radius: 4px;
+//     font-weight: 600;
+//     color: #8d8d8d;
+//     display: block;
+//     max-width: max-content;
+//     background-color: #fff;
+//     z-index: 9;
+// }
 
-.login-sepreter .or:before {
-    content: '';
-    position: absolute;
-    background: #ccc;
-    height: 1px;
-    width: 100%;
-    left: 0;
-    top: 50%;
-    z-index: -1;
-}
+// .login-sepreter .or:before {
+//     content: '';
+//     position: absolute;
+//     background: #ccc;
+//     height: 1px;
+//     width: 100%;
+//     left: 0;
+//     top: 50%;
+//     z-index: -1;
+// }
 
 .login-social .icon {
     border: 2px solid #ccc;
@@ -87,6 +87,17 @@
     background-color: #2464f9;
     max-width: 900px;
     margin: auto;
+    box-shadow: 0px 3px 17px -2px #afc4f7;
+}
+
+.login-box,
+.login-box .right {
+    border-radius: 15px;
+}
+
+.login-box .right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .signin-btn {

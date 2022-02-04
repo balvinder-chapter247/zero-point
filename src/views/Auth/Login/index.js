@@ -1,7 +1,62 @@
 import React, { useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import validate from 'validate.js';
+import { LoginSchema } from "../../../validators";
 
+const Login = () => {
 
-const Signup = () => {
+    ///State for our form
+    const [formState, setFormState] = React.useState({
+        isValid: false,
+        values: {},
+        touched: {},
+        errors: {},
+    });
+
+    ///For validating error everytime change in inputs
+    useEffect(() => {
+        const errors = validate(formState.values, LoginSchema);
+        setFormState((formState) => ({
+            ...formState,
+            isValid: errors ? false : true,
+            errors: errors || {},
+        }));
+    }, [formState.values]);
+
+    ///Handle change for storing input values to state.
+    const handleChange = (event) => {
+        event.persist();
+        setFormState((formState) => ({
+            ...formState,
+            values: {
+                ...formState.values,
+                [event.target.name]:
+                    event.target.type === "checkbox"
+                        ? event.target.checked
+                        : event.target.value,
+            },
+            touched: {
+                ...formState.touched,
+                [event.target.name]: true,
+            },
+        }));
+    };
+
+    ///Submiting values to api.
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (formState.isValid) {
+            toast.success("Successfully subscribed.")
+        }
+        setFormState((formState) => ({
+            ...formState,
+            touched: {
+                ...formState.touched,
+                ...formState.errors,
+            },
+        }));
+    };
 
     return(
         <>
@@ -10,58 +65,46 @@ const Signup = () => {
                 <div className='login-box shadow-lg'>
                     <div className='grid grid-cols-3 items-center my-10'>
                         <div className='text-center left text-white p-6'>
-                            <h1 className='font-bold text-3xl mb-6'>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <a href='' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign In</a>
+                            <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</p>
+                            <a href='' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign Up</a>
                         </div>
-                        <div className='col-span-2 right bg-white p-6'>
+                        <div className='col-span-2 right bg-white p-8'>
                             <div className='login-signup-box'>
-                                <h1 className='font-bold text-3xl mb-6 text-center'>Create Account</h1>
-                                <form>
-                                    <div className='grid grid-cols-2 gap-4'>
-                                        <label className="flex items-center mb-3 relative">
-                                            <input type="text" name="" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                            placeholder="First Name" />
-                                            <span className='form-icon absolute right-2'>
-                                                <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                            </span>
-                                        </label>
-                                        <label className="flex items-center mb-3 relative">
-                                            <input type="text" name="" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                            placeholder="Last Name" />
-                                            <span className='form-icon absolute right-2'>
-                                                <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                            </span>
-                                        </label>
-                                    </div>
-                                    
+                                <h1 className='font-bold text-3xl mb-6 text-center'>Sign in to Xero Point</h1>
+                                <form onSubmit={handleSubmit}>
                                     <label className="flex items-center mb-3 relative">
-                                        <input type="text" name="" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                        placeholder="you@example.com" />
+                                        <input type="email" name="email" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                        placeholder="you@example.com"
+                                        value={formState.values.email || ""}
+                                        onChange={handleChange} />
                                         <span className='form-icon absolute right-2'>
                                             <img src='https://gofundher.com/assets/img/partner/user.svg' />
                                         </span>
                                     </label>
+                                    <div>
+                                        {
+                                            formState.errors.email ? formState.errors.email : null
+                                        }
+                                    </div>
                                     <label className="flex items-center mb-3 relative">
-                                        <input type="text" name="" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                        <input type="password" name="password" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
                                         placeholder="Password" />
                                         <span className='form-icon absolute right-2'>
                                             <img src='https://gofundher.com/assets/img/partner/user.svg' />
                                         </span>
                                     </label>
-                                    <label className="flex items-center mb-3 relative">
-                                        <input type="text" name="" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                        placeholder="Confirm Password" />
-                                        <span className='form-icon absolute right-2'>
-                                            <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                        </span>
-                                    </label>
-                                    <div className='text-center'>
-                                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
+                                    <div className='flex items-center justify-between mt-6'>
+                                        <div className='text-center'>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
+                                        </div>
+                                        <div className='text-center'>
+                                            <a href='' className="font-medium">Forgot your Password ?</a>
+                                        </div>
                                     </div>
                                 </form>
                                 
-                                <div className='text-center mb-4 mt-6'>
+                                <div className='text-center mt-8 mb-4'>
                                     <h6 className='font-medium'>Login with Social</h6>
                                 </div>
                                 <div className='login-social flex justify-center'>
@@ -102,4 +145,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default Login;
