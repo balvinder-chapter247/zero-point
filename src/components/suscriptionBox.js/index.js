@@ -1,5 +1,6 @@
-import React, { useEffect } from "react"
-import { toast, ToastContainer } from 'react-toastify';
+import React, { useEffect } from "react";
+import { Toaster } from '../../helper/react-toast'
+import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SuscriptionSchema } from "../../validators";
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,7 +48,34 @@ const SuscriptionBox = () => {
         event.preventDefault();
 
         if (formState.isValid) {
-            toast.success("Successfully subscribed.")
+            const { email } = formState.values;
+            let registeredEmails = JSON.parse(localStorage.getItem("registeredEmails"));
+            if (registeredEmails) {
+                let checkingPresence = registeredEmails.includes(email);
+                if (checkingPresence) {
+                    Toaster({
+                        type: "error",
+                        text: "You have already subscribed our Newsletter."
+                    }
+                    )
+                }
+                else {
+                    let tempArray = JSON.parse(localStorage.getItem("registeredEmails"));
+                    tempArray.push(email);
+                    console.log(email, "this is temp aary")
+                    let test = localStorage.setItem("registeredEmails",
+                        JSON.stringify(tempArray));
+                    Toaster({ type: "success", text: "susbcribed succesfully" })
+                }
+            }
+            else {
+                let tempArray = [];
+                tempArray.push(email);
+                let test = localStorage.setItem("registeredEmails",
+                    JSON.stringify(tempArray));
+                Toaster({ type: "success", text: "susbcribed succesfully" })
+            }
+
         }
         setFormState((formState) => ({
             ...formState,
@@ -71,7 +99,7 @@ const SuscriptionBox = () => {
                                 value={formState.values.email || ""}
                                 onChange={handleChange} />
                             <div className="absolute top-1 right-1">
-                                <button className="h-8 w-20 text-white theme-bg-color"
+                                <button className="h-8 w-20 text-white bg-theme-color"
                                     type="submit">
                                     Subscribe
                                 </button>

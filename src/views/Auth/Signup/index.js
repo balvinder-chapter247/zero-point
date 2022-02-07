@@ -48,12 +48,35 @@ const Signup = () => {
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (formState.isValid) {
-            const signup_values = localStorage.getItem("SIGNUP_VALUES");
-            if (signup_values) {
 
+        if (formState.isValid) {
+            const { email } = formState.values;
+            let signup_values = localStorage.getItem("signup_values");
+            if (signup_values) {
+                // let checkingPresence = signup_values.includes(email)
+                const email_check = add(signup_values, email)
+                console.log(email_check);
+                // if (checkingPresence) {
+                //     console.log("2");
+                //     toast({
+                //         type: "error",
+                //         text: "You have already Register."
+                //     }
+                //     )
+                // }
+                // else {
+                //     let tempArray = JSON.parse(localStorage.getItem("signup_values"));
+                //     tempArray.push(signup_values);
+                //     console.log(signup_values, "this is temp aary");
+                //     let test = localStorage.setItem("signup_values",
+                //         JSON.stringify(tempArray));
+                //     toast({ type: "success", text: "Signup Succesfully" })
+                // }
             } else {
-                localStorage.setItem("SIGNUP_VALUES", JSON.stringify(formState.values));
+                console.log("3");
+                let tempArray = [];
+                tempArray.push(formState.values);
+                localStorage.setItem("signup_values", JSON.stringify(tempArray));
                 toast.success("Successfully Signup.")
             }
         }
@@ -65,6 +88,15 @@ const Signup = () => {
             },
         }));
     };
+
+    const add = (arr, email) =>  {
+        var id = arr.length + 1;        
+            if (arr.filter(item=> item.email == email).length == 0){
+            arr.push({ id: id, email: email });
+
+        }
+        return id;
+      }
 
     return(
         <>
@@ -149,7 +181,7 @@ const Signup = () => {
                                         <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
                                     </div>
                                 </form>
-
+                            
                                 <div className='text-center mb-4 mt-6'>
                                     <h6 className='font-medium'>Login with Social</h6>
                                 </div>

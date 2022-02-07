@@ -3,6 +3,6 @@ export const AppRoutes = {
   MY_COURSES:'/my-courses',
   MARKETPLACE:'/marketplace',
   EDIT_COURSE:'/edit-course',
-  SIGNUP:'/signup',
-  LOGIN:'/login'
+  LOGIN:'/login',
+  SIGNUP:'/sign-up'
 };

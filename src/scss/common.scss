@@ -3,7 +3,9 @@
 .theme-color {
     color: "pink"
 }
-
+.bg-theme-color{
+    background-color: $bg-theme-color;
+}
 .bg-gray {
     background-color: $bg-gray;
 }

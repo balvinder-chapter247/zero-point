@@ -5,7 +5,7 @@ import { Router, Switch, Route,Redirect } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
 import { createBrowserHistory as createHistory } from 'history';
 import {routerList} from './RouterList';
-import { RestrictRoute } from './routes';
+import { RestrictRoute } from './Routes';
 // import { GlobalLoader } from '../helper/CommonServices/index';
 
 const Routing = () => {
@@ -16,6 +16,7 @@ const Routing = () => {
     <Provider store={store}>
       <Router history={history}>
         <React.Suspense fallback="...loading">
+          {console.log(routerList,"this is listing")}
           <Switch>
             {routerList.map((routes) => (
               <RestrictRoute {...routes} />
