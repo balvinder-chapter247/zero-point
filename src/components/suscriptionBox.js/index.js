@@ -72,7 +72,6 @@ const SuscriptionBox = () => {
             else {
                 let tempArray = [];
                 tempArray.push(email);
-                console.log(email, "this is temp aary")
                 let test = localStorage.setItem("registeredEmails",
                     JSON.stringify(tempArray));
                 Toaster({ type: "success", text: "susbcribed succesfully" })

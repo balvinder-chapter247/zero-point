@@ -16,6 +16,7 @@ const Routing = () => {
     <Provider store={store}>
       <Router history={history}>
         <React.Suspense fallback="...loading">
+          {console.log(routerList,"this is listing")}
           <Switch>
             {routerList.map((routes) => (
               <RestrictRoute {...routes} />

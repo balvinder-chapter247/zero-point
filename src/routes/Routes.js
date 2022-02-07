@@ -13,4 +13,5 @@ export const RestrictRoute = (props) => {
             )}
         />
     );
+    
 };
