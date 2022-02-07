@@ -74,7 +74,7 @@ const Login = () => {
                                 <h1 className='font-bold text-3xl mb-6 text-center'>Sign in to Xero Point</h1>
                                 <form onSubmit={handleSubmit}>
                                     <label className="flex items-center mb-3 relative">
-                                        <input type="email" name="email" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                        <input type="email" name="email" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
                                         placeholder="you@example.com"
                                         value={formState.values.email || ""}
                                         onChange={handleChange} />
@@ -88,7 +88,7 @@ const Login = () => {
                                         }
                                     </div>
                                     <label className="flex items-center mb-3 relative">
-                                        <input type="password" name="password" className="bg-white border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                        <input type="password" name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
                                         placeholder="Password" />
                                         <span className='form-icon absolute right-2'>
                                             <img src='https://gofundher.com/assets/img/partner/user.svg' />

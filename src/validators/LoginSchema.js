@@ -8,7 +8,6 @@ export const LoginSchema = {
     },
     password: {
         presence: { allowEmpty: false, message: 'is required' },
-        password: true,
         length: {
           maximum:30,
           minimum:8,
