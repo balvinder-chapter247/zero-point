@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { Toaster } from '../../../helper/react-toast'
+import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { LoginSchema } from "../../../validators";
 
@@ -45,9 +46,32 @@ const Login = () => {
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        const {email, password} = formState.values;
         if (formState.isValid) {
-            toast.success("Successfully subscribed.")
+            const login = JSON.parse(localStorage.getItem("signup_values"));
+            const filterLogin = login.map((e)=> { 
+                if(e.email==email && e.password==password) {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+             })
+            // console.log(filterLogin)
+            if(filterLogin=="true") {
+                // debugger
+                Toaster({
+                    type: "success",
+                    text: "You have Login successfully."
+                })
+            }
+            else{
+                Toaster({
+                    type: "error",
+                    text: "invalid Email or Password."
+                })
+            }
+            
         }
         setFormState((formState) => ({
             ...formState,
@@ -73,27 +97,31 @@ const Login = () => {
                             <div className='login-signup-box'>
                                 <h1 className='font-bold text-3xl mb-6 text-center'>Sign in to Xero Point</h1>
                                 <form onSubmit={handleSubmit}>
-                                    <label className="flex items-center mb-3 relative">
-                                        <input type="email" name="email" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                        placeholder="you@example.com"
-                                        value={formState.values.email || ""}
-                                        onChange={handleChange} />
-                                        <span className='form-icon absolute right-2'>
-                                            <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                        </span>
-                                    </label>
-                                    <div>
-                                        {
-                                            formState.errors.email ? formState.errors.email : null
-                                        }
+                                    <div className='mb-3'>
+                                        <label className="flex items-center relative">
+                                            <input type="email" name="email" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                            placeholder="you@example.com"
+                                            value={formState.values.email || ""}
+                                            onChange={handleChange} />
+                                            <span className='form-icon absolute right-2'>
+                                                <img src='https://gofundher.com/assets/img/partner/user.svg' />
+                                            </span>
+                                        </label>
+                                        <span className='error text-red-500 text-sm font-medium'> { formState.errors.email ? formState.errors.email : null } </span>
                                     </div>
-                                    <label className="flex items-center mb-3 relative">
-                                        <input type="password" name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                        placeholder="Password" />
-                                        <span className='form-icon absolute right-2'>
-                                            <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                        </span>
-                                    </label>
+                                    <div className='mb-3'>
+                                        <label className="flex items-center relative">
+                                            <input type="password" name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                            placeholder="Password" 
+                                            value={formState.values.password || ""}
+                                            onChange={handleChange} />
+                                            <span className='form-icon absolute right-2'>
+                                                <img src='https://gofundher.com/assets/img/partner/user.svg' />
+                                            </span>
+                                        </label>
+                                        <span className='error text-red-500 text-sm font-medium'> { formState.errors.password ? formState.errors.password : null } </span>
+                                    </div>
+                                    
                                     <div className='flex items-center justify-between mt-6'>
                                         <div className='text-center'>
                                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
@@ -140,6 +168,19 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
         </main>
         </>
     )

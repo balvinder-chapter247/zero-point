@@ -51,11 +51,13 @@ const Signup = () => {
 
         if (formState.isValid) {
             const { email } = formState.values;
-            let signup_values = localStorage.getItem("signup_values");
-            if (signup_values) {
+            let signup_values = JSON.parse(localStorage.getItem("signup_values"));
+
+            if (signup_values.some((value)=>{return value.email==email})) {
+               
                 // let checkingPresence = signup_values.includes(email)
-                const email_check = add(signup_values, email)
-                console.log(email_check);
+                console.log(signup_values);
+                
                 // if (checkingPresence) {
                 //     console.log("2");
                 //     toast({
@@ -89,14 +91,8 @@ const Signup = () => {
         }));
     };
 
-    const add = (arr, email) =>  {
-        var id = arr.length + 1;        
-            if (arr.filter(item=> item.email == email).length == 0){
-            arr.push({ id: id, email: email });
 
-        }
-        return id;
-      }
+    
 
     return(
         <>
