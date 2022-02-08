@@ -22,6 +22,7 @@ const SuscriptionBox = () => {
             isValid: errors ? false : true,
             errors: errors || {},
         }));
+        console.log(formState.values)
     }, [formState.values]);
 
     ///Handle change for storing input values to state.
@@ -86,6 +87,8 @@ const SuscriptionBox = () => {
         }));
     };
 
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -107,7 +110,12 @@ const SuscriptionBox = () => {
                         </div>
                         <div>
                             {
-                                formState.errors.email ? formState.errors.email : null
+                                hasError("email") ?
+                                    <span className="errorText">
+                                        {formState.errors.email[0]}
+                                    </span>
+                                    :
+                                    null
                             }
                         </div>
                     </div>

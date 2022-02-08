@@ -7,6 +7,7 @@ import NewCourses from './components/NewCourses/newCourses';
 import TopCourses from './components/TopCourses/topCourses';
 import ExploreCategories from './components/ExploreCategory/exploreCategories';
 import FeaturedCourses from './components/FeaturedCourses/featuredCourses';
+
 const Marketplace = () => {
 
     return (

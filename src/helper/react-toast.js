@@ -10,10 +10,3 @@ export const Toaster =(msg)=> {
     else if(type=="info")
     toast.info(text);
 }
-
-// Usage:-
-// import { ToastContainer } from 'react-toastify';
-// add this in your html coding<ToastContainer />
-// Toaster({
-//     type:"success",text:"ApiMessage"
-// })
