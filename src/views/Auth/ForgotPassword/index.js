@@ -1,94 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react'
 import { Toaster } from '../../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { LoginSchema } from "../../../validators";
 import { Link } from 'react-router-dom'
 
-const Login = () => {
-
-    ///State for our form
-    const [formState, setFormState] = React.useState({
-        isValid: false,
-        values: {},
-        touched: {},
-        errors: {},
-    });
-
-    ///For validating error everytime change in inputs
-    useEffect(() => {
-        const errors = validate(formState.values, LoginSchema);
-        setFormState((formState) => ({
-            ...formState,
-            isValid: errors ? false : true,
-            errors: errors || {},
-        }));
-    }, [formState.values]);
-
-    ///Handle change for storing input values to state.
-    const handleChange = (event) => {
-        event.persist();
-        setFormState((formState) => ({
-            ...formState,
-            values: {
-                ...formState.values,
-                [event.target.name]:
-                    event.target.type === "checkbox"
-                        ? event.target.checked
-                        : event.target.value,
-            },
-            touched: {
-                ...formState.touched,
-                [event.target.name]: true,
-            },
-        }));
-    };
-
-    ///Submiting values to api.
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const {email, password} = formState.values;
-        if (formState.isValid) {
-            const login = JSON.parse(localStorage.getItem("registeredUsers"));
-            const filterLogin = login.map((e)=> { 
-                if(e.email==email && e.password==password) {
-                    return true;
-                }
-                else{
-                    return false;
-                }
-             })
-            // console.log(filterLogin)
-            if(filterLogin=="true") {
-                // debugger
-                Toaster({
-                    type: "success",
-                    text: "You have Login successfully."
-                })
-            }
-            else{
-                Toaster({
-                    type: "error",
-                    text: "invalid Email or Password."
-                })
-            }
-            
-        }
-        setFormState((formState) => ({
-            ...formState,
-            touched: {
-                ...formState.touched,
-                ...formState.errors,
-            },
-        }));
-    };
-
-    const hasError = (field) =>
-        formState.touched[field] && formState.errors[field] ? true : false;
-
-    return(
-        <>
-        <main className='bg-gray-100'>
+const ForgotPassword = () => {
+  return (
+    <>
+      <main className='bg-gray-100'>
             <div className='auth-banner relative flex items-center'>
                 <div className='container mx-auto px-4 pt-8 relative'>
                     <div className='login-box shadow-lg'>
@@ -96,43 +16,26 @@ const Login = () => {
                             <div className='text-center left text-white p-6'>
                                 <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
                                 <p>Enter your personal details and start journey with us</p>
-                                <Link to='sign-up' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign Up</Link>
+                                <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Login</Link>
                             </div>
                             <div className='col-span-2 right bg-white p-8'>
                                 <div className='login-signup-box'>
-                                    <h1 className='font-bold text-3xl mb-6 text-center'>Sign in to Xero Point</h1>
-                                    <form onSubmit={handleSubmit}>
+                                    <h1 className='font-bold text-3xl mb-6 text-center'>Forgot Password</h1>
+                                    <form>
                                         <div className='mb-3'>
+                                        <p>Enter your email to reset your password.</p>
                                             <label className="flex items-center relative">
                                                 <input type="email" name="email" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                                placeholder="you@example.com"
-                                                value={formState.values.email || ""}
-                                                onChange={handleChange} />
+                                                placeholder="you@example.com" />
                                                 <span className='form-icon absolute right-2'>
                                                     <img src='https://gofundher.com/assets/img/partner/mail.svg' />
                                                 </span>
                                             </label>
-                                            <span className='error text-red-500 text-sm font-medium'> { formState.errors.email ? formState.errors.email : null } </span>
-                                        </div>
-                                        <div className='mb-3'>
-                                            <label className="flex items-center relative">
-                                                <input type="password" name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
-                                                placeholder="Password" 
-                                                value={formState.values.password || ""}
-                                                onChange={handleChange} />
-                                                <span className='form-icon absolute right-2'>
-                                                    <img src='https://gofundher.com/assets/img/partner/lock.svg' />
-                                                </span>
-                                            </label>
-                                            <span className='error text-red-500 text-sm font-medium'> { formState.errors.password ? formState.errors.password : null } </span>
                                         </div>
                                         
-                                        <div className='flex items-center justify-between mt-6'>
+                                        <div className='mt-6'>
                                             <div className='text-center'>
-                                                <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
-                                            </div>
-                                            <div className='text-center'>
-                                                <Link to='forgot-password' className="font-medium">Forgot your Password ?</Link>
+                                                <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -188,8 +91,8 @@ const Login = () => {
             {/* Same as */}
             <ToastContainer />
         </main>
-        </>
-    )
+    </>
+  )
 }
 
-export default Login;
+export default ForgotPassword

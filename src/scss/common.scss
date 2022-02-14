@@ -1,49 +1,90 @@
 @import "var";
 @import "mixin";
+h1 {
+    font-size: 2.5rem;
+}
 
-.theme-color {
-    color: "pink"
+h2 {
+    font-size: 2rem;
 }
-.bg-theme-color{
-    background-color: $bg-theme-color;
+
+h3 {
+    font-size: 1.75rem;
 }
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-family: 'Heebo', sans-serif;
+}
+
+p {
+    margin-bottom: 0.75rem;
+}
+
+.bg-theme-color {
+    background: $bg-theme-color;
+}
+
 .bg-gray {
     background-color: $bg-gray;
+}
+
+.top-header {
+    z-index: 9;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.top-header .nav-link:hover {
+    color: #2575fc;
+    transition: all 0.4s ease-in-out;
+}
+
+.affix-header {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgb(27 56 255 / 10%);
+}
+
+.affix-header .nav-link {
+    color: #222;
+}
+
+.auth-banner {
+    background-image: url('https://image.freepik.com/free-photo/young-happy-woman-golden-field-sunset_158595-5693.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.auth-banner::before {
+    background-color: rgba(0, 0, 0, .6);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .login-signup-box {
     max-width: 440px;
     margin: auto;
 }
-
-// .login-sepreter {
-//     display: flex;
-//     justify-content: center;
-//     margin: 20px 0;
-// }
-
-// .login-sepreter span {
-//     border: 1px solid #ccc;
-//     padding: 6px;
-//     border-radius: 4px;
-//     font-weight: 600;
-//     color: #8d8d8d;
-//     display: block;
-//     max-width: max-content;
-//     background-color: #fff;
-//     z-index: 9;
-// }
-
-// .login-sepreter .or:before {
-//     content: '';
-//     position: absolute;
-//     background: #ccc;
-//     height: 1px;
-//     width: 100%;
-//     left: 0;
-//     top: 50%;
-//     z-index: -1;
-// }
 
 .login-social .icon {
     border: 2px solid #ccc;
@@ -88,7 +129,11 @@
     background-color: #2464f9;
     max-width: 900px;
     margin: auto;
-    box-shadow: 0px 3px 17px -2px #afc4f7;
+    box-shadow: 0px 3px 17px -2px #666;
+}
+
+span.form-icon {
+    width: 21px;
 }
 
 .login-box,
@@ -109,4 +154,168 @@
         color: #2464f9;
         transition: all 0.4s ease-in-out;
     }
+}
+
+.home-topsec {
+    background-image: url('https://image.freepik.com/free-photo/beautiful-day-campus_329181-3042.jpg');
+    // background-image: url('https://image.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg');
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.home-topsec::before {
+    background-color: rgba(0, 0, 0, .6);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.sec-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.featured-image img {
+    height: 300px;
+}
+
+.bg-light-gray {
+    background-color: #f9f9f9;
+}
+
+// FAQ section css start
+#faqAccordion {
+    box-shadow: 0px 0px 10px 0px #d8d9ff;
+    border-radius: 1rem;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.accordion-item:last-of-type .accordion-button {
+    // border-bottom-left-radius: 1rem;
+    // border-bottom-right-radius: 1rem;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #f1f1f1 !important;
+    // border-radius: 0 !important;
+}
+
+.accordion-item .accordion-button {
+    font-size: 1.1rem;
+}
+
+#faqAccordion .accordion-button::after {
+    background-size: 1rem;
+}
+
+.accordion-header button {
+    font-weight: 500;
+}
+
+.course-item {
+    border-radius: 0.25rem;
+}
+
+.course-item .course-image {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.newsletter-sec form input {
+    padding: 12px 18px;
+    box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 9%);
+}
+
+.newsletter-sec form button {
+    padding: 0.8rem 2rem;
+}
+
+.footer-sec {
+    background-color: #333333;
+}
+
+.footer_link:hover {
+    color: #2575fc;
+    transition: all 0.4s ease-in-out;
+}
+
+.footer-sec .newsletter-form .btn {
+    padding: 0 15px;
+}
+
+.footer-social .social-link {
+    color: #fff;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.footer-social .social-link:first-child {
+    margin-left: 0;
+}
+
+.footer-social .social-link:hover {
+    background: #fff;
+    color: #2575fc;
+    transition: all 0.5s ease-in-out;
+}
+
+.copyright {
+    background-color: #222;
+}
+
+.inner_page_breadcrumb {
+    // background-image: url('https://image.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg');
+    background-image: url('https://image.freepik.com/free-photo/studio-shot-young-fit-women-doing-yoga-exercises_155003-14213.jpg');
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.inner_page_breadcrumb::before {
+    background-color: rgba(0, 0, 0, .6);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+// Account page setting
+.tablist {
+    background: #fff;
+    padding: 20px 15px;
+    border-radius: 6px;
+    height: 65vh;
+}
+
+.tablist button {
+    border-bottom: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.tabpanel {
+    min-height: 65vh;
+    border-radius: 6px;
+}
+
+.account-title {
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.card-box {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px -2px 4px -1px;
 }
