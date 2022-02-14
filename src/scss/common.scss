@@ -305,6 +305,12 @@ span.form-icon {
 .tablist button {
     border-bottom: 1px solid #eee;
     border-radius: 4px;
+    &:focus-visible {
+        outline: none;
+    }
+    & i {
+        width: 30px;
+    }
 }
 
 .tabpanel {

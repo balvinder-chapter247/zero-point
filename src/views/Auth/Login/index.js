@@ -112,7 +112,15 @@ const Login = () => {
                                                     <img src='https://gofundher.com/assets/img/partner/mail.svg' />
                                                 </span>
                                             </label>
-                                            <span className='error text-red-500 text-sm font-medium'> { formState.errors.email ? formState.errors.email : null } </span>
+                                            {/* <span className='error text-red-500 text-sm font-medium'> { formState.errors.email ? formState.errors.email : null } </span> */}
+                                            {
+                                                hasError("email") ?
+                                                    <span className='error text-red-500 text-sm font-medium'>
+                                                        {formState.errors.email[0]}
+                                                    </span>
+                                                    :
+                                                    null
+                                            }
                                         </div>
                                         <div className='mb-3'>
                                             <label className="flex items-center relative">
@@ -124,7 +132,15 @@ const Login = () => {
                                                     <img src='https://gofundher.com/assets/img/partner/lock.svg' />
                                                 </span>
                                             </label>
-                                            <span className='error text-red-500 text-sm font-medium'> { formState.errors.password ? formState.errors.password : null } </span>
+                                            {/* <span className='error text-red-500 text-sm font-medium'> { formState.errors.password ? formState.errors.password : null } </span> */}
+                                            {
+                                                hasError("password") ?
+                                                    <span className='error text-red-500 text-sm font-medium'>
+                                                        {formState.errors.password[0]}
+                                                    </span>
+                                                    :
+                                                    null
+                                            }
                                         </div>
                                         
                                         <div className='flex items-center justify-between mt-6'>

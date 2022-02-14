@@ -1,3 +1,5 @@
 export * from './subscription'
 export * from './LoginSchema'
 export * from './SignupSchema'
+export * from './ProfileSettingSchema'
+export * from './ChangePasswordSchema'
