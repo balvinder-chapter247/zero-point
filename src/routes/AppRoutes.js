@@ -4,5 +4,7 @@ export const AppRoutes = {
   MARKETPLACE:'/marketplace',
   EDIT_COURSE:'/edit-course',
   LOGIN:'/login',
-  SIGNUP:'/sign-up'
+  SIGNUP:'/sign-up',
+  FORGOT_PASSWORD:'/forgot-password',
+  DASHBOARD:'/dashboard'
 };

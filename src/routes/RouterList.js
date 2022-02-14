@@ -7,6 +7,8 @@ const Marketplace=React.lazy(() => import('../views/Marketplace'));
 const EditCourse=React.lazy(() => import('../views/EditCourse'));
 const Signup=React.lazy(() => import('../views/Auth/Signup'));
 const Login=React.lazy(() => import('../views/Auth/Login'));
+const ForgotPassword=React.lazy(() => import('../views/Auth/ForgotPassword'));
+const Dashboard=React.lazy(() => import('../views/Dashboard'));
 
 export const routerList = [
   {
@@ -55,6 +57,22 @@ export const routerList = [
     exact: true,
     name: 'login',
     component: Login,
+    layout: Layout,
+  },
+  {
+    key: 'dashboard',
+    path: AppRoutes.DASHBOARD,
+    exact: true,
+    name: 'dashboard',
+    component: Dashboard,
+    layout: Layout,
+  },
+  {
+    key: 'forgot-password',
+    path: AppRoutes.FORGOT_PASSWORD,
+    exact: true,
+    name: 'dashboard',
+    component: ForgotPassword,
     layout: Layout,
   },
 ];

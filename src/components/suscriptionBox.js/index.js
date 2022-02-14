@@ -22,6 +22,7 @@ const SuscriptionBox = () => {
             isValid: errors ? false : true,
             errors: errors || {},
         }));
+        console.log(formState.values)
     }, [formState.values]);
 
     ///Handle change for storing input values to state.
@@ -86,31 +87,36 @@ const SuscriptionBox = () => {
         }));
     };
 
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="newsletter-form" onSubmit={handleSubmit}>
                 <div className="text-black">
-                    <div className="container  flex justify-center items-center">
-                        <div className="relative">
+                        <div className="flex justify-center">
                             <input type="email"
-                                className="h-10 w-96 pl-5 pr-5  focus:shadow focus:outline-none"
-                                placeholder="Subscribe to our Newsletter"
+                                className="px-4 py-2 w-full focus:shadow focus:outline-none"
+                                placeholder="Email Address"
                                 name='email'
                                 value={formState.values.email || ""}
                                 onChange={handleChange} />
-                            <div className="absolute top-1 right-1">
-                                <button className="h-8 w-20 text-white bg-theme-color"
+                            
+                                <button className="text-white bg-theme-color px-6 py-3 font-medium uppercase text-sm btn"
                                     type="submit">
                                     Subscribe
                                 </button>
-                            </div>
                         </div>
-                        <div>
+                        <div className="text-red-600 text-sm font-medium text-left">
                             {
-                                formState.errors.email ? formState.errors.email : null
+                                hasError("email") ?
+                                    <span className="errorText">
+                                        {formState.errors.email[0]}
+                                    </span>
+                                    :
+                                    null
                             }
                         </div>
-                    </div>
+                    
                 </div>
             </form>
             <ToastContainer

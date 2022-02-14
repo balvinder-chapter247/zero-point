@@ -5,8 +5,8 @@ import { Router, Switch, Route,Redirect } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
 import { createBrowserHistory as createHistory } from 'history';
 import {routerList} from './RouterList';
-import { RestrictRoute } from './Routes';
-// import { GlobalLoader } from '../helper/CommonServices/index';
+import { RestrictRoute } from './routes';
+import FullPageLoader from '../components/FullPageLoader/FullPageLoader'
 
 const Routing = () => {
   const history = createHistory();
@@ -15,8 +15,7 @@ const Routing = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <React.Suspense fallback="...loading">
-          {console.log(routerList,"this is listing")}
+        <React.Suspense fallback={()=><FullPageLoader isFullPage={true}/>}>
           <Switch>
             {routerList.map((routes) => (
               <RestrictRoute {...routes} />
