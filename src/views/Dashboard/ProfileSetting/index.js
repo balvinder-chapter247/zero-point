@@ -41,12 +41,29 @@ const ProfileSetting = () => {
         }))
     };
 
+    useEffect(() => {
+        let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+        if(registeredUsers) {
+            setFormState((formState) => ({
+                ...formState,
+                values: {
+                    ...formState.values,
+                    first_name: registeredUsers[0].first_name,
+                    last_name: registeredUsers[0].last_name,
+                    email: registeredUsers[0].email,
+                    password: registeredUsers[0].password
+                    },
+            }));
+        }
+        
+    }, []);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if(formState.isValid) {
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
                 let tempArray = [...registeredUsers, formState.values];
-                tempArray.push(formState.values);
+                // tempArray.push(formState.values);
                 localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
                 Toaster({
                     type: "Success",
@@ -63,24 +80,7 @@ const ProfileSetting = () => {
         }));
     }
 
-    const hasError = (field) =>
-        formState.touched[field] && formState.errors[field] ? true : false;
-
-        useEffect(() => {
-            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
-            if(registeredUsers) {
-                setFormState((formState) => ({
-                    ...formState,
-                    values: {
-                        ...formState.values,
-                        first_name: registeredUsers[0].first_name,
-                        last_name: registeredUsers[0].last_name,
-                        email: registeredUsers[0].email,
-                      },
-                }));
-            }
-            
-        }, []);
+    const hasError = (field) => formState.touched[field] && formState.errors[field] ? true : false;
 
   return (
     <div>

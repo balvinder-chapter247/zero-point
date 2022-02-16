@@ -12,8 +12,6 @@ import TransactionData from './DataFake/TransactionData';
 
 const Dashboard = () => {
 
-    
-
   return (
     <>
     <main className="bg-gray-100">

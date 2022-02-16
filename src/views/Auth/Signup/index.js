@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SignupSchema } from "../../../validators";
@@ -88,7 +88,6 @@ const Signup = () => {
                 tempArray.push(formState.values);
                 localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
                 
-                    
                     history.push("/login");
             }
         }
@@ -109,8 +108,17 @@ const Signup = () => {
         }
         return id;
     }
-    const hasError = (field) =>
-        formState.touched[field] && formState.errors[field] ? true : false;
+    const hasError = (field) => formState.touched[field] && formState.errors[field] ? true : false;
+
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
+    
+    const [passwordShown1, setPasswordShown1] = useState(false);
+    const togglePassword1 = () => {
+        setPasswordShown1(!passwordShown1);
+        };
 
     return (
         <>
@@ -193,12 +201,12 @@ const Signup = () => {
                                             </div>
                                             <div className='mb-3'>
                                                 <label className="flex items-center relative">
-                                                    <input type="password" autoComplete={false} name="password"
+                                                    <input type={passwordShown ? "text" : "password"} autoComplete={false} name="password"
                                                         value={formState.values.password || ""}
                                                         onChange={handleChange} className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
                                                         placeholder="Password" />
                                                     <span className='form-icon absolute right-2'>
-                                                        <img src='https://gofundher.com/assets/img/partner/lock.svg' />
+                                                    <i class={passwordShown ? "fas fa-eye" : "fas fa-eye-slash"} onClick={togglePassword}></i>
                                                     </span>
                                                 </label>
                                                 {
@@ -212,12 +220,12 @@ const Signup = () => {
                                             </div>
                                             <div className='mb-3'>
                                                 <label className="flex items-center relative">
-                                                    <input type="password" autoComplete='false' name="confirm_password"
+                                                    <input type={passwordShown1 ? "text" : "password"} autoComplete='false' name="confirm_password"
                                                         value={formState.values.confirm_password || ""}
                                                         onChange={handleChange} className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
                                                         placeholder="Confirm Password" />
                                                     <span className='form-icon absolute right-2'>
-                                                        <img src='https://gofundher.com/assets/img/partner/lock.svg' />
+                                                    <i class={passwordShown1 ? "fas fa-eye" : "fas fa-eye-slash"} onClick={togglePassword1}></i>
                                                     </span>
                                                 </label>
                                                 {
