@@ -127,15 +127,24 @@ const Signup = () => {
                                         <form onSubmit={handleSubmit}>
                                             <div className='grid grid-cols-2 gap-4'>
                                                 <div className='mb-3'>
-                                                    <InputForms
-                                                        className="flex items-center relative"
-                                                        type='text'
-                                                        name="first_name"
-                                                        value={formState.values.first_name || ""}
-                                                        src='https://gofundher.com/assets/img/partner/user.svg'
-                                                        errorMessage={hasError("first_name") ? 
-                                                        formState.errors.first_name[0] : null}
-                                                    />
+                                                    <label className="flex items-center relative">
+                                                        <input type="text" name="first_name"
+                                                            value={formState.values.first_name || ""}
+                                                            onChange={handleChange}
+                                                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                                            placeholder="First Name" />
+                                                        <span className='form-icon absolute right-2'>
+                                                            <img src='https://gofundher.com/assets/img/partner/user.svg' />
+                                                        </span>
+                                                    </label>
+                                                    {
+                                                        hasError("first_name") ?
+                                                            <span className='error text-red-500 text-sm font-medium'>
+                                                                {formState.errors.first_name[0]}
+                                                            </span>
+                                                            :
+                                                            null
+                                                    }
                                                 </div>
 
                                                 <div className='mb-3'>
