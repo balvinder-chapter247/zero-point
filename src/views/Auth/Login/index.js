@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from '../../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
@@ -89,6 +89,11 @@ const Login = () => {
         }));
     };
 
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
+
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
 
@@ -130,15 +135,15 @@ const Login = () => {
                                         </div>
                                         <div className='mb-3'>
                                             <label className="flex items-center relative">
-                                                <input type="password" name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
+                                                <input type={passwordShown ? "text" : "password"} name="password" className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full" 
                                                 placeholder="Password" 
                                                 value={formState.values.password || ""}
                                                 onChange={handleChange} />
                                                 <span className='form-icon absolute right-2'>
-                                                    <img src='https://gofundher.com/assets/img/partner/lock.svg' />
+                                                <i class={passwordShown ? "fas fa-eye" : "fas fa-eye-slash"} onClick={togglePassword}></i>
                                                 </span>
                                             </label>
-                                            {/* <span className='error text-red-500 text-sm font-medium'> { formState.errors.password ? formState.errors.password : null } </span> */}
+                                            
                                             {
                                                 hasError("password") ?
                                                     <span className='error text-red-500 text-sm font-medium'>

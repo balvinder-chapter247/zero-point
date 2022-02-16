@@ -3,13 +3,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SignupSchema } from "../../../validators";
 import { Toaster } from '../../../helper/react-toast'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import InputForms from '../../../common/inputForm'
 
 const Signup = () => {
 
     const LOCAL_STORAGE_KEY = "Signup";
 
+    ///for histoty push
+    const history = useHistory()
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -66,27 +68,28 @@ const Signup = () => {
                     })
                 }
                 else {
-                    let tempArray = registeredUsers;
-                    tempArray.push(formState.values);
-                    localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-                    {
-                        Toaster({
-                            type: "success",
-                            text: "You have successfully registered."
-                        })
-                    }
-                }
-            } else {
-
-                let tempArray = [];
-                tempArray.push(formState.values);
-                localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-                {
                     Toaster({
                         type: "success",
                         text: "You have successfully registered."
                     })
+                    localStorage.removeItem("registeredUsers");
+                    let tempArray = [];
+                    tempArray.push(formState.values);
+                    localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
+                    
+                        history.push("/login");
                 }
+            } else {
+                Toaster({
+                    type: "success",
+                    text: "You have successfully registered."
+                })
+                let tempArray = [];
+                tempArray.push(formState.values);
+                localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
+                
+                    
+                    history.push("/login");
             }
         }
         setFormState((formState) => ({

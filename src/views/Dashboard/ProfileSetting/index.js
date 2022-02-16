@@ -44,18 +44,14 @@ const ProfileSetting = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if(formState.isValid) {
-            const { first_name, last_name, email } = formState.values;
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
-            if(registeredUsers) {
-                let tempArray = registeredUsers;
-                // tempArray.push(formState.values);
+                let tempArray = [...registeredUsers, formState.values];
+                tempArray.push(formState.values);
                 localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
                 Toaster({
                     type: "Success",
                     text: "You have successfully update your profile."
                 })
-            }
-            
         }
 
         setFormState((formState) => ({
@@ -69,6 +65,22 @@ const ProfileSetting = () => {
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
+
+        useEffect(() => {
+            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+            if(registeredUsers) {
+                setFormState((formState) => ({
+                    ...formState,
+                    values: {
+                        ...formState.values,
+                        first_name: registeredUsers[0].first_name,
+                        last_name: registeredUsers[0].last_name,
+                        email: registeredUsers[0].email,
+                      },
+                }));
+            }
+            
+        }, []);
 
   return (
     <div>
@@ -144,7 +156,21 @@ const ProfileSetting = () => {
         <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
             Submit</button>
     </form>
+    <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
     </div>
+    
   )
 }
 
