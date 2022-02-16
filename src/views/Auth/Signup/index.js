@@ -50,7 +50,7 @@ const Signup = () => {
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
         if (formState.isValid) {
             const { email } = formState.values;
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
