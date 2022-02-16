@@ -1,29 +1,35 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
-
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'My Courses', href: '/my-courses', current: false },
-  { name: 'Market Place', href: '/marketplace', current: false },
-  { name: 'About Us', href: '#', current: false },
-  { name: 'Contact Us', href: '#', current: false },
-]
+import { useHistory } from 'react-router-dom'
+import navigation from './Navigation/navigation'
 
 const classNames =(...classes)=>
 {
   return classes.filter(Boolean).join(' ')
 }
 
-const  Header =()=> {
+const  Header = () => { 
+
+  const history = useHistory()
+
   const [token, setToken] = useState("");
+
   useEffect(() => {
+
     const token = localStorage.getItem("token");
     if(token){
       setToken(token)
     }
     }, []);
+
+    //logout and removing token
+  const handleLogout = () =>
+  {
+    localStorage.removeItem("token");
+    history.push('/login')
+  }
 
   return (
     <Disclosure as="nav" className="fixed top-0 w-full top-header">
@@ -67,16 +73,7 @@ const  Header =()=> {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {/* <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button> */}
-
-                {/* Profile dropdown */}
-                { token ? 
+                {  token ? 
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -100,32 +97,32 @@ const  Header =()=> {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
