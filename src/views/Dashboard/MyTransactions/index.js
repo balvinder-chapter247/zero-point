@@ -51,11 +51,15 @@ const MyTransactions = () => {
                                 )
                             }
                         </>
-                        : 
-                        <div className='no-transaction text-center pt-12'>
-                            <img src="./images/no-transactions.png" className='w-16 mx-auto pb-2' />
-                            <p>No Transaction made yet.</p>
-                        </div>
+                        :
+                        <tr>
+                            <td colspan='4'>
+                                <div className='no-transaction text-center pt-12'>
+                                    <img src="./images/no-transactions.png" className='w-16 mx-auto pb-2' />
+                                    <p>No Transaction made yet.</p>
+                                </div>
+                            </td>
+                        </tr>
                     }
                         
                     </tbody>

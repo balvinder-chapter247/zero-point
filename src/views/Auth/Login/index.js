@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from '../../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
@@ -92,6 +92,11 @@ const Login = () => {
             },
         }));
     };
+
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;

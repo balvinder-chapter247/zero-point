@@ -3,15 +3,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SignupSchema } from "../../../validators";
 import { Toaster } from '../../../helper/react-toast'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import InputForms from '../../../common/inputForm'
 import SocialLinkesIcons from '../../../components/socialLinkes.js/socialIcons';
-import { useHistory } from 'react-router-dom';
+
 const Signup = () => {
 
     const LOCAL_STORAGE_KEY = "Signup";
+    ///for histoty push
     const history = useHistory()
-
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -81,7 +81,10 @@ const Signup = () => {
                     history.push('/login')
                 }
             } else {
-
+                Toaster({
+                    type: "success",
+                    text: "You have successfully registered."
+                })
                 let tempArray = [];
 
                 tempArray.push(formState.values);
