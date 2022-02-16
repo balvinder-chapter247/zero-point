@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SignupSchema } from "../../../validators";
-import {Toaster} from '../../../helper/react-toast'
-import { Link } from 'react-router-dom'
+import { Toaster } from '../../../helper/react-toast'
+import { Link } from 'react-router-dom';
+import InputForms from '../../../common/inputForm'
 
 const Signup = () => {
 
@@ -55,31 +56,32 @@ const Signup = () => {
             const { email } = formState.values;
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
             if (registeredUsers) {
-               const result= registeredUsers.map(e=>e.email);
-               const foundEmail = result.includes(email)
-                console.log(foundEmail)
-                if(foundEmail)
-                {   
+                const result = registeredUsers.map(e => e.email);
+                const foundEmail = result.includes(email)
+
+                if (foundEmail) {
                     Toaster({
                         type: "error",
                         text: "You have already Registerd."
                     })
                 }
-                else{
+                else {
                     let tempArray = registeredUsers;
                     tempArray.push(formState.values);
                     localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-                    Toaster({
-                        type: "Success",
-                        text: "You have successfully registered."
-                    })
+                    {
+                        Toaster({
+                            type: "success",
+                            text: "You have successfully registered."
+                        })
+                    }
                 }
             } else {
-                
+
                 let tempArray = [];
                 tempArray.push(formState.values);
                 localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-                {   
+                {
                     Toaster({
                         type: "success",
                         text: "You have successfully registered."
@@ -106,7 +108,7 @@ const Signup = () => {
     }
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
-        
+
     return (
         <>
             <main className='bg-gray-100'>
@@ -125,25 +127,15 @@ const Signup = () => {
                                         <form onSubmit={handleSubmit}>
                                             <div className='grid grid-cols-2 gap-4'>
                                                 <div className='mb-3'>
-                                                    <label className="flex items-center relative">
-                                                        <input type="text" name="first_name"
-                                                            value={formState.values.first_name || ""}
-                                                            onChange={handleChange}
-                                                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
-                                                            placeholder="First Name" />
-                                                        <span className='form-icon absolute right-2'>
-                                                            <img src='https://gofundher.com/assets/img/partner/user.svg' />
-                                                        </span>
-                                                    </label>
-                                                    {
-                                                        hasError("first_name") ?
-                                                            <span className='error text-red-500 text-sm font-medium'>
-                                                                {formState.errors.first_name[0]}
-                                                            </span>
-                                                            :
-                                                            null
-                                                    }
-
+                                                    <InputForms
+                                                        className="flex items-center relative"
+                                                        type='text'
+                                                        name="first_name"
+                                                        value={formState.values.first_name || ""}
+                                                        src='https://gofundher.com/assets/img/partner/user.svg'
+                                                        errorMessage={hasError("first_name") ? 
+                                                        formState.errors.first_name[0] : null}
+                                                    />
                                                 </div>
 
                                                 <div className='mb-3'>
