@@ -2,8 +2,9 @@ import React from 'react'
 import TransactionData from '../DataFake/TransactionData'
 
 const MyTransactions = () => {
-    const { data } = TransactionData
-
+    // const { data } = TransactionData
+    // console.log("1");
+    // console.log(data);
   return (
     <div>
         <div class="flex flex-col">
@@ -28,11 +29,11 @@ const MyTransactions = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {/* {
-                        data && data.length ? 
+                    {
+                        TransactionData && TransactionData.length ? 
                         <>
                             {
-                                data.map((TransactionItem) => 
+                                TransactionData.map((TransactionItem) => 
                                 <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {TransactionItem.id}
@@ -50,15 +51,16 @@ const MyTransactions = () => {
                                 )
                             }
                         </>
-                        : null
-                    } */}
+                        : 
+                        <div className='no-transaction text-center pt-12'>
+                            <img src="./images/no-transactions.png" className='w-16 mx-auto pb-2' />
+                            <p>No Transaction made yet.</p>
+                        </div>
+                    }
                         
                     </tbody>
                     </table>
-                    <div className='no-transaction text-center pt-12'>
-                        <img src="./images/no-transactions.png" className='w-16 mx-auto pb-2' />
-                        <p>No Transaction made yet.</p>
-                    </div>
+                    
                 </div>
                 </div>
             </div>
