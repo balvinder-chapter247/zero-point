@@ -3,10 +3,14 @@ import { Toaster } from '../../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { LoginSchema } from "../../../validators";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
 
 const Login = () => {
 
+    ///for histoty push
+    const history = useHistory()
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -58,13 +62,15 @@ const Login = () => {
                     return false;
                 }
              })
-            // console.log(filterLogin)
+           
             if(filterLogin=="true") {
-                // debugger
+               
                 Toaster({
                     type: "success",
                     text: "You have Login successfully."
-                })
+                });
+                history.push("/dashboard");
+                
             }
             else{
                 Toaster({

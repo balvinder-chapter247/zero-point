@@ -5,6 +5,7 @@ import FaqData from './DataFake/FaqData'
 import NewestCourse from '../Marketplace/DataFake/NewestCourse';
 import NewCourses from '../Marketplace/components/NewCourses/newCourses'
 import FeaturedSection from './components/FeaturedSection';
+import FullPageLoader from '../../components/FullPageLoader/FullPageLoader';
 
 const Home = () => {
   
