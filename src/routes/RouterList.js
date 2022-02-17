@@ -4,6 +4,7 @@ import { AppRoutes } from './AppRoutes';
 const Home = React.lazy(() => import('../views/Home'));
 const MyCourses=React.lazy(() => import('../views/MyCourses'));
 const Marketplace=React.lazy(() => import('../views/Marketplace'));
+const AddCourse=React.lazy(() => import('../views/AddCourse'));
 const EditCourse=React.lazy(() => import('../views/EditCourse'));
 const Signup=React.lazy(() => import('../views/Auth/Signup'));
 const Login=React.lazy(() => import('../views/Auth/Login'));
@@ -33,6 +34,14 @@ export const routerList = [
     exact: true,
     name: 'marketplace',
     component: Marketplace,
+    layout: Layout,
+  },
+  {
+    key: 'add-course',
+    path: AppRoutes.ADD_COURSE,
+    exact: true,
+    name: 'add-course',
+    component: AddCourse,
     layout: Layout,
   },
   {
