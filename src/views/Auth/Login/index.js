@@ -56,7 +56,7 @@ const Login = () => {
         if (formState.isValid) {
             const login = JSON.parse(localStorage.getItem("registeredUsers"));
             const filterLogin = login.map((e) => {
-                if (e.email == email && e.password == password) {
+                if (e.email === email && e.password === password) {
                     // debugger
                     return true;
                 }
@@ -64,8 +64,7 @@ const Login = () => {
                     return false;
                 }
             })
-
-            if (filterLogin || filterLogin == "true") {
+            if (filterLogin == "true") {
                 let token = Math.random().toString(36).substr(2);
                 localStorage.setItem("token", JSON.stringify(token));
                 Toaster({
@@ -73,7 +72,6 @@ const Login = () => {
                     text: "You have Login successfully."
                 });
                 history.push("/dashboard");
-
             }
             else {
                 Toaster({
@@ -81,7 +79,6 @@ const Login = () => {
                     text: "invalid Email or Password."
                 })
             }
-
         }
         setFormState((formState) => ({
             ...formState,
@@ -92,10 +89,10 @@ const Login = () => {
         }));
     };
 
-    const [passwordShown, setPasswordShown] = useState(false);
-    const togglePassword = () => {
-        setPasswordShown(!passwordShown);
-        };
+    // const [passwordShown, setPasswordShown] = useState(false);
+    // const togglePassword = () => {
+    //     setPasswordShown(!passwordShown);
+    //     };
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
