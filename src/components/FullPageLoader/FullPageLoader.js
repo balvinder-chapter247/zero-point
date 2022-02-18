@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HashLoader from "react-spinners/HashLoader";
+
 const FullPageLoader = (props) => {
     const {isFullPage}=props
     let [loading, setLoading] = useState(true);

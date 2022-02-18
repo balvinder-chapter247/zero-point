@@ -11,7 +11,7 @@ const Login=React.lazy(() => import('../views/Auth/Login'));
 const ForgotPassword=React.lazy(() => import('../views/Auth/ForgotPassword'));
 const Dashboard=React.lazy(() => import('../views/Dashboard'));
 
-export const routerList = [
+export const restrictRoutes = [
   {
     key: 'home',
     path: AppRoutes.HOME,
@@ -21,19 +21,49 @@ export const routerList = [
     layout: Layout,
   },
   {
-    key: 'mycourses',
-    path: AppRoutes.MY_COURSES,
-    exact: true,
-    name: 'my-course',
-    component: MyCourses,
-    layout: Layout,
-  },
-  {
     key: 'marketplace',
     path: AppRoutes.MARKETPLACE,
     exact: true,
     name: 'marketplace',
     component: Marketplace,
+    layout: Layout,
+  },
+];
+
+export const publicRoutes = [
+  {
+    key: 'signup',
+    path: AppRoutes.SIGNUP,
+    exact: true,
+    name: 'signup',
+    component: Signup,
+    layout: Layout,
+  },
+  {
+    key: 'login',
+    path: AppRoutes.LOGIN,
+    exact: true,
+    name: 'login',
+    component: Login,
+    layout: Layout,
+  },
+  {
+    key: 'forgot-password',
+    path: AppRoutes.FORGOT_PASSWORD,
+    exact: true,
+    name: 'dashboard',
+    component: ForgotPassword,
+    layout: Layout,
+  },
+];
+
+export const privateRoutes = [
+  {
+    key: 'mycourses',
+    path: AppRoutes.MY_COURSES,
+    exact: true,
+    name: 'my-course',
+    component: MyCourses,
     layout: Layout,
   },
   {
@@ -53,22 +83,6 @@ export const routerList = [
     layout: Layout,
   },
   {
-    key: 'signup',
-    path: AppRoutes.SIGNUP,
-    exact: true,
-    name: 'signup',
-    component: Signup,
-    layout: Layout,
-  },
-  {
-    key: 'login',
-    path: AppRoutes.LOGIN,
-    exact: true,
-    name: 'login',
-    component: Login,
-    layout: Layout,
-  },
-  {
     key: 'dashboard',
     path: AppRoutes.DASHBOARD,
     exact: true,
@@ -76,13 +90,4 @@ export const routerList = [
     component: Dashboard,
     layout: Layout,
   },
-  {
-    key: 'forgot-password',
-    path: AppRoutes.FORGOT_PASSWORD,
-    exact: true,
-    name: 'dashboard',
-    component: ForgotPassword,
-    layout: Layout,
-  },
 ];
-
