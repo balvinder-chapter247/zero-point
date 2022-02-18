@@ -24,7 +24,6 @@ const Routing = () => {
             {privateRoutes.map((routes) => (
               <PrivateRoute {...routes} />
             ))}
-              {/* For 404 page */}
            <Route
               render={() => <Redirect to={{ pathname: AppRoutes.HOME }} />}
             />
