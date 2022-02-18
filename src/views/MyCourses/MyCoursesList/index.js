@@ -14,12 +14,11 @@ const MyCourseList = (myCourseData) => {
                                     {
                                         courseList.courseType === "Create Course" ? 
                                         <Link to="edit-course">
-                                        <div className="edit-icon">
-                                            <i class="fas fa-pencil"></i>
-                                        </div>
-                                    </Link> : null
+                                            <div className="edit-icon">
+                                                <i class="fas fa-pencil"></i>
+                                            </div>
+                                        </Link> : null
                                     }
-                                    
                                     <div className="p-4 course-detail relative">
                                         <Link to="" className="font-medium block">{courseList.courseName}</Link>
                                         <div className="course-owner flex items-center py-3">

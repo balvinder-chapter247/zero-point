@@ -1,11 +1,85 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import validate from 'validate.js';
+import { toast, ToastContainer } from 'react-toastify';
+import { Toaster } from '../../helper/react-toast';
+import { AddCourseSchema } from '../../validators';
 import InnerPageBanner from '../../components/InnerPageBanner';
 import InputForms from '../../../src/common/inputForm'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const AddCourse = () => {
+
+    ///State for our form
+    const [formState, setFormState] = React.useState({
+        isValid: false,
+        values: {},
+        touched: {},
+        errors: {},
+    });
+
+    ///For validating error everytime change in inputs
+    useEffect(() => {
+        const errors = validate(formState.values, AddCourseSchema);
+        setFormState((formState) => ({
+            ...formState,
+            isValid: errors ? false : true,
+            errors: errors || {},
+        }));
+    }, [formState.values]);
+
+    ///Handle change for storing input values to state.
+    const handleChange = (event) => {
+        event.persist();
+        setFormState((formState) => ({
+            ...formState,
+            values: {
+                ...formState.values,
+                [event.target.name]:
+                    event.target.type === "checkbox"
+                        ? event.target.checked
+                        : event.target.value,
+            },
+            touched: {
+                ...formState.touched,
+                [event.target.name]: true,
+            },
+        }));
+    };
+
+    ///Submiting values to api.
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+        if (formState.isValid) {
+            debugger
+            let addCourse = JSON.parse(localStorage.getItem("addCourse"));
+            let tempArray = [];
+
+            // localStorage.removeItem("addCourse");
+            tempArray.push(formState.values);
+            localStorage.setItem("addCourse", JSON.stringify(tempArray));
+            
+            {
+                Toaster({
+                    type: "success",
+                    text: "Course Added Successfully."
+                })
+            }
+        }
+        setFormState((formState) => ({
+            ...formState,
+            touched: {
+                ...formState.touched,
+                ...formState.errors,
+            },
+        }));
+    };
+
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
+
+
   return (
     <>
       <main className="bg-gray-100">
@@ -21,7 +95,7 @@ const AddCourse = () => {
                 <div className="container m-auto px-4">
                     <div className="w-full">
                         <div className='bg-white p-4 pb-8 mt-6 rounded-lg'>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="grid md:grid-cols-3 gap-4">
                                     <div className="">
                                         <label className="block text-gray-700 font-bold mb-2">
@@ -32,7 +106,10 @@ const AddCourse = () => {
                                             className="block font-medium"
                                             type='text'
                                             name="title"
-                                            value=""
+                                            value={formState.values.title || ""}
+                                            errorMessage={hasError("title") ?
+                                                formState.errors.title[0] : null}
+                                            onChange={handleChange}
                                             placeholder="Enter Title"
                                         />
                                     </div>
@@ -42,7 +119,8 @@ const AddCourse = () => {
                                             className="block font-medium"
                                             type='text'
                                             name="sub_title"
-                                            value=""
+                                            value={formState.values.sub_title || ""}
+                                            onChange={handleChange}
                                             placeholder="Enter Sub Title"
                                         />
                                     </div>
@@ -51,11 +129,17 @@ const AddCourse = () => {
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                             Category</span>
                                         </label>
-                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full">
-                                            <option selected>Choose Option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                        name='category'
+                                        value={formState.values.category || ""}
+                                        errorMessage={hasError("category") ?
+                                            formState.errors.category[0] : null}
+                                        onChange={handleChange}
+                                        >
+                                            <option>Choose Option</option>
+                                            <option value="category 1">Option 1</option>
+                                            <option value="category 2">Option 2</option>
+                                            <option value="category 3">Option 3</option>
                                         </select>
                                     </div>
                                     <div className="">
@@ -63,11 +147,17 @@ const AddCourse = () => {
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                             Sub Category</span>
                                         </label>
-                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full">
+                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                        name='sub_category'
+                                        value={formState.values.sub_category || ""}
+                                        errorMessage={hasError("sub_category") ?
+                                            formState.errors.sub_category[0] : null}
+                                        onChange={handleChange}
+                                        >
                                             <option selected>Choose Option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                            <option value="Sub Category 1">Option 1</option>
+                                            <option value="Sub Category 2">Option 2</option>
+                                            <option value="Sub Category 3">Option 3</option>
                                         </select>
                                     </div>
                                     <div className="">
@@ -75,11 +165,17 @@ const AddCourse = () => {
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                             Level</span>
                                         </label>
-                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full">
-                                            <option selected>Choose Option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
+                                        <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                        name='lavel'
+                                        value={formState.values.lavel || ""}
+                                        errorMessage={hasError("lavel") ?
+                                            formState.errors.lavel[0] : null}
+                                        onChange={handleChange}
+                                        >
+                                            <option>Choose Option</option>
+                                            <option value="Level 1">Level 1</option>
+                                            <option value="Level 2">Level 2</option>
+                                            <option value="Level 3">Level 3</option>
                                         </select>
                                     </div>
                                     <div className="">
@@ -91,7 +187,10 @@ const AddCourse = () => {
                                             className="block font-medium"
                                             type='text'
                                             name="price"
-                                            value=""
+                                            value={formState.values.price || ""}
+                                            errorMessage={hasError("price") ?
+                                                formState.errors.price[0] : null}
+                                            onChange={handleChange}
                                             placeholder="$99.95"
                                         />
                                     </div>
@@ -101,15 +200,18 @@ const AddCourse = () => {
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                                 Learning Objectives</span>
                                         </label>
-                                        <div className="mb-3 flex items-center">
+                                        <div className="mb-3 items-center">
                                             <InputForms
                                             className="block font-medium w-full"
                                             type='text'
                                             name="learning_objectives"
-                                            value=""
+                                            value={formState.values.learning_objectives || ""}
+                                            errorMessage={hasError("learning_objectives") ?
+                                                formState.errors.learning_objectives[0] : null}
+                                            onChange={handleChange}
                                             placeholder="Enter Objectives"
                                         />
-                                            <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/>
+                                            {/* <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/> */}
                                         </div>
                                         <div className="mb-3 flex items-center">
                                             <InputForms
@@ -119,7 +221,7 @@ const AddCourse = () => {
                                             value=""
                                             placeholder="Enter Objectives"
                                         />
-                                            <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/>
+                                            {/* <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/> */}
                                         </div>
                                         <div className="text-center">
                                             <button className='bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded uppercase font-medium text-sm'>Add Objective</button>
@@ -156,7 +258,11 @@ const AddCourse = () => {
                                             // data="Enter Description"
                                             placeholder="Enter Description"
                                             config={{ placeholder: 'Enter Description' }}
-                                            name='description'
+                                            name='details'
+                                            value={formState.values.details || ""}
+                                            errorMessage={hasError("details") ?
+                                                formState.errors.details[0] : null}
+                                            onChange={handleChange}
                                             enterMode='CKEDITOR.ENTER_BR'
                                             shiftEnterMode='CKEDITOR.ENTER_P'
                                             onReady={(editor) => {

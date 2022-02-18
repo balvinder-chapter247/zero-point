@@ -9,9 +9,9 @@ import SocialLinkesIcons from '../../../components/socialLinkes.js/socialIcons';
 
 const Signup = () => {
 
-    const LOCAL_STORAGE_KEY = "Signup";
     ///for histoty push
     const history = useHistory()
+    
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -109,7 +109,6 @@ const Signup = () => {
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
 
-
     return (
         <>
             <main className='bg-gray-100'>
@@ -199,7 +198,6 @@ const Signup = () => {
                                                 <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
                                             </div>
                                         </form>
-
                                         <SocialLinkesIcons />
                                     </div>
                                 </div>
