@@ -14,7 +14,7 @@ const AddCourse = () => {
                 <div className="course-header border-b">
                     <div className="container mx-auto px-4 flex items-center justify-between pb-4">
                         <h2 className="font-bold text-3xl mb-0">Add Course</h2>
-                        {/* <button className="px-4 py-3 font-semibold text-sm bg-blue-500 hover:bg-blue-700 text-white rounded shadow-sm">Add New Course +</button> */}
+                        <button className="px-4 py-3 font-semibold text-sm bg-blue-500 hover:bg-blue-700 text-white rounded shadow-sm">Edit in Builder</button>
                     </div>
                 </div>
             
