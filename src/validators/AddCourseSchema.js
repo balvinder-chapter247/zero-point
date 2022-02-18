@@ -35,17 +35,17 @@ export const AddCourseSchema = {
             maximum:30,
         },
     },
-    banner_image: {
-        presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
-    },
-    details: {
-        presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
-    },
+    // banner_image: {
+    //     presence: { allowEmpty: false, message: 'is required' },
+    //     length: {
+    //         maximum:30,
+    //     },
+    // },
+    // details: {
+    //     presence: { allowEmpty: false, message: 'is required' },
+    //     length: {
+    //         maximum:30,
+    //     },
+    // },
     
 };

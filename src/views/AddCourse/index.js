@@ -52,7 +52,7 @@ const AddCourse = () => {
         event.preventDefault();
         console.log(formState);
         if (formState.isValid) {
-            debugger
+            // debugger
             let addCourse = JSON.parse(localStorage.getItem("addCourse"));
             let tempArray = [];
 
