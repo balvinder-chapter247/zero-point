@@ -7,5 +7,6 @@ export const AppRoutes = {
   LOGIN:'/login',
   SIGNUP:'/sign-up',
   FORGOT_PASSWORD:'/forgot-password',
-  DASHBOARD:'/dashboard'
+  DASHBOARD:'/dashboard',
+  ADD_CART:'/add-cart'
 };

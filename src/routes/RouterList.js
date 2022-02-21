@@ -10,6 +10,7 @@ const Signup=React.lazy(() => import('../views/Auth/Signup'));
 const Login=React.lazy(() => import('../views/Auth/Login'));
 const ForgotPassword=React.lazy(() => import('../views/Auth/ForgotPassword'));
 const Dashboard=React.lazy(() => import('../views/Dashboard'));
+const AddCart=React.lazy(() => import('../views/AddCard'));
 
 export const restrictRoutes = [
   {
@@ -55,6 +56,7 @@ export const publicRoutes = [
     component: ForgotPassword,
     layout: Layout,
   },
+
 ];
 
 export const privateRoutes = [
@@ -90,4 +92,13 @@ export const privateRoutes = [
     component: Dashboard,
     layout: Layout,
   },
+  {
+    key: 'add-cart',
+    path: AppRoutes.ADD_CART,
+    exact: true,
+    name: 'add-cart',
+    component:AddCart,
+    layout: Layout,
+  },
+ 
 ];
