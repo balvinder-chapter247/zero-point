@@ -232,7 +232,7 @@ const AddCourse = () => {
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                                 Banner Image</span>
                                         </label>
-                                        <input class="form-control
+                                        <input className="form-control
                                             block
                                             w-full
                                             px-3
