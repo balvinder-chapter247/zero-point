@@ -1,21 +1,30 @@
 const NewestCourse = [
     {
         id: "1",
-        courseImage: "https://myheart.net/wp-content/uploads/2013/12/dreamstimelarge_211129061.jpg",
-        courseName: "Overcomming Negative Family Patterns",
-        courseOwner: "Jassica Miller",      
+        courseTag: "Art & Design",
+        courseImage: "./images/course-1.jpg",
+        courseName: "Become a product Manager learn the skills & job.",
+        courseOwner: "Jassica Miller",
+        bgClassName: "bg-color-1",    
+        textClassName: "text-color-1",    
     },
     {
         id: "2",
-        courseImage: "https://imgk.timesnownews.com/story/Health_benefits_of_Aerial_Yoga.jpg",
-        courseName: "Yoga Super Shered for Men",
+        courseTag: "Mechanical",
+        courseImage: "./images/course-2.jpg",
+        courseName: "Fundamentals of music theory Learn new",
         courseOwner: "Jassica Miller 2",
+        bgClassName: "bg-color-2",
+        textClassName: "text-color-2",
     },
     {
         id: "3",
-        courseImage: "https://circuitliving.com/wp-content/uploads/2021/09/stretching-before-a-workout-519x519.jpg",
-        courseName: "Fit and Fierce Over 40",
+        courseTag: "Development",
+        courseImage: "./images/course-3.jpg",
+        courseName: "Bases Matemáticas dios Álgebra Ecuacion",
         courseOwner: "Jassica Miller",
+        bgClassName: "bg-color-3",
+        textClassName: "text-color-3",
     },
       
   ];

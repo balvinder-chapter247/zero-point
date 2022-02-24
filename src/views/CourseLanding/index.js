@@ -11,7 +11,6 @@ const CourseLanding = () => {
       <main className='bg-gray-100'>
         <InnerPageBanner title={"Course Landing Page"} />
         <div className='container mx-auto px-4 sec-padding'>
-        
           <div className='grid gap-4 grid-cols-4'>
             <div className='col-span-3'>
               <ul className="course-tab nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 mb-4 bg-white py-3 px-4 rounded" id="tabs-tab"
