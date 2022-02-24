@@ -94,18 +94,44 @@ const  Header = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  
+                    <Menu.Items className="profile-dropdown origin-top-right absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div class="user-login py-2.5 px-4">
+				    					<h6 class="name mb-0">John Deo</h6>
+					    				<p class="profession mb-0">Software Engineer</p>
+				    				</div>
+                    <div className='user-profile'>
                       <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="dashboard"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
                           >
-                            Profile Setting
+                          <i class="fas fa-user"></i>  Profile Setting
                           </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
+                          >
+                            <i class="fas fa-shopping-cart"></i> Cart
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            onClick={handleLogout}
+                            className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
+                          >
+                          <i class="fas fa-sign-out-alt"></i>  Sign out
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="my-courses"
@@ -114,17 +140,20 @@ const  Header = () => {
                             My Courses
                           </Link>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
+                    </div>
+                    {/* <div class="user-logout py-1.5">
                       <Menu.Item>
                         {({ active }) => (
                           <Link
                             onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                          <i class="fas fa-sign-out-alt"></i>  Sign out
                           </Link>
                         )}
                       </Menu.Item>
+				    				</div> */}
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -144,14 +173,14 @@ const  Header = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="account-dropdown origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="login"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2.5 text-sm text-gray-700')}
                           >
-                            Login
+                          <i class="fa fa-sign-in" aria-hidden="true"></i>  Login
                           </Link>
                         )}
                       </Menu.Item>
@@ -159,9 +188,9 @@ const  Header = () => {
                         {({ active }) => (
                           <Link
                             to="sign-up"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2.5 text-sm text-gray-700')}
                           >
-                            Signup
+                          <i class="fa fa-user-plus" aria-hidden="true"></i>  Signup
                           </Link>
                         )}
                       </Menu.Item>

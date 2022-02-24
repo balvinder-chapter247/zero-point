@@ -88,8 +88,9 @@ const ProfileSetting = () => {
             <form onSubmit={handleSubmit}>
                 <div className='grid grid-cols-2 gap-4'>
                     <div className=''>
-                        <label class="block font-medium mb-2 text-gray-700">First Name</label>
                         <InputForms
+                            labelText="First Name"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
                             name="first_name"
@@ -102,8 +103,9 @@ const ProfileSetting = () => {
                         />
                     </div>
                     <div className=''>
-                        <label class="block font-medium mb-2 text-gray-700">Last Name</label>
                         <InputForms
+                            labelText="Last Name"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
                             name="last_name"
@@ -116,13 +118,13 @@ const ProfileSetting = () => {
                         />
                     </div>
                     <div className=''>
-                        <label class="block font-medium mb-2 text-gray-700">Email</label>
                         <InputForms
+                            labelText="Email"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='email'
                             name="email"
                             value={formState.values.email || ""}
-                          
                             errorMessage={hasError("email") ?
                                 formState.errors.email[0] : null}
                             onChange={handleChange}
@@ -131,8 +133,9 @@ const ProfileSetting = () => {
 
                     </div>
                     <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">Phone Number</label>
                         <InputForms
+                            labelText="Phone Number"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
                             name="phone_number"
@@ -144,8 +147,9 @@ const ProfileSetting = () => {
                         />
                     </div>
                     <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">Address</label>
                         <InputForms
+                            labelText="Address"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
                             name="address"
@@ -157,8 +161,9 @@ const ProfileSetting = () => {
                         />
                     </div>
                     <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">City</label>
                         <InputForms
+                            labelText="City"
+                            labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
                             name="city"
