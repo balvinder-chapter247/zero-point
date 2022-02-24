@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from '../../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
@@ -71,55 +71,78 @@ const ChangePassword = () => {
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
 
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
+    
+    const [newPasswordShown, setNewPasswordShown] = useState(false);
+    const toggleNewPassword = () => {
+        setNewPasswordShown(!newPasswordShown);
+        }; 
+
+    const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
+    const toggleConfirmPassword = () => {
+        setConfirmPasswordShown(!confirmPasswordShown);
+        }; 
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div className='grid grid-cols-1 gap-4'>
-                    <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">Current Password</label>
-                        <InputForms
-                            className="block text-sm font-medium"
-                            type='password'
-                            name="password"
-                            value={formState.values.password || ""}
-                            src='https://gofundher.com/assets/img/partner/lock.svg'
-                            errorMessage={hasError("password") ?
-                                formState.errors.password[0] : null}
-                            onChange={handleChange}
-                            placeholder="Current Password"
-                        />
-                    </div>
-                    <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">New Password</label>
-                        <InputForms
-                            className="block text-sm font-medium"
-                            type='password'
-                            name="new_password"
-                            value={formState.values.new_password || ""}
-                            src='https://gofundher.com/assets/img/partner/lock.svg'
-                            errorMessage={hasError("new_password") ?
-                                formState.errors.new_password[0] : null}
-                            onChange={handleChange}
-                            placeholder="New Password"
-                        />
-                    </div>
-                    <div className=''>
-                    <label class="block font-medium mb-2 text-gray-700">Confirm New Password</label>
-                        <InputForms
-                            className="block text-sm font-medium"
-                            type='password'
-                            name="confirm_new_password"
-                            value={formState.values.confirm_new_password || ""}
-                            src='https://gofundher.com/assets/img/partner/lock.svg'
-                            errorMessage={hasError("confirm_new_password") ?
-                                formState.errors.confirm_new_password[0] : null}
-                            onChange={handleChange}
-                            placeholder="New Password"
-                        />
+                <div className='grid grid-cols-6 gap-4'>
+                    <div className='change-password col-span-4'>
+                        <div className='mb-3'>
+                                <InputForms
+                                    labelText="Current Password"
+                                    labelclassName="block font-medium mb-2 text-gray-700"
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password"
+                                    value={formState.values.password || ""}
+                                    iconClassName={passwordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                    onClick={togglePassword}
+                                    errorMessage={hasError("password") ?
+                                        formState.errors.password[0] : null}
+                                    onChange={handleChange}
+                                    placeholder="Current Password"
+                                />
+                        </div>
+                        <div className='mb-3'>
+                                <InputForms
+                                    labelText="New Password"
+                                    labelclassName="block font-medium mb-2 text-gray-700"
+                                    className="block text-sm font-medium"
+                                    type={newPasswordShown ? "text" : "password"}
+                                    name="new_password"
+                                    value={formState.values.new_password || ""}
+                                    iconClassName={newPasswordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                    onClick={toggleNewPassword}
+                                    errorMessage={hasError("new_password") ?
+                                        formState.errors.new_password[0] : null}
+                                    onChange={handleChange}
+                                    placeholder="New Password"
+                                />
+                        </div>
+                        <div className='mb-3'>
+                                <InputForms
+                                    labelText="Confirm New Password"
+                                    labelclassName="block font-medium mb-2 text-gray-700"
+                                    className="block text-sm font-medium"
+                                    type={confirmPasswordShown ? "text" : "password"}
+                                    name="confirm_new_password"
+                                    value={formState.values.confirm_new_password || ""}
+                                    iconClassName={confirmPasswordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                    onClick={toggleConfirmPassword}
+                                    errorMessage={hasError("confirm_new_password") ?
+                                        formState.errors.confirm_new_password[0] : null}
+                                    onChange={handleChange}
+                                    placeholder="New Password"
+                                />
+                        </div>
+                        <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold my-4 uppercase py-2 px-8 rounded">
+                    Change Password</button>
                     </div>
                 </div>
-                <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
-                    Reset Password</button>
+                
             </form>
         </div>
     )

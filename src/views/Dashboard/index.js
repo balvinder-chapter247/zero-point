@@ -9,6 +9,7 @@ import ProfileSetting from './ProfileSetting';
 import ChangePassword from './ChnagePassword';
 import MyTransactions from './MyTransactions';
 import TransactionData from './DataFake/TransactionData';
+import InputForms from '../../common/inputForm';
 
 const Dashboard = () => {
 
@@ -100,46 +101,102 @@ const Dashboard = () => {
                         inactiveClassName="absolute opacity-0 -translate-x-2"
                         >
                         <div className='account-title mb-6 pb-2'>
-                        <div className="flex justify-between items-center">
-                            <h4 className='mb-0'>Save Payment</h4>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Add Card</button>
-                        </div></div>
+                            <div className="flex justify-between items-center">
+                                <h4 className='mb-0'>Save Payment</h4>
+                                {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Add Card</button> */}
+                            </div>
+                        </div>
                         
                         <div className='payment-method'>
-                        
-                        <div className=''>
-                            {/* <h6 className='font-medium text-lg mb-4'>Select Payment Method</h6> */}
-                            <div class="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
-                                    <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                    type="radio" name="flexRadioDefault" id="card1" />
-                                    <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card1">
-                                        <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
-                                        Mastercard ...4242
-                                        <span className='exp ml-auto'>Exp. 10/2025</span>
-                                    </label>
+                            <div className='grid grid-cols-6 gap-4'>
+                                <div className='col-span-4'>
+                                    {/* <h6 className='font-medium text-lg mb-4'>Select Payment Method</h6> */}
+                                    <div class="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
+                                        <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                                        type="radio" name="flexRadioDefault" id="card1" />
+                                        <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card1">
+                                            <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
+                                            <div className=''>
+                                                <span className='card-number block text-sm font-medium'>5225 XXXX XXXX 6246</span>
+                                                <span className='card-name block text-sm'>MasterCard</span>
+                                            </div>
+                                            <span className='delete ml-auto hover:text-red-500'>
+                                                <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
+                                        <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                                        type="radio" name="flexRadioDefault" id="card2" />
+                                        <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card2">
+                                            <img src='./images/visacard.png' className='w-12 ml-2 mr-4' />
+                                            <div className=''>
+                                                <span className='card-number block text-sm font-medium'>4242 XXXX XXXX 4242</span>
+                                                <span className='card-name block text-sm'>VISA</span>
+                                            </div>
+                                            <span className='delete ml-auto hover:text-red-500'>
+                                                <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    {/* <div class="form-check rounded bg-gray-100 p-0 mb-3 w-full">
+                                        <div className='flex items-center px-4 py-4'>
+                                            <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                                            type="radio" name="flexRadioDefault" id="newcard" />
+                                            <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="newcard">
+                                                Add New Card
+                                            </label>
+                                        </div>
+                                    </div> */}
+                                    
+                                    {/* <div class="form-check flex items-center px-4 py-2 mb-3 w-full">
+                                        <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center ml-6" for="card2">
+                                            <img src='./images/demo-card.png' className='w-12 ml-2 mr-4' />
+                                            Add New Card
+                                        </label>
+                                    </div> */}
+                                    <div className='flex justify-between mt-6'>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Add New Card</button>
+                                    </div>
+                                    
+                                    <div className="bg-gray-100 p-4 rounded hidden">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className='col-span-2'>
+                                                <label className='block mb-2 text-gray-700'>Card Number</label>
+                                                <InputForms
+                                                    className="block text-sm font-medium"
+                                                    type='text'
+                                                    name="card_number"
+                                                    value=""
+                                                    placeholder="Card Number"
+                                                />
+                                            </div>
+                                            <div className=''>
+                                                <label className='block mb-2 text-gray-700'>Card Number</label>
+                                                <InputForms
+                                                    className="block text-sm font-medium"
+                                                    type='text'
+                                                    name="expiry"
+                                                    value=""
+                                                    placeholder="MM/YY"
+                                                />
+                                            </div>
+                                            <div className=''>
+                                                <label className='block mb-2 text-gray-700'>CVV</label>
+                                                <InputForms
+                                                    className="block text-sm font-medium"
+                                                    type='password'
+                                                    name="cvv"
+                                                    value=""
+                                                    placeholder="***"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
-                                    <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                    type="radio" name="flexRadioDefault" id="card2" />
-                                    <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card2">
-                                        <img src='./images/visacard.png' className='w-12 ml-2 mr-4' />
-                                        Visa  ...4242
-                                        <span className='exp ml-auto'>Exp. 10/2026</span>
-                                    </label>
-                                </div>
-                                {/* <div class="form-check flex items-center px-4 py-2 mb-3 w-full">
-                                    <label class="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center ml-6" for="card2">
-                                        <img src='./images/demo-card.png' className='w-12 ml-2 mr-4' />
-                                        Add New Card
-                                    </label>
-                                </div> */}
-                                <div className='flex justify-between mt-12'>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Use Card</button>
-                                </div>
-                        </div>
-                            
+                            </div>
                         </div>
                         </TabGroup.TabPanel>
                         </div>

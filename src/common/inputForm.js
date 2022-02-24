@@ -2,9 +2,11 @@ import React from 'react'
 const InputForms = (
     {
         className,
+        labelText,
         labelclassName,
         inputclassName,
         labeltext,
+        iconClassName,
         type = "text",
         id = "",
         placeholder = "",
@@ -18,17 +20,31 @@ const InputForms = (
         onChange,
         icon,
         selected,
-        src
+        src,
+        onClick
     }
 ) => {
     return (
         <>
-            <label className={className}>
-                <input type={type} name={name}
-                    value={value}
-                    onChange={onChange}
-                    className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
-                    placeholder={placeholder} />
+            {
+                labelText && labelText.length ? 
+                <label className={labelclassName}>{labelText}</label>
+                : null
+            }
+            <div className="input_group relative flex items-center">
+            <input type={type} name={name}
+                value={value}
+                onChange={onChange}
+                className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                placeholder={placeholder} />
+                
+                {
+                    iconClassName ?
+                        <span className='form-icon absolute right-2'>
+                            <i className={iconClassName} onClick={onClick}></i>
+                        </span>
+                        : null
+                }
                 {
                     src ?
                         <span className='form-icon absolute right-2'>
@@ -36,9 +52,8 @@ const InputForms = (
                         </span>
                         : null
                 }
-
-            </label>
-
+            </div>
+            
             <span className='error text-red-500 text-sm font-medium'>
                 {errorMessage}
             </span>

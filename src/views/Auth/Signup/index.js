@@ -109,6 +109,16 @@ const Signup = () => {
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
 
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
+
+    const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
+    const toggleConfirmPassword = () => {
+        setConfirmPasswordShown(!confirmPasswordShown);
+        };
+
     return (
         <>
             <main className='bg-gray-100'>
@@ -132,7 +142,7 @@ const Signup = () => {
                                                         type='text'
                                                         name="first_name"
                                                         value={formState.values.first_name || ""}
-                                                        src='https://gofundher.com/assets/img/partner/user.svg'
+                                                        iconClassName={"fas fa-user"}
                                                         errorMessage={hasError("first_name") ?
                                                             formState.errors.first_name[0] : null}
                                                         onChange={handleChange}
@@ -146,7 +156,7 @@ const Signup = () => {
                                                         type='text'
                                                         name="last_name"
                                                         value={formState.values.last_name || ""}
-                                                        src='https://gofundher.com/assets/img/partner/user.svg'
+                                                        iconClassName={"fas fa-user"}
                                                         errorMessage={hasError("last_name") ?
                                                             formState.errors.last_name[0] : null}
                                                         onChange={handleChange}
@@ -160,21 +170,21 @@ const Signup = () => {
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
-                                                    src='https://gofundher.com/assets/img/partner/mail.svg'
+                                                    iconClassName={"fas fa-envelope"}
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
                                                     placeholder="Email"
                                                 />
-
                                             </div>
                                             <div className='mb-3'>
                                                 <InputForms
                                                     className="flex items-center relative"
-                                                    type='password'
+                                                    type={passwordShown ? "text" : "password"}
                                                     name="password"
                                                     value={formState.values.password || ""}
-                                                    src='https://gofundher.com/assets/img/partner/lock.svg'
+                                                    iconClassName={passwordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                                    onClick={togglePassword}
                                                     errorMessage={hasError("password") ?
                                                         formState.errors.password[0] : null}
                                                     onChange={handleChange}
@@ -184,10 +194,11 @@ const Signup = () => {
                                             <div className='mb-3'>
                                                 <InputForms
                                                     className="flex items-center relative"
-                                                    type='password'
+                                                    type={confirmPasswordShown ? "text" : "password"}
                                                     name="confirm_password"
                                                     value={formState.values.confirm_password || ""}
-                                                    src='https://gofundher.com/assets/img/partner/lock.svg'
+                                                    iconClassName={confirmPasswordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                                    onClick={toggleConfirmPassword}
                                                     errorMessage={hasError("confirm_password") ?
                                                         formState.errors.confirm_password[0] : null}
                                                     onChange={handleChange}

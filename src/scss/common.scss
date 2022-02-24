@@ -50,6 +50,51 @@ p {
     color: #fff;
 }
 
+.profile-dropdown {
+    padding-bottom: 7px;
+}
+
+.profile-dropdown:after {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    position: absolute;
+    top: -6px;
+    right: 9px;
+    transform: rotate(45deg);
+    border-top: 1px solid #e9edf4;
+    border-left: 1px solid #e9edf4;
+}
+
+.profile-dropdown .profile-link,
+.account-dropdown a {
+    border-top: 1px solid #0000001c;
+    &:hover {
+        background: transparent !important;
+        color: #2575fc !important;
+    }
+}
+
+.account-dropdown a:first-child {
+    border-top: 0;
+}
+
+.profile-dropdown a i,
+.account-dropdown a i {
+    width: 22px;
+}
+
+.user-login .name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.user-login .profession {
+    font-size: 12px;
+}
+
 .top-header .nav-link:hover {
     color: #2575fc;
     transition: all 0.4s ease-in-out;
@@ -125,6 +170,11 @@ p {
     }
 }
 
+.forgot-password-link:hover {
+    color: $blue;
+    transition: 0.4s ease-in-out;
+}
+
 .login-box {
     background-color: #2464f9;
     max-width: 900px;
@@ -132,12 +182,29 @@ p {
     box-shadow: 0px 3px 17px -2px #666;
 }
 
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+.input-group i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 32px !important;
+    height: 100% !important;
+    z-index: 9;
+    color: #636363;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 span.form-icon {
     width: 21px;
 }
 
 span.form-icon i {
-    color: #cfcdcd;
+    color: rgb(0 0 0 / 25%);
     cursor: pointer;
 }
 
@@ -209,7 +276,7 @@ span.form-icon i {
 
 .accordion-item {
     border-bottom: 1px solid #f1f1f1 !important;
-    // border-radius: 0 !important;
+    border-radius: 0 !important;
 }
 
 .accordion-item .accordion-button {
@@ -229,16 +296,69 @@ span.form-icon i {
     border-top-right-radius: 1rem;
 }
 
+.accordion-button::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f067";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    background-image: none;
+}
+
 .accordion-button:not(.collapsed) {
-    background: #2575fc;
+    background: $blue;
     color: #fff;
     &::after {
         color: #fff;
     }
 }
 
+#faqAccordion .accordion-button:not(.collapsed)::after {
+    content: "\f068";
+    background-image: none;
+}
+
 .course-item {
     border-radius: 0.25rem;
+    box-shadow: 0 30px 40px 0 rgb(1 11 60 / 6%);
+}
+
+.course-item .course_image {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    -webkit-transition: all .3s ease-out 0s;
+    transition: all .3s ease-out 0s;
+}
+
+.course-item:hover .course_image {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.course-item .course_content {
+    min-height: 170px;
+}
+
+.course-owner img {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 10px 14px 0 rgb(1 11 60 / 10%);
+}
+
+.course_more {
+    padding: 15px 20px 10px;
+    border-top: 1px solid #f0f0f5;
+}
+
+.text-black-500 {
+    color: #53545b;
+}
+
+.yellow-star {
+    color: #ff9415;
 }
 
 .course-item .course-image {
@@ -286,9 +406,11 @@ span.form-icon i {
     background-color: #333333;
 }
 
-.footer_link:hover {
-    color: #2575fc;
+.footer_link {
     transition: all 0.4s ease-in-out;
+    &:hover {
+        color: $blue;
+    }
 }
 
 .footer-sec .newsletter-form .btn {
@@ -311,10 +433,12 @@ span.form-icon i {
     margin-left: 0;
 }
 
-.footer-social .social-link:hover {
-    background: #fff;
-    color: #2575fc;
+.footer-social .social-link {
     transition: all 0.5s ease-in-out;
+    &:hover {
+        background: #fff;
+        color: $blue;
+    }
 }
 
 .copyright {
@@ -373,6 +497,40 @@ span.form-icon i {
 
 .ck.ck-content.ck-editor__editable {
     min-height: 25vh;
+}
+
+.change-password {
+    // border: 1px solid #cbd5e1;
+    // padding: 20px;
+    // box-shadow: 10px 10px 12px -12px rgb(0 0 0 / 41%);
+    // border-radius: 4px;
+}
+
+.my-transaction tr th {
+    font-size: 16px;
+    font-weight: 600;
+    background: #f7f6f6;
+    border-top: 1px solid #e5e7eb;
+}
+
+.my-transaction tr td {
+    font-weight: 500;
+}
+
+.form-check {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.p-0 {
+    // padding: 0;
+}
+
+.new-card {
+    // border-bottom-left-radius: 8px;
+    // border-bottom-right-radius: 8px;
 }
 
 // Course landing page css start

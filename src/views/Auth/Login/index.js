@@ -89,10 +89,10 @@ const Login = () => {
         }));
     };
 
-    // const [passwordShown, setPasswordShown] = useState(false);
-    // const togglePassword = () => {
-    //     setPasswordShown(!passwordShown);
-    //     };
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+        };
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
@@ -119,7 +119,7 @@ const Login = () => {
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
-                                                    src='https://gofundher.com/assets/img/partner/mail.svg'
+                                                    iconClassName={"fas fa-envelope"}
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
@@ -129,10 +129,11 @@ const Login = () => {
                                             <div className='mb-3'>
                                             <InputForms
                                                     className="flex items-center relative"
-                                                    type='password'
+                                                    type={passwordShown ? "text" : "password"}
                                                     name="password"
                                                     value={formState.values.password || ""}
-                                                    src='https://gofundher.com/assets/img/partner/lock.svg'
+                                                    iconClassName={passwordShown ? "fas fa-eye" : "fas fa-eye-slash"}
+                                                    onClick={togglePassword}
                                                     errorMessage={hasError("password") ?
                                                         formState.errors.password[0] : null}
                                                     onChange={handleChange}
@@ -144,7 +145,7 @@ const Login = () => {
                                                     <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
                                                 </div>
                                                 <div className='text-center'>
-                                                    <Link to='forgot-password' className="font-medium">Forgot your Password ?</Link>
+                                                    <Link to='forgot-password' className="forgot-password-link font-medium">Forgot your Password?</Link>
                                                 </div>
                                             </div>
                                         </form>
