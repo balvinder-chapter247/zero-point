@@ -15,13 +15,11 @@ const Home = () => {
             <BannerSection />
 
             <FeaturedSection />
-
-            {/* React counter coding starts here */}
-            <section className="mt-2 py-5" id="secthird">
-                <CounterNumerals DataFake={counterDataFake}/>
+            
+            <section className="py-5 bg-theme-color" >
+                <CounterNumerals DataFake={counterDataFake} />
             </section>
-            {/* React count up ends here */}
-
+          
             <FAQ data={FaqData} />
 
             <section className='sec-padding'>

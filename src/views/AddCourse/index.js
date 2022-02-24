@@ -7,6 +7,7 @@ import InnerPageBanner from '../../components/InnerPageBanner';
 import InputForms from '../../../src/common/inputForm'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import AddInputs from './components/Addinput';
 
 const AddCourse = () => {
 
@@ -198,38 +199,6 @@ const AddCourse = () => {
                                     <div className="">
                                         <label className="block text-gray-700 text-sm font-bold mb-2">
                                             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
-                                                Learning Objectives</span>
-                                        </label>
-                                        <div className="mb-3 items-center">
-                                            <InputForms
-                                            className="block font-medium w-full"
-                                            type='text'
-                                            name="learning_objectives"
-                                            value={formState.values.learning_objectives || ""}
-                                            errorMessage={hasError("learning_objectives") ?
-                                                formState.errors.learning_objectives[0] : null}
-                                            onChange={handleChange}
-                                            placeholder="Enter Objectives"
-                                        />
-                                            {/* <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/> */}
-                                        </div>
-                                        <div className="mb-3 flex items-center">
-                                            <InputForms
-                                            className="block font-medium w-full"
-                                            type='text'
-                                            name="learning_objectives"
-                                            value=""
-                                            placeholder="Enter Objectives"
-                                        />
-                                            {/* <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/> */}
-                                        </div>
-                                        <div className="text-center">
-                                            <button className='bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded uppercase font-medium text-sm'>Add Objective</button>
-                                        </div>
-                                    </div>
-                                    <div className="">
-                                        <label className="block text-gray-700 text-sm font-bold mb-2">
-                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                                 Banner Image</span>
                                         </label>
                                         <input className="form-control
@@ -247,6 +216,17 @@ const AddCourse = () => {
                                             ease-in-out
                                             m-0
                                             focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none" type="file" />
+                                    </div>
+                                    <div className="">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                Learning Objectives</span>
+                                        </label>
+                                        <div className="mb-3 items-center">
+                                          <AddInputs/>
+                                            {/* <img className="ml-2 w-4" src="https://img.icons8.com/material-sharp/24/000000/multiply.png"/> */}
+                                        </div>
+                                       
                                     </div>
                                     <div className='col-span-3'>
                                         <label className="block text-gray-700 text-sm font-bold mb-2">

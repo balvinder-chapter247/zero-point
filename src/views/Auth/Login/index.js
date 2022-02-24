@@ -157,7 +157,7 @@ const Login = () => {
                     </div>
                 </div>
                 <ToastContainer
-                    position="top-right"
+                    position="left-bottom"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
@@ -168,7 +168,7 @@ const Login = () => {
                     pauseOnHover
                 />
                 {/* Same as */}
-                <ToastContainer />
+           
             </main>
         </>
     )

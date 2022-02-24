@@ -11,10 +11,11 @@ const CounterNumbers=(props)=>
                     <CountUp start={0} end={props.sending} delay={0}>
                         {({ countUpRef,start }) => (
                             <VisibilitySensor onChange={start} delayedCall={true}>
-                                <span ref={countUpRef} />
+                                <span ref={countUpRef}  />
                             </VisibilitySensor>
                         )}
                     </CountUp>
+                    <span className='pl-2 '>+</span>
             </h2>
         </>
     )

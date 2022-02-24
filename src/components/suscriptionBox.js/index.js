@@ -16,6 +16,8 @@ const SuscriptionBox = () => {
 
     ///For validating error everytime change in inputs
     useEffect(() => {
+       if(formState.values.email)
+       {
         const errors = validate(formState.values, SuscriptionSchema);
         setFormState((formState) => ({
             ...formState,
@@ -23,6 +25,7 @@ const SuscriptionBox = () => {
             errors: errors || {},
         }));
         console.log(formState.values)
+       }
     }, [formState.values]);
 
     ///Handle change for storing input values to state.
@@ -78,12 +81,15 @@ const SuscriptionBox = () => {
             }
 
         }
+        console.log(formState,"check this lkj")
         setFormState((formState) => ({
             ...formState,
+            values:{},
             touched: {
                 ...formState.touched,
-                ...formState.errors,
+               
             },
+            errors:{},
         }));
     };
 
@@ -120,7 +126,7 @@ const SuscriptionBox = () => {
                 </div>
             </form>
             <ToastContainer
-                position="top-right"
+                position="bottom-left"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -131,7 +137,6 @@ const SuscriptionBox = () => {
                 pauseOnHover
             />
             {/* Same as */}
-            <ToastContainer />
         </>
     )
 }

@@ -114,7 +114,7 @@ const  Header = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="#"
+                            to="/add-cart"
                             className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
                           >
                             <i class="fas fa-shopping-cart"></i> Cart

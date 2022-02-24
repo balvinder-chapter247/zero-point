@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import InnerPageBanner from '../../components/InnerPageBanner';
+import Pagination from '../../components/Pagination';
 import coursesItem from './DataFake/CoursesItem';
 import  './MyCourse.css'
 import MyCourseList from './MyCoursesList';
@@ -48,23 +49,7 @@ const MyCourses =()=>
                             )
                         }
                     </div> */}
-                    <div className="flex items-center space-x-1 pt-10 justify-center">
-                        <Link to="" className="flex items-center px-4 py-2 text-gray-500 bg-gray-300 rounded-md">
-                            Previous
-                        </Link>
-                        <Link to="" className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-500 hover:text-white">
-                            1
-                        </Link>
-                        <Link to="" className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-500 hover:text-white">
-                            2
-                        </Link>
-                        <Link to="" className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-500 hover:text-white">
-                            3
-                        </Link>
-                        <Link to="" className="px-4 py-2 text-gray-500 bg-gray-300 rounded-md hover:bg-blue-500 hover:text-white">
-                            Next
-                        </Link>
-                    </div>
+                   <Pagination/>
                 </div>
             </section>
         </main>

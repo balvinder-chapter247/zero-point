@@ -27,7 +27,7 @@ h4,
 h5 {
     font-weight: 600;
     margin-bottom: 1rem;
-    font-family: 'Heebo', sans-serif;
+    font-family: "Heebo", sans-serif;
 }
 
 p {
@@ -72,7 +72,7 @@ p {
     border-top: 1px solid #0000001c;
     &:hover {
         background: transparent !important;
-        color: #2575fc !important;
+        color: #0b2bc9 !important;
     }
 }
 
@@ -96,7 +96,7 @@ p {
 }
 
 .top-header .nav-link:hover {
-    color: #2575fc;
+    color: #0b2bc9;
     transition: all 0.4s ease-in-out;
 }
 
@@ -110,14 +110,14 @@ p {
 }
 
 .auth-banner {
-    background-image: url('https://image.freepik.com/free-photo/young-happy-woman-golden-field-sunset_158595-5693.jpg');
+    background-image: url("https://image.freepik.com/free-photo/young-happy-woman-golden-field-sunset_158595-5693.jpg");
     background-size: cover;
     background-position: center;
     min-height: 100vh;
 }
 
 .auth-banner::before {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0.6);
     bottom: 0;
     content: "";
     left: 0;
@@ -229,14 +229,14 @@ span.form-icon i {
 }
 
 .home-topsec {
-    background-image: url('https://image.freepik.com/free-photo/beautiful-day-campus_329181-3042.jpg');
+    background-image: url("https://image.freepik.com/free-photo/beautiful-day-campus_329181-3042.jpg");
     // background-image: url('https://image.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg');
     min-height: 100vh;
     background-size: cover;
 }
 
 .home-topsec::before {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0.6);
     bottom: 0;
     content: "";
     left: 0;
@@ -327,8 +327,8 @@ span.form-icon i {
 .course-item .course_image {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    -webkit-transition: all .3s ease-out 0s;
-    transition: all .3s ease-out 0s;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
 }
 
 .course-item:hover .course_image {
@@ -447,14 +447,14 @@ span.form-icon i {
 
 .inner_page_breadcrumb {
     // background-image: url('https://image.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg');
-    background-image: url('https://image.freepik.com/free-photo/studio-shot-young-fit-women-doing-yoga-exercises_155003-14213.jpg');
+    background-image: url("https://image.freepik.com/free-photo/studio-shot-young-fit-women-doing-yoga-exercises_155003-14213.jpg");
     min-height: 60vh;
     background-size: cover;
     background-position: center;
 }
 
 .inner_page_breadcrumb::before {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0.6);
     bottom: 0;
     content: "";
     left: 0;
@@ -571,34 +571,34 @@ span.form-icon i {
 }
 
 .price-courses li span {
-    color: #5B5F64;
+    color: #5b5f64;
 }
 
 .course-box .price {
-    border-bottom: 1px solid #E8ECF0;
+    border-bottom: 1px solid #e8ecf0;
 }
 
 .course-box .price li:first-child {
     font-size: 30px;
     font-weight: 700;
-    color: #3270FC;
+    color: #3270fc;
     line-height: 1;
 }
 
 .course-box .price li:nth-child(3) {
-    color: #D2093C;
+    color: #d2093c;
     background: rgba(210, 9, 60, 0.06);
 }
 
 .share i {
-    color: #3270FC;
+    color: #3270fc;
     border: 2px solid rgba(15, 18, 22, 0.1);
     padding: 14px;
     border-radius: 50%;
     height: 45px;
     width: 45px;
     &:hover {
-        background-color: #3270FC;
+        background-color: #3270fc;
         color: #fff;
         cursor: pointer;
     }
@@ -630,7 +630,7 @@ span.form-icon i {
 .list-item li {
     padding: 5px 0;
     & a:hover {
-        color: #2575fc;
+        color: #0b2bc9;
         transition: all 0.4s ease-in-out;
     }
 }
@@ -642,4 +642,43 @@ span.form-icon i {
         width: 24px;
         text-align: center;
     }
+}
+.hoverZoomInOut {
+    transition: all 0.3s ease-out 0s;
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+}
+.ScrollUpButton__Container 
+{
+    background-color: #0b2bc9 !important;
+}
+.backToTopButton
+{
+    background-color:  #0b2bc9;
+    right: 40px;
+    bottom: 40px;
+    position: fixed;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 7px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+    box-shadow: 0 9px 25px 0 rgb(132 128 177 / 28%);
+    border: none;
+    outline: none;
+}
+.backToTopButton svg {
+    fill: white;
+}
+.delete-button
+{
+    color:red;
+    cursor:pointer
+    
 }

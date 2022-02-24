@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Newsletter from '../../components/Newsletter/index.js'
 import SuscriptionBox from '../../components/suscriptionBox.js'
+import ScrollToTop from "react-scroll-to-top";
+import img from '../../assets/Images/backtoTop.jpg'
 
 const Footer = () => {
     return (
         <>
-            {/* <Newsletter /> */}
+            <ScrollToTop smooth className='backToTopButton' svgPath='M488.832 344.32l-339.84 356.672a32 32 0 000 44.16l.384.384a29.44 29.44 0 0042.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0042.688 0l.384-.384a32 32 0 000-44.16L535.168 344.32a32 32 0 00-46.336 0z' viewBox='0 0 1024 1024'/>
             <footer className="footer-sec text-center lg:text-left text-white">
                 <div className='container px-4 mx-auto'>
                     <div className="py-10 text-center md:text-left">

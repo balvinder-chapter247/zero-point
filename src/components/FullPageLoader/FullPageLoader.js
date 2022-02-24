@@ -4,7 +4,7 @@ import HashLoader from "react-spinners/HashLoader";
 const FullPageLoader = (props) => {
     const {isFullPage}=props
     let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("#3B82F6");
+    let [color, setColor] = useState("#0b2bc9");
     return (
         <>
             <div className={isFullPage ? "fullPageLoader" : "normalLoader"}>

@@ -1,19 +1,23 @@
 const counterDataFake = [
     {
        title : "Total Users",
-       quantity : "250"
+       quantity : "250",
+       icons: "fa-solid fa-users"
     },
     {
         title : "Total Courses",
-        quantity : "5000"
+        quantity : "5000",
+        icons:"fa-solid fa-graduation-cap"
     },
     {
-        title : "Global Ranking",
-        quantity : "7"
+        title : "Global Rating",
+        quantity : "88",
+        icons:"fa-solid fa-trophy"
     },
     {
         title : "Connected Countries",
-        quantity : "20"
+        quantity : "20",
+        icons:"fa-solid fa-earth-americas"
     },
 ];
 export default counterDataFake
