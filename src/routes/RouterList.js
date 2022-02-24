@@ -11,6 +11,7 @@ const Login=React.lazy(() => import('../views/Auth/Login'));
 const ForgotPassword=React.lazy(() => import('../views/Auth/ForgotPassword'));
 const Dashboard=React.lazy(() => import('../views/Dashboard'));
 const AddCart=React.lazy(() => import('../views/AddCard'));
+const CourseLanding=React.lazy(() => import('../views/CourseLanding'));
 
 export const restrictRoutes = [
   {
@@ -100,5 +101,12 @@ export const privateRoutes = [
     component:AddCart,
     layout: Layout,
   },
- 
+  {
+    key: 'course-landing',
+    path: AppRoutes.COURSE_LANDING,
+    exact: true,
+    name: 'course-landing',
+    component: CourseLanding,
+    layout: Layout,
+  },
 ];

@@ -25,7 +25,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 1rem;
     font-family: 'Heebo', sans-serif;
 }
@@ -224,6 +224,19 @@ span.form-icon i {
     font-weight: 500;
 }
 
+.accordion-item:first-of-type {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #2575fc;
+    color: #fff;
+    &::after {
+        color: #fff;
+    }
+}
+
 .course-item {
     border-radius: 0.25rem;
 }
@@ -360,4 +373,115 @@ span.form-icon i {
 
 .ck.ck-content.ck-editor__editable {
     min-height: 25vh;
+}
+
+// Course landing page css start
+.course-tab .nav-link {
+    font-size: 14px;
+}
+
+.course-tab .nav-link.active {
+    color: #fff;
+    background-color: #3b82f6;
+}
+
+.course-box {
+    box-shadow: 0px 30px 50px 0px rgb(1 11 60 / 10%);
+    border-radius: 6px;
+}
+
+.check-list li {
+    position: relative;
+    padding: 5px 0 5px 15px;
+    &:before {
+        content: "\f00c";
+        font-family: FontAwesome;
+        position: absolute;
+        left: -10px;
+        top: 7px;
+        color: #3a3a3a;
+        font-size: 16px;
+    }
+}
+
+.price-courses li {
+    padding: 10px 0;
+    box-shadow: 0px 1px 0px #e8ecf0;
+    & i {
+        width: 24px;
+    }
+}
+
+.price-courses li span {
+    color: #5B5F64;
+}
+
+.course-box .price {
+    border-bottom: 1px solid #E8ECF0;
+}
+
+.course-box .price li:first-child {
+    font-size: 30px;
+    font-weight: 700;
+    color: #3270FC;
+    line-height: 1;
+}
+
+.course-box .price li:nth-child(3) {
+    color: #D2093C;
+    background: rgba(210, 9, 60, 0.06);
+}
+
+.share i {
+    color: #3270FC;
+    border: 2px solid rgba(15, 18, 22, 0.1);
+    padding: 14px;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    &:hover {
+        background-color: #3270FC;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.review-item {
+    padding: 20px 30px 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 48, 110, 0.1);
+    border-radius: 6px;
+}
+
+.review-image {
+    min-width: 4.5rem;
+}
+
+.back-ratings {
+    color: #ff9415;
+}
+
+.ratings i {
+    color: #ff9415;
+    &:last-child {
+        color: #ccc;
+    }
+}
+
+.list-item li {
+    padding: 5px 0;
+    & a:hover {
+        color: #2575fc;
+        transition: all 0.4s ease-in-out;
+    }
+}
+
+.overview-item ul li {
+    padding: 3px 0;
+    font-size: 14px;
+    & i {
+        width: 24px;
+        text-align: center;
+    }
 }
