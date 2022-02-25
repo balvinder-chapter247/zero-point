@@ -4,7 +4,7 @@
     max-width: 1140px;
 }
 
-@media (min-width:1400px) {
+@media (min-width: 1400px) {
     .container {
         max-width: 1200px;
     }
@@ -680,7 +680,7 @@ span.form-icon i {
     border-bottom: 1px solid #e8ecf0;
 }
 .course-sidebox .price {
-    border-bottom: 1px solid #E8ECF0;
+    border-bottom: 1px solid #e8ecf0;
 }
 
 .course-sidebox .price li:first-child {
@@ -694,7 +694,7 @@ span.form-icon i {
     color: #d2093c;
 }
 .course-sidebox .price li:nth-child(3) {
-    color: #D2093C;
+    color: #d2093c;
     background: rgba(210, 9, 60, 0.06);
 }
 
@@ -789,17 +789,17 @@ span.form-icon i {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s ease-in-out;
-    box-shadow: 0 9px 25px 0 rgb(132 128 177 / 28%);
+    transition:  0.25s ease-in-out;
+    box-shadow: 0 9px 25px 0 rgba(128, 124, 173, 0.28);
     border: none;
     outline: none;
     &:hover {
-        border-style:  solid;
+        border-style: solid;
         border-color: #0b2bc9;
         background-color: white;
     }
-    &:hover  .backToTopButton svg {
-       fill: white !important;
+    &:hover svg {
+        fill: #0b2bc9 !important;
     }
 }
 .backToTopButton svg {
@@ -810,11 +810,26 @@ span.form-icon i {
     color: red;
     cursor: pointer;
 }
-.width-100 .modified
-{
+.width-100 .modified {
     width: 100% !important;
 }
-.remove_div_input
-{
+.remove_div_input {
     padding-left: 8px;
+}
+.color-text-theme
+{
+    color:#0b2bc9
+}
+
+.negative-margin-top
+{
+    margin-top: 1px;
+}
+.disabled
+{
+    cursor:not-allowed;
+    background-color:rgb(207, 207, 207);
+    &:hover{
+        background-color: rgb(207, 207, 207);
+    }
 }

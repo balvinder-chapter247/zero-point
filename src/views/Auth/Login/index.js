@@ -88,11 +88,11 @@ const Login = () => {
             },
         }));
     };
-
+  
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
-        };
+    };
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
@@ -127,7 +127,7 @@ const Login = () => {
                                                 />
                                             </div>
                                             <div className='mb-3'>
-                                            <InputForms
+                                                <InputForms
                                                     className="flex items-center relative"
                                                     type={passwordShown ? "text" : "password"}
                                                     name="password"
@@ -149,7 +149,7 @@ const Login = () => {
                                                 </div>
                                             </div>
                                         </form>
-                                       <SocialLinkesIcons/>
+                                        <SocialLinkesIcons />
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@ const Login = () => {
                     pauseOnHover
                 />
                 {/* Same as */}
-           
+
             </main>
         </>
     )

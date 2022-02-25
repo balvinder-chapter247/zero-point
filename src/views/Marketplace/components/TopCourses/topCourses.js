@@ -1,5 +1,5 @@
 const TopCourses = (TopCoursesData) => {
-    const {data}=TopCoursesData
+    const {data} = TopCoursesData
     return (
         <>
             <div className="top-courses">
