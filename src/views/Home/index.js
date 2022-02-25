@@ -8,8 +8,9 @@ import FeaturedSection from './components/FeaturedSection';
 import FullPageLoader from '../../components/FullPageLoader/FullPageLoader';
 import CounterNumerals from './components/counterNumeral'
 import counterDataFake from './DataFake/CouterData';
-const Home = () => {
 
+ 
+const Home = () => {
     return (
         <>
             <BannerSection />
@@ -19,9 +20,7 @@ const Home = () => {
             <section className="py-5 bg-theme-color" >
                 <CounterNumerals DataFake={counterDataFake} />
             </section>
-          
-            <FAQ data={FaqData} />
-
+            
             <section className='sec-padding'>
                 <div className="container mx-auto px-4">
                     <div className='grid grid-cols-12'>
@@ -32,6 +31,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+          
+            <FAQ data={FaqData} />
         </>
     )
 }

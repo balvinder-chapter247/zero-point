@@ -89,11 +89,11 @@ const AddCourse = () => {
                     <div className="course-header border-b">
                         <div className="container mx-auto px-4 flex items-center justify-between pb-4">
                             <h2 className="font-bold text-3xl mb-0">Add Course</h2>
-                            <button className="px-4 py-3 font-semibold text-sm bg-blue-500 hover:bg-blue-700 text-white rounded shadow-sm">Edit in Builder</button>
+                            <button className="px-4 py-3 font-semibold text-sm bg-theme-color hover:bg-blue-700 text-white rounded shadow-sm">Edit in Builder</button>
                         </div>
                     </div>
 
-                    <div className="container m-auto px-4">
+                    <div className="container m-auto ">
                         <div className="w-full">
                             <div className='bg-white p-4 pb-8 mt-6 rounded-lg'>
                                 <form onSubmit={handleSubmit}>
@@ -111,18 +111,18 @@ const AddCourse = () => {
                                                 errorMessage={hasError("title") ?
                                                     formState.errors.title[0] : null}
                                                 onChange={handleChange}
-                                                placeholder="Enter Title"
+                                                placeholder=""
                                             />
                                         </div>
                                         <div className="">
                                             <label className="block text-gray-700 font-bold mb-2">Sub Title</label>
                                             <InputForms
-                                                className="block font-medium"
+                                                className="block font-medium mb-0"
                                                 type='text'
                                                 name="sub_title"
                                                 value={formState.values.sub_title || ""}
                                                 onChange={handleChange}
-                                                placeholder="Enter Sub Title"
+                                                placeholder=""
                                             />
                                         </div>
                                         <div className="">
@@ -192,7 +192,7 @@ const AddCourse = () => {
                                                 errorMessage={hasError("price") ?
                                                     formState.errors.price[0] : null}
                                                 onChange={handleChange}
-                                                placeholder="$99.95"
+                                                placeholder=""
                                             />
                                         </div>
 
@@ -220,7 +220,7 @@ const AddCourse = () => {
                                         {/* Learning objective section starts here */}
                                         <AddInputs />
                                         {/* Learning objective section end here */}
-                                        <div className='col-span-3'>
+                                        <div className='col-span-3 mt-2'>
                                             <label className="block text-gray-700 text-sm font-bold mb-2">
                                                 <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                                     Details</span>
@@ -228,8 +228,8 @@ const AddCourse = () => {
                                             <CKEditor
                                                 editor={ClassicEditor}
                                                 // data="Enter Description"
-                                                placeholder="Enter Description"
-                                                config={{ placeholder: 'Enter Description' }}
+                                               
+                                                
                                                 name='details'
                                                 value={formState.values.details || ""}
                                                 errorMessage={hasError("details") ?
@@ -255,7 +255,7 @@ const AddCourse = () => {
                                             />
                                         </div>
                                     </div>
-                                    <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
+                                    <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
                                         Submit</button>
                                 </form>
                             </div>

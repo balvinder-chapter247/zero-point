@@ -1,7 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import GoogleLogin from 'react-google-login';
+import { useHistory } from 'react-router-dom';
+
 const SocialLinkesIcons = () => {
+    useEffect(() => {
+        responseGoogle()
+    }, [])
+    const history = useHistory()
+    const responseGoogle = response => {
+        if (response && response.tokenObj) {
+            const token = JSON.stringify(response.tokenObj.access_token)
+            localStorage.setItem("token", token);
+            const {givenName , familyName ,email ,imageUrl} = response.profileObj
+            const userValues = [
+                {
+                    "first_name":givenName,
+                    "last_name": familyName,
+                    "email": email,
+                    "password": "N.A",
+                    "confirm_password": "N.A",
+                    "imageUrl":imageUrl
+                }
+            ]
+            localStorage.setItem("registeredUsers",JSON.stringify(userValues))
+            history.push('/dashboard')
+        }
+    };
     return (
         <>
+            <GoogleLogin
+                clientId=""
+                buttonText="Login with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy="single_host_origin"
+            />
             <div className='text-center mb-4 mt-6'>
                 <h6 className='font-medium'>Login with Social</h6>
             </div>

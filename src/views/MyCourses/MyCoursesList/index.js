@@ -25,7 +25,7 @@ const MyCourseList = (myCourseData) => {
                                             <img className='w-10 h-10 rounded-full mr-2 cover object-cover object-top' src={courseList.courseOwnerProfile} />
                                             <span>{courseList.courseOwner}</span>
                                         </div>
-                                        <button className="absolute left-0 right-0  max-w-max bottom-4 m-auto bg-blue-500 hover:bg-blue-700 text-white font-semibold  py-2 px-4 rounded">
+                                        <button className="absolute left-0 right-0  max-w-max bottom-4 m-auto bg-theme-color hover:bg-blue-700 text-white font-semibold  py-2 px-4 rounded">
                                         {courseList.courseButton}</button>
                                     </div>
                                 </div>

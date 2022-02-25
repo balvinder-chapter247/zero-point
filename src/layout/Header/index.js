@@ -4,6 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import navigation from './Navigation/navigation'
+import NoDp from '../../assets/Images/TopBar/noProfile.webp'
 
 const classNames =(...classes)=>
 {
@@ -15,12 +16,19 @@ const  Header = () => {
   const history = useHistory()
 
   const [token, setToken] = useState("");
-
+  const [profileImage , setProfileImage] = useState("")
   useEffect(() => {
 
     const token = localStorage.getItem("token");
+    const loginDetails = JSON.parse(localStorage.getItem("registeredUsers"))
+    console.log(loginDetails)
     if(token){
       setToken(token)
+      if(loginDetails && loginDetails.length)
+      {
+        setProfileImage(loginDetails[0].imageUrl)
+        // debugger
+      }
     }
     }, []);
 
@@ -78,9 +86,10 @@ const  Header = () => {
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
+                      
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={profileImage ? profileImage : NoDp}
                         alt=""
                       />
                     </Menu.Button>
@@ -131,29 +140,8 @@ const  Header = () => {
                           </Link>
                         )}
                       </Menu.Item>
-                      {/* <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="my-courses"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            My Courses
-                          </Link>
-                        )}
-                      </Menu.Item> */}
+            
                     </div>
-                    {/* <div class="user-logout py-1.5">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            onClick={handleLogout}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                          <i class="fas fa-sign-out-alt"></i>  Sign out
-                          </Link>
-                        )}
-                      </Menu.Item>
-				    				</div> */}
                     </Menu.Items>
                   </Transition>
                 </Menu>
