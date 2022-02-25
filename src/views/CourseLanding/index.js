@@ -45,7 +45,7 @@ const CourseLanding = () => {
                   </div>
                 </div>
                 <img src="./images/course-details-1.jpg" className='rounded' alt='' />
-                <div className='pt-12'>
+                <div className='pt-6'>
                   <ul className="course-tab nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 mb-4 bg-white py-3 rounded" id="tabs-tab"
                     role="tablist">
                     <li className="nav-item" role="presentation">
@@ -65,7 +65,7 @@ const CourseLanding = () => {
                       " id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
                         aria-selected="true"><i class="fas fa-layer-group pr-1"></i> Description</a>
                     </li>
-                    <li className="nav-item" role="presentation">
+                    {/* <li className="nav-item" role="presentation">
                       <a href="#tabs-profile" className="
                         nav-link
                         block
@@ -80,7 +80,7 @@ const CourseLanding = () => {
                         focus:border-transparent
                       " id="tabs-curriculum-tab" data-bs-toggle="pill" data-bs-target="#tabs-curriculum" role="tab"
                         aria-controls="tabs-curriculum" aria-selected="false"><i className="fa fa-book pr-1"></i> Curriculum</a>
-                    </li>
+                    </li> */}
                     <li className="nav-item" role="presentation">
                       <a href="#tabs-profile" className="
                         nav-link
@@ -116,36 +116,106 @@ const CourseLanding = () => {
                   </ul>
                   <div className="tab-content" id="tabs-tabContent">
                     <div className="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
-                      <div className='bg-white p-6 pt-4 course-box'>
-                        <h2>Course Overview</h2>
-                        <h5>Course Description</h5>
+                      <div className='bg-white course-box'>
+                        <h4>Course Overview</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         <h5 className='pt-4'>What you'll learn</h5>
-                        <ul className='columns-2 check-list pl-5'>
-                          <li>Become a UI designer.</li>
-                          <li>Become a UX designer.</li>
-                          <li>Build & test a full website design.</li>
-                          <li>Build & test a full mobile app.</li>
-                          <li>Learn to design websites & mobile phone apps.</li>
-                          <li>You'll learn how to choose colors.</li>
-                          <li>Prototype your designs with interactions.</li>
-                          <li>Export production ready assets.</li>
-                          <li>All the techniques used by UX professionals</li>
-                          <li>You will be able to add UX designer to your CV</li>
+                        <ul className='columns-2 check-list'>
+                          <li className='flex items-center'>
+                          Become a UI designer.
+                          </li>
+                          <li className='flex items-center'>
+                          Become a UX designer.</li>
+                          <li className='flex items-center'>
+                          Build & test a full website design.</li>
+                          <li className='flex items-center'>
+                          Build & test a full mobile app.</li>
+                          <li className='flex items-center'>
+                          Learn to design websites & mobile phone apps.</li>
+                          <li className='flex items-center'>
+                          You'll learn how to choose colors.</li>
+                          <li className='flex items-center'>
+                          Prototype your designs with interactions.</li>
+                          <li className='flex items-center'>
+                          Export production ready assets.</li>
+                          <li className='flex items-center'>
+                          All the techniques used by UX professionals</li>
+                          <li className='flex items-center'>
+                          You will be able to add UX designer to your CV
+                          </li>
                         </ul>
                       </div>
                     </div>
-                    <div className="tab-pane fade" id="tabs-curriculum" role="tabpanel" aria-labelledby="tabs-curriculum-tab">
+                    {/* <div className="tab-pane fade" id="tabs-curriculum" role="tabpanel" aria-labelledby="tabs-curriculum-tab">
                       <div className='bg-white p-6 pt-4 course-box mt-4'>
                         <h2>Curriculum</h2>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                      <div className='bg-white p-6 pt-4 course-box mt-4'>
-                        <h2>Reviews</h2>
+                      <div className='bg-white course-box mt-4'>
+                        <h4 className='mb-0'>Reviews</h4>
+                        <p>
+                        Gosh william I'm telling crikey burke I don't want no agro A bit of how's your father bugger all mate off his nut that, what a plonker cuppa owt to do
+                        </p>
+                        <div className='course_review_rating grid grid-cols-6 bg-gray-100 rounded mt-4 mb-12'>
+                          <div className='course_rating text-center col-span-2'>
+                            <h2 className='mb-0'>4.5</h2>
+                            <ul className="rating text-yellow flex justify-center">
+                              <li><i className='fa fa-star'></i></li>
+                              <li><i className='fa fa-star'></i></li>
+                              <li><i className='fa fa-star'></i></li>
+                              <li><i className='fa fa-star'></i></li>
+                              <li><i className='fa fa-star'></i></li>
+                            </ul>
+                            <p>4.5 Ratings</p>
+                          </div>
+                          <div className='col-span-4'>
+                            <div className='course_detailed_rating'>
+                              <h5>Detailed Rating</h5>
+                              <ul>
+                                <li className='flex items-center mb-1'>
+                                  <div className='review_text'>5 stars</div>
+                                    <div class="w-full bg-gray-200 h-1 rounded">
+                                      <div class="bg-blue-600 h-1 rounded" style={{width: "100%"}}></div>
+                                    </div>
+                                  <div className='ml-4'>100%</div>
+                                </li>
+                                <li className='flex items-center mb-1'>
+                                  <div className='review_text'>4 stars</div>
+                                    <div class="w-full bg-gray-200 h-1 rounded">
+                                      <div class="bg-blue-600 h-1 rounded" style={{width: "75%"}}></div>
+                                    </div>
+                                  <div className='ml-4'>75%</div>
+                                </li>
+                                <li className='flex items-center mb-1'>
+                                  <div className='review_text'>3 stars</div>
+                                    <div class="w-full bg-gray-200 h-1 rounded">
+                                      <div class="bg-blue-600 h-1 rounded" style={{width: "0%"}}></div>
+                                    </div>
+                                  <div className='ml-4'>0%</div>
+                                </li>
+                                <li className='flex items-center mb-1'>
+                                  <div className='review_text'>2 stars</div>
+                                    <div class="w-full bg-gray-200 h-1 rounded">
+                                      <div class="bg-blue-600 h-1 rounded" style={{width: "0%"}}></div>
+                                    </div>
+                                  <div className='ml-4'>0%</div>
+                                </li>
+                                <li className='flex items-center mb-1'>
+                                  <div className='review_text'>1 stars</div>
+                                    <div class="w-full bg-gray-200 h-1 rounded">
+                                      <div class="bg-blue-600 h-1 rounded" style={{width: "0%"}}></div>
+                                    </div>
+                                  <div className='ml-4'>0%</div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          
+                        </div>
                         <div className='review-item flex items-center mb-4'>
-                          <div className='review-image w-20'>
+                          <div className='review-image w-20 mr-3'>
                             <img className="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" />
                           </div>
                           <div className=''>
@@ -157,11 +227,11 @@ const CourseLanding = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
                             <h5 className='name mb-0'>Jassica Miller <span className="designation text-sm font-normal">July 8, 2022 at 7:38 am</span></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                           </div>
                         </div>
                         <div className='review-item flex items-center mb-4'>
-                          <div className='review-image w-20'>
+                          <div className='review-image w-20 mr-3'>
                             <img className="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" />
                           </div>
                           <div className=''>
@@ -173,7 +243,7 @@ const CourseLanding = () => {
                               <i className="fa fa-star" aria-hidden="true"></i>
                             </div>
                             <h5 className='name mb-0'>Jassica Miller <span className="designation text-sm font-normal">July 8, 2022 at 7:38 am</span></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                           </div>
                         </div>
                         <div className='mt-8'>
@@ -246,14 +316,14 @@ const CourseLanding = () => {
                               placeholder="Your message"
                             ></textarea>
                             </div>
-                            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-4 uppercase py-3 px-8 rounded max-w-max">Submit</button>
+                            <button type="submit" className="blue-btn text-white font-semibold mt-4 uppercase py-3 px-8 rounded max-w-max">Submit Review</button>
                             </div>
                           </form>
                         </div>
                       </div>
                     </div>
                     <div className="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                      <div className='bg-white course-box p-6 pt-4'>
+                      <div className='bg-white course-box'>
                         <h5 className='mb-0'>Jassica Miller</h5>
                         <p>GameDev.tv Founder :: Entrepreneur :: Passionate Teacher</p>
                         <div className='author-overview flex items-center'>
@@ -262,10 +332,10 @@ const CourseLanding = () => {
                           </div>
                           <div className='overview-item'>
                             <ul>
-                              <li><i className='fa fa-star'></i> 4.7 Instructor Rating</li>
-                              <li><i className="fa fa-bookmark"></i> 114,059 Reviews</li>
-                              <li><i className="fa fa-users"></i> 904,190 Students</li>
-                              <li><i className="fa fa-play-circle"></i> 14 Courses</li>
+                              <li><i className='fa fa-star text-yellow'></i> 4.7 Instructor Rating</li>
+                              <li><i className="fa fa-bookmark text-blue"></i> 114,059 Reviews</li>
+                              <li><i className="fa fa-users text-blue"></i> 904,190 Students</li>
+                              <li><i className="fa fa-play-circle text-blue"></i> 14 Courses</li>
                             </ul>
                           </div>
                         </div>
@@ -281,7 +351,7 @@ const CourseLanding = () => {
                     </div>
                   </div>
                 </div>
-                <div className='bg-white p-4 mt-4 rounded'>
+                <div className='bg-white pt-12 mt-4 rounded'>
                 <h2 className='mb-0'>Related Courses</h2>
                   <RelatedCourses data={RelatedCourseItem} />
                 </div>
@@ -303,7 +373,7 @@ const CourseLanding = () => {
                   <li><i className="fa fa-map"></i> Language <span className='float-right'> English</span></li>
                 </ul>
                 <div className='px-8 pb-8'>
-                  <Link to="" className="bg-blue-500 hover:bg-blue-700 text-white font-semibold uppercase py-3 px-8 rounded block text-center">
+                  <Link to="" className="blue-btn text-white font-semibold uppercase py-3 px-8 rounded block text-center">
                   Add to cart </Link>
                   <div className='share font-medium text-center mt-4 flex items-center justify-center'>
                     Share this course
@@ -316,47 +386,53 @@ const CourseLanding = () => {
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-1.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating yellow-star flex inline-block">
+                    <ul className="rating text-yellow flex inline-block">
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                     </ul>
-                    <div className='course_name font-medium text-sm'>Development</div>
+                    <div className='font-medium text-sm'>
+                    <Link to="#" className='course_name'>Development</Link>
+                    </div>
                     <div className='course_price font-medium text-sm'>$54.00</div>
                   </div>
                 </div>
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-2.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating yellow-star flex inline-block">
+                    <ul className="rating text-yellow flex inline-block">
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                     </ul>
-                    <div className='course_name font-medium text-sm'>Data Science</div>
+                    <div className='font-medium text-sm'>
+                    <Link to="#" className='course_name'>Data Science</Link>
+                    </div>
                     <div className='course_price font-medium text-sm'>$74.00</div>
                   </div>
                 </div>
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-3.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating yellow-star flex inline-block">
+                    <ul className="rating text-yellow flex inline-block">
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                       <li><i className='fa fa-star'></i></li>
                     </ul>
-                    <div className='course_name font-medium text-sm'>UI Design</div>
+                    <div className='font-medium text-sm'>
+                    <Link to="#" className='course_name'>UI Design</Link>
+                    </div>
                     <div className='course_price font-medium text-sm'>Free</div>
                   </div>
                 </div>
               </div>
-              <div className='bg-white course-box  p-8 mt-4'>
+              {/* <div className='bg-white course-box  p-8 mt-4'>
                 <h5>Course categories</h5>
                 <ul className='list-item'>
                   <li><Link to="">Art & Design (6)</Link></li>
@@ -369,7 +445,7 @@ const CourseLanding = () => {
                   <li><Link to="">Material Design (2)</Link></li>
                   <li><Link to="">Technology (7)</Link></li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

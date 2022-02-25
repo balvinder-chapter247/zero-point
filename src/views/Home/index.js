@@ -25,7 +25,7 @@ const Home = () => {
             <section className='sec-padding'>
                 <div className="container mx-auto px-4">
                     <div className='grid grid-cols-12'>
-                        <div className='col-span-10 col-start-2'>
+                        <div className='col-span-12'>
                             <h3 className="font-bold text-2xl">Newest Courses</h3>
                             <NewCourses data={NewestCourse} />
                         </div>

@@ -23,7 +23,7 @@ const NewCourses = (newCourseData) => {
                                                     <span className='pl-2'>22 Lesson</span>
                                                 </div>
                                                 <div className='flex items-center'>
-                                                    <i className='fa fa-star yellow-star'></i>
+                                                    <i className='fa fa-star text-yellow'></i>
                                                     <span className='pl-1'>4.5 (42)</span>
                                                 </div>
                                             </div>

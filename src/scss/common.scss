@@ -10,6 +10,10 @@
     }
 }
 
+body {
+    font-family: 'Heebo', sans-serif;
+}
+
 h1 {
     font-size: 2.5rem;
 }
@@ -270,7 +274,7 @@ span.form-icon i {
 }
 
 .featured-image img {
-    height: 300px;
+    height: 320px;
 }
 
 .bg-light-gray {
@@ -416,7 +420,11 @@ span.form-icon i {
     color: #53545b;
 }
 
-.yellow-star {
+.text-blue {
+    color: #0b2bc9;
+}
+
+.text-yellow {
     color: #ff9415;
 }
 
@@ -640,6 +648,25 @@ span.form-icon i {
     background-color: $blue;
 }
 
+.course_rating {
+    padding: 40px 0px;
+    border-right: 3px solid #fff;
+}
+
+.course_rating h2 {
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.course_detailed_rating {
+    padding: 20px 30px;
+    max-width: 92%;
+}
+
+.course_detailed_rating .review_text {
+    min-width: 60px;
+}
+
 .course-sidebox {
     box-shadow: 0 30px 50px 0 rgb(1 11 60 / 10%);
     // box-shadow: 0px 30px 50px 0px rgb(1 11 60 / 10%);
@@ -648,15 +675,17 @@ span.form-icon i {
 
 .check-list li {
     position: relative;
-    padding: 5px 0 5px 15px;
+    padding: 5px 0 5px 30px;
     &:before {
-        content: "\f00c";
-        font-family: FontAwesome;
+        content: '';
         position: absolute;
-        left: -10px;
-        top: 7px;
-        color: #3a3a3a;
-        font-size: 16px;
+        left: 0px;
+        top: 11px;
+        background-image: url('../../public/images/check-blue.png');
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
@@ -679,6 +708,7 @@ span.form-icon i {
 .course-box .price {
     border-bottom: 1px solid #e8ecf0;
 }
+
 .course-sidebox .price {
     border-bottom: 1px solid #E8ECF0;
 }
@@ -686,29 +716,39 @@ span.form-icon i {
 .course-sidebox .price li:first-child {
     font-size: 30px;
     font-weight: 700;
-    color: #3270fc;
+    color: $blue;
     line-height: 1;
 }
 
 .course-box .price li:nth-child(3) {
-    color: #d2093c;
+    color: #221e1f;
 }
+
 .course-sidebox .price li:nth-child(3) {
     color: #D2093C;
     background: rgba(210, 9, 60, 0.06);
 }
 
 .share i {
-    color: #3270fc;
+    color: $blue;
     border: 2px solid rgba(15, 18, 22, 0.1);
     padding: 14px;
     border-radius: 50%;
     height: 45px;
     width: 45px;
+    transition: all 0.4s ease-in-out;
     &:hover {
-        background-color: #3270fc;
+        background-color: $blue;
         color: #fff;
         cursor: pointer;
+    }
+}
+
+.blue-btn {
+    background-color: $blue;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+        box-shadow: 0px 5px 14px 0px rgb(4 23 118 / 46%);
     }
 }
 
@@ -716,6 +756,13 @@ span.form-icon i {
     width: 60px;
     height: 60px;
     border-radius: 6px;
+}
+
+.sidebar-course .course_name {
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        color: $blue;
+    }
 }
 
 .course-sidebox .rating {
@@ -734,7 +781,7 @@ span.form-icon i {
     border-radius: 6px;
 }
 
-.review-image {
+.review-item .review-image {
     min-width: 4.5rem;
 }
 
@@ -765,6 +812,7 @@ span.form-icon i {
         text-align: center;
     }
 }
+
 .hoverZoomInOut {
     transition: all 0.3s ease-out 0s;
     &:hover {
@@ -772,9 +820,11 @@ span.form-icon i {
         cursor: pointer;
     }
 }
+
 .ScrollUpButton__Container {
     background-color: #0b2bc9 !important;
 }
+
 .backToTopButton {
     background-color: #0b2bc9;
     right: 40px;
@@ -794,27 +844,29 @@ span.form-icon i {
     border: none;
     outline: none;
     &:hover {
-        border-style:  solid;
+        border-style: solid;
         border-color: #0b2bc9;
         background-color: white;
     }
-    &:hover  .backToTopButton svg {
-       fill: white !important;
+    &:hover .backToTopButton svg {
+        fill: white !important;
     }
 }
+
 .backToTopButton svg {
     fill: white;
     margin-bottom: 2px;
 }
+
 .delete-button {
     color: red;
     cursor: pointer;
 }
-.width-100 .modified
-{
+
+.width-100 .modified {
     width: 100% !important;
 }
-.remove_div_input
-{
+
+.remove_div_input {
     padding-left: 8px;
 }
