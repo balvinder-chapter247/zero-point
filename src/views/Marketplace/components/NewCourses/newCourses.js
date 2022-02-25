@@ -10,7 +10,10 @@ const NewCourses = (newCourseData) => {
                             {
                                 data.map((courseList) =>
                                     <div className="course-item bg-white shadow-sm shadow-md hover:shadow-lg transition duration-500">
-                                        <div className='h-56 overflow-hidden rounded-tl-md rounded-tr-md'>
+                                        <div className='h-56 overflow-hidden rounded-tl-md rounded-tr-md relative'>
+                                            <div className={`course_tag absolute font-medium text-white rounded ${courseList.bgClassName}`}>
+                                                {courseList.courseTag}
+                                            </div>
                                             <img className="course_image h-56 w-full object-cover" src={courseList.courseImage} />
                                         </div>
                                         <div className="course_content p-4">
@@ -34,7 +37,7 @@ const NewCourses = (newCourseData) => {
                                         </div>
                                         <div className='course_more flex items-center justify-between'>
                                             <div class="course_price flex items-center">
-                                                <span class="text-blue-600 font-bold text-lg">$62.00</span>
+                                                <span class={`font-bold text-lg ${courseList.textClassName}`}>$62.00</span>
                                                 <span class="old-price text-sm font-medium text-black-500 line-through pl-2">$97.00</span>
                                             </div>
                                             <div className='more-details flex items-center'>

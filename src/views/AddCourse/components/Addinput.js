@@ -21,7 +21,7 @@ const AddInputs = () => {
 
     // handle click event of the Add button
     const handleAddClick = () => {
-        setInputList([...inputList, { firstName: "", lastName: "" }]);
+        setInputList([...inputList, { objective: "" }]);
     };
 
     return (
@@ -29,7 +29,8 @@ const AddInputs = () => {
             {inputList.map((x, i) => {
                 return (
                     <>
-                    <div className="justify-content-center custom">
+                    <div className={
+                        `flex justify-center items-center  custom mt-2 width-100 ${inputList.length !== 1 ? "mt-2" :null}`}>
                         <InputForms
                             className="block font-medium"
                             type='text'

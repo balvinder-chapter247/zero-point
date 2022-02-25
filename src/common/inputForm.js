@@ -31,7 +31,7 @@ const InputForms = (
                 <label className={labelclassName}>{labelText}</label>
                 : null
             }
-            <div className="input_group relative flex items-center">
+            <div className="input_group relative flex items-center modified">
             <input type={type} name={name}
                 value={value}
                 onChange={onChange}

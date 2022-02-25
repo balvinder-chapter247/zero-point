@@ -250,6 +250,15 @@ span.form-icon i {
     padding-bottom: 50px;
 }
 
+.title:before {
+    content: "";
+    background: #000000;
+    height: 4px;
+    width: 70px;
+    position: absolute;
+    bottom: -1px;
+}
+
 .featured-image img {
     height: 300px;
 }
@@ -334,6 +343,46 @@ span.form-icon i {
 .course-item:hover .course_image {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+.course_tag {
+    // position: absolute;
+    z-index: 8;
+    left: 20px;
+    top: 20px;
+    display: inline-block;
+    // height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    // font-weight: 500;
+    // color: #fff;
+    background: #b128ff;
+    padding: 0 10px;
+    // border-radius: 4px;
+}
+
+.text-color-1 {
+    color: #b128ff;
+}
+
+.bg-color-1 {
+    background: #b128ff;
+}
+
+.text-color-2 {
+    color: #fa7919;
+}
+
+.bg-color-2 {
+    background: #fa7919;
+}
+
+.text-color-3 {
+    color: #bed10e;
+}
+
+.bg-color-3 {
+    background: #bed10e;
 }
 
 .course-item .course_content {
@@ -565,13 +614,17 @@ span.form-icon i {
 .price-courses li {
     padding: 10px 0;
     box-shadow: 0px 1px 0px #e8ecf0;
+    font-weight: 600;
     & i {
         width: 24px;
+        color: $blue;
     }
 }
 
 .price-courses li span {
     color: #5b5f64;
+    color: #5b5f64;
+    font-weight: 400;
 }
 
 .course-box .price {
@@ -650,14 +703,13 @@ span.form-icon i {
         cursor: pointer;
     }
 }
-.ScrollUpButton__Container 
-{
+.ScrollUpButton__Container {
     background-color: #0b2bc9 !important;
 }
-.backToTopButton
-{
-    background-color:  #0b2bc9;
+.backToTopButton {
+    background-color: #0b2bc9;
     right: 40px;
+    border-radius: 100% !important;
     bottom: 40px;
     position: fixed;
     z-index: 2;
@@ -672,13 +724,28 @@ span.form-icon i {
     box-shadow: 0 9px 25px 0 rgb(132 128 177 / 28%);
     border: none;
     outline: none;
+    &:hover {
+        border-style:  solid;
+        border-color: #0b2bc9;
+        background-color: white;
+    }
+    &:hover  .backToTopButton svg {
+       fill: white !important;
+    }
 }
 .backToTopButton svg {
     fill: white;
+    margin-bottom: 2px;
 }
-.delete-button
+.delete-button {
+    color: red;
+    cursor: pointer;
+}
+.width-100 .modified
 {
-    color:red;
-    cursor:pointer
-    
+    width: 100% !important;
+}
+.remove_div_input
+{
+    padding-left: 8px;
 }
