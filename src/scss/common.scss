@@ -184,6 +184,22 @@ p {
     }
 }
 
+button.icon.fb.metro {
+    overflow: hidden;
+    position: relative;
+    color: transparent;
+    & i {
+        color: #3c5a9a;
+        position: absolute;
+    }
+    &:hover {
+        color: transparent;
+        & i {
+            color: #fff;
+        }
+    }
+}
+
 .forgot-password-link:hover {
     color: $blue;
     transition: 0.4s ease-in-out;
@@ -263,10 +279,12 @@ span.form-icon i {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.common_heading{
+
+.common_heading {
     margin-bottom: 45px;
 }
-.common_heading p{
+
+.common_heading p {
     color: #474748;
 }
 
@@ -358,9 +376,10 @@ span.form-icon i {
     transform: scale(1.1);
 }
 
-.my_course_item .course_content{
+.my_course_item .course_content {
     min-height: 98px;
 }
+
 .course_tag {
     // position: absolute;
     z-index: 8;
@@ -538,27 +557,32 @@ span.form-icon i {
     right: 0;
     top: 0;
 }
+
 // Marketplace page css start
 .featured_course_item {
     box-shadow: 0 30px 40px 0 rgb(1 11 60 / 10%);
     border-radius: 6px;
 }
+
 .featured_course_item .course_image {
     transition: all 0.3s ease-out 0s;
 }
+
 .featured_course_item:hover .course_image {
     transform: scale(1.1);
 }
-.featured_course_item .course_content{
+
+.featured_course_item .course_content {
     min-height: 98px;
 }
-.blog_tag{
+
+.blog_tag {
     display: inline-block;
     height: 20px;
     line-height: 20px;
     font-size: 14px;
     color: #0fa0dd;
-    background: rgba(15,160,221,.1);
+    background: rgba(15, 160, 221, .1);
     border-radius: 4px;
     font-weight: 500;
     padding: 0 6px;
@@ -567,31 +591,34 @@ span.form-icon i {
     transition: all .3s ease-out 0s;
 }
 
-.blog_tag.skyblue{
+.blog_tag.skyblue {
     color: #0fa0dd;
-    background: rgba(15,160,221,.1);
-    &:hover{
+    background: rgba(15, 160, 221, .1);
+    &:hover {
         background: #0fa0dd;
         color: #fff;
     }
 }
+
 .blog_tag.purple {
-    background: rgba(131,48,254,.1);
+    background: rgba(131, 48, 254, .1);
     color: #8330fe;
-    &:hover{
+    &:hover {
         background: #8330fe;
         color: #fff;
     }
 }
+
 .blog_tag.pink {
-    background: rgba(242,39,126,.1);
+    background: rgba(242, 39, 126, .1);
     color: #f2277e;
-    &:hover{
+    &:hover {
         background: #f2277e;
         color: #fff;
     }
 }
-.featured_course_item .course-owner{
+
+.featured_course_item .course-owner {
     font-size: 15px;
 }
 
@@ -712,10 +739,12 @@ span.form-icon i {
     color: #fff !important;
     background-color: $blue;
 }
+
 .curriculum_item .heading {
     background: #f3f4f8;
     padding: 10px 30px;
 }
+
 .course_curriculum_content {
     padding: 15px 30px;
     border: 1px solid #edeef2;
@@ -724,6 +753,7 @@ span.form-icon i {
         border-bottom: 1px solid #edeef2;
     }
 }
+
 .course_curriculum_content .question {
     display: inline-block;
     height: 24px;
@@ -734,10 +764,6 @@ span.form-icon i {
     background: #f2277e;
     margin-left: 20px;
 }
-
-
-
-
 
 .course_rating {
     padding: 40px 0px;
