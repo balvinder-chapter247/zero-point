@@ -27,7 +27,7 @@ const  Header = () => {
       if(loginDetails && loginDetails.length)
       {
         setProfileImage(loginDetails[0].imageUrl)
-        debugger
+        
       }
     }
     }, []);

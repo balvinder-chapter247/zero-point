@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
 import { SignupSchema } from "../../../validators";
-import { Toaster } from '../../../helper/react-toast'
+import { Toaster } from '../../../helper/react-toast';
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
 import InputForms from '../../../common/inputForm'
 import SocialLinkesIcons from '../../../components/socialLinkes.js/socialIcons';
-
+import { SignUpRequest } from '../../../redux/actions';
 const Signup = () => {
 
     ///for histoty push
-    const history = useHistory()
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const path = history.location.pathname
+    useEffect(() => {
+        return history.listen((location) => { 
+           console.log(`You changed the page to: ${location.pathname}`) 
+        }) 
+     },[path])
     
     ///State for our form
     const [formState, setFormState] = React.useState({
@@ -19,7 +27,7 @@ const Signup = () => {
         touched: {},
         errors: {},
     });
-
+   
     ///For validating error everytime change in inputs
     useEffect(() => {
 
@@ -54,48 +62,7 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (formState.isValid) {
-            const { email } = formState.values;
-            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
-            if (registeredUsers) {
-                const result = registeredUsers.map(e => e.email);
-                const foundEmail = result.includes(email)
-
-                if (foundEmail) {
-                    Toaster({
-                        type: "error",
-                        text: "You have already Registerd."
-                    })
-                }
-                else {
-                    Toaster({
-                        type: "success",
-                        text: "You have successfully registered."
-                    })
-                    localStorage.removeItem("registeredUsers");
-                    let tempArray = [];
-                    tempArray.push(formState.values);
-                    localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-                    history.push('/login')
-                }
-            } else {
-                Toaster({
-                    type: "success",
-                    text: "You have successfully registered."
-                })
-                let tempArray = [];
-
-                tempArray.push(formState.values);
-                localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
-               
-                {
-                    Toaster({
-                        type: "success",
-                        text: "You have successfully registered."
-                    })
-                }
-
-                history.push('/login')
-            }
+            dispatch(SignUpRequest(formState.values));
         }
         setFormState((formState) => ({
             ...formState,

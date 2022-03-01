@@ -7,11 +7,14 @@ import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import SocialLinkesIcons from '../../../components/socialLinkes.js/socialIcons';
 import InputForms from '../../../common/inputForm';
+import { LoginRequest } from '../../../redux/actions';
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
 
     ///for histoty push
-    const history = useHistory()
+    const history = useHistory();
+    const dispatch = useDispatch()
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -54,31 +57,7 @@ const Login = () => {
         event.preventDefault();
         const { email, password } = formState.values;
         if (formState.isValid) {
-            const login = JSON.parse(localStorage.getItem("registeredUsers"));
-            const filterLogin = login.map((e) => {
-                if (e.email === email && e.password === password) {
-                    // debugger
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            })
-            if (filterLogin == "true") {
-                let token = Math.random().toString(36).substr(2);
-                localStorage.setItem("token", JSON.stringify(token));
-                Toaster({
-                    type: "success",
-                    text: "You have Login successfully."
-                });
-                history.push("/dashboard");
-            }
-            else {
-                Toaster({
-                    type: "error",
-                    text: "invalid Email or Password."
-                })
-            }
+            dispatch(LoginRequest(formState.values));
         }
         setFormState((formState) => ({
             ...formState,
