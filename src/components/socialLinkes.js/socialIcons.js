@@ -28,9 +28,9 @@ const SocialLinkesIcons = () => {
         }
     };
 
-const responseFacebook = (response) => {
-    // console.log("Login Result",response);
-    if (response) {
+    const responseFacebook = (response) => {
+        // console.log("Login Result",response);
+        if (response) {
             const token = JSON.stringify(response.accessToken)
             localStorage.setItem("token", token);
             const {first_name , last_name ,email} = response
@@ -47,10 +47,10 @@ const responseFacebook = (response) => {
             localStorage.setItem("registeredUsers",JSON.stringify(userValues))
             history.push('/dashboard')
         }
-}
-const componentClicked = (data) => {
-    console.log(data);
-}
+    }
+    const componentClicked = (data) => {
+        console.log(data);
+    }
 
     return (
         <>
@@ -75,7 +75,7 @@ const componentClicked = (data) => {
                     </svg>
                 </a>
                 <FacebookLogin
-                appId="473658004253289"
+                appId=""
                 autoLoad={true}
                 fields="first_name,last_name,email,picture"
                 onClick={componentClicked}
