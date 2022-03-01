@@ -21,7 +21,7 @@ const Footer = () => {
                                     alt="Workflow"
                                 />
                                 </h5>
-                                <p>
+                                <p class="footer-text-color">
                                     Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
                                     sit amet, consectetur adipisicing elit.
                                 </p>

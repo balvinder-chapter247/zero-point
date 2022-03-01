@@ -27,7 +27,11 @@ const  Header = () => {
       if(loginDetails && loginDetails.length)
       {
         setProfileImage(loginDetails[0].imageUrl)
+<<<<<<< HEAD
         
+=======
+        // debugger
+>>>>>>> baf7b44aa2c1fcd2f860e74f84f03ea92d90b020
       }
     }
     }, []);

@@ -16,30 +16,32 @@ const Marketplace = () => {
             <main className="">
                 <InnerPageBanner title={"Marketplace"} />
                 <section className='sec-padding'>
-                    {/* <div className="course-header border-b">
-                        <div className="container m-auto px-4 flex justify-between py-4 ">
-                            <h1 className="font-bold text-3xl">Marketplace</h1>
-                        </div>
-                    </div> */}
-
-                    <div className="container m-auto px-4 flex justify-between pt-4">
-                        <h3 className="font-bold text-2xl">Newest Courses</h3>
-                    </div>
-
                     <div className="container m-auto px-4">
+                        <div className='common_heading text-center'>
+                            <h2 className="font-bold mb-0">Newest Courses</h2>
+                            <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                        </div>
                         <NewCourses data={NewestCourse} />
-
-                        <div className="grid md:grid-cols-2 gap-8 py-6">
+                    </div>
+                </section>
+                <section className='sec-padding bg-light-gray'>
+                    <div className='container mx-auto px-4'>
+                        <div className="grid md:grid-cols-2 gap-8">
                             <TopCourses data={TopCoursesData} />
                             <ExploreCategories data={exploreCategoriesData} />
                         </div>
-
-                        <div>
-                            <h3 className="font-bold text-2xl">Featured Courses</h3>
-                            <FeaturedCourses data={featuredCoursesData} />
-                        </div>
                     </div>
                 </section>
+                <section className='sec-padding'>
+                    <div className='container mx-auto px-4'>
+                        <div className='common_heading text-center'>
+                            <h2 className="font-bold mb-0">Featured Courses</h2>
+                            <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                        </div>
+                        <FeaturedCourses data={featuredCoursesData} />
+                    </div>
+                </section>
+                
             </main>
         </>
     )

@@ -2,7 +2,7 @@ const ExploreCategories = (exploreCategories) => {
     const {data}=exploreCategories
     return (
         <div className="top-courses">
-            <h3 className="font-bold text-2xl pb-4">Explore Categories</h3>
+            <h2 className="font-bold pb-4">Explore Categories</h2>
             <div className="flex flex-wrap gap-4">
                 {
                     data && data.length ?
