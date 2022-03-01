@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 
@@ -26,11 +27,37 @@ const SocialLinkesIcons = () => {
             history.push('/dashboard')
         }
     };
+
+    const responseFacebook = (response) => {
+        // console.log("Login Result",response);
+        if (response) {
+            const token = JSON.stringify(response.accessToken)
+            localStorage.setItem("token", token);
+            const {first_name , last_name ,email} = response
+            const userValues = [
+                {
+                    "first_name":first_name,
+                    "last_name": last_name,
+                    "email": email,
+                    "password": "N.A",
+                    "confirm_password": "N.A",
+                    "imageUrl":response.picture.data.url
+                }
+            ]
+            localStorage.setItem("registeredUsers",JSON.stringify(userValues))
+            history.push('/dashboard')
+        }
+    }
+    const componentClicked = (data) => {
+        console.log(data);
+    }
+
     return (
         <>
             <div className='text-center mb-4 mt-6'>
                 <h6 className='font-medium'>Login with Social</h6>
             </div>
+
             <div className='login-social flex justify-center'>
                 <a href="#!" className="text-gray-600 ">
                     <GoogleLogin
@@ -42,7 +69,16 @@ const SocialLinkesIcons = () => {
                         className='button_modified'
                     />
                 </a>
-                <a href="#!" className="text-gray-600 icon fb">
+                <FacebookLogin
+                appId=""
+                autoLoad={true}
+                fields="first_name,last_name,email,picture"
+                onClick={componentClicked}
+                callback={responseFacebook}
+                cssClass="icon fb"
+                icon="fa-facebook" />
+                
+                {/* <a href="#!" className="text-gray-600 icon fb">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                         className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 320 512">
@@ -50,7 +86,7 @@ const SocialLinkesIcons = () => {
                             d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
                         </path>
                     </svg>
-                </a>
+                </a> */}
                 <a href="#!" className="text-gray-600 icon linkedin">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                         className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg"
