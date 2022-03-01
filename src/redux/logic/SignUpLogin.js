@@ -3,15 +3,16 @@ import { push } from "react-router-redux";
 import { SignUpActionTypes, SignUPFailed, SignUpRequest, SignUpSuccess } from "../actions/authAction";
 import Axios from 'axios'
 import { Toaster } from "../../helper/react-toast";
+import { redirectTo } from "../actions";
 
 const SignUpLogic = createLogic({
     type: SignUpActionTypes.SIGN_UP_REQUEST,
     async process(data, dispatch, done) {
         const { action } = data;
-        let apiResponse = await Axios.post('http://localhost:8080/register',
+        let apiResponse = await Axios.post('http://localhost:8080/auth/register',
             action.payload)
             .then((response) => {
-                dispatch(push("/login"));
+                dispatch(redirectTo({path:"/login"}));
                 dispatch(SignUpSuccess());
                 Toaster(
                     {

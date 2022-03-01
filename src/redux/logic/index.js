@@ -9,7 +9,7 @@ export const redirectToLogic = createLogic({
       dispatch(push(action.payload.path));
       done();
     },
-  });
+  }); 
   
   export const AllLogics = [
     redirectToLogic,

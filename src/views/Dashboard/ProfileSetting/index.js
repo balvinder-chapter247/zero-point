@@ -175,8 +175,8 @@ const ProfileSetting = () => {
                         />
                     </div>
                 </div>
-                <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
-                    Submit</button>
+                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
+                    Update</button>
             </form>
         </div>
     )

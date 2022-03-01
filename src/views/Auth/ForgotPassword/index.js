@@ -66,9 +66,9 @@ const ForgotPassword = () => {
         <>
             <main className='bg-gray-100'>
                 <div className='auth-banner relative flex items-center'>
-                    <div className='container mx-auto px-4 pt-8 relative'>
+                    <div className='container mx-auto  px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
-                            <div className='grid grid-cols-3 items-center my-10'>
+                            <div className='grid grid-cols-3 items-center my-10 bg-theme-color'>
                                 <div className='text-center left text-white p-6'>
                                     <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
                                     <p>Enter your personal details and start journey with us</p>
@@ -95,7 +95,7 @@ const ForgotPassword = () => {
 
                                             <div className='mt-6'>
                                                 <div className='text-center'>
-                                                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Submit</button>
+                                                    <button className="w-full bg-theme-color hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Submit</button>
                                                 </div>
                                             </div>
                                         </form>

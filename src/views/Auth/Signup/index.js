@@ -92,7 +92,7 @@ const Signup = () => {
                 <div className='auth-banner relative flex items-center'>
                     <div className='container mx-auto px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
-                            <div className='grid grid-cols-3 items-center my-10'>
+                            <div className='grid grid-cols-3 items-center my-10 bg-theme-color'>
                                 <div className='text-center left text-white p-6'>
                                     <h1 className='font-bold text-3xl mb-6'>Welcome Back!</h1>
                                     <p>To keep connected with us please login with your personal info</p>
@@ -173,7 +173,7 @@ const Signup = () => {
                                                 />
                                             </div>
                                             <div className='text-center'>
-                                                <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
+                                                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
                                             </div>
                                         </form>
                                         <SocialLinkesIcons />

@@ -27,7 +27,7 @@ const Dashboard = () => {
                             <TabGroup.Tab
                                 index={0}
                                 className="w-full text-left py-3 px-4 transition-colors duration-150 focus-visible:none"
-                                activeClassName="bg-blue-500 text-white"
+                                activeClassName="bg-theme-color text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-user"></i>
@@ -36,7 +36,7 @@ const Dashboard = () => {
                             <TabGroup.Tab
                                 index={1}
                                 className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                activeClassName="bg-theme-color text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-lock"></i>
@@ -45,7 +45,7 @@ const Dashboard = () => {
                             <TabGroup.Tab
                                 index={2}
                                 className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                activeClassName="bg-theme-color text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-exchange-alt"></i>
@@ -54,7 +54,7 @@ const Dashboard = () => {
                             <TabGroup.Tab
                                 index={3}
                                 className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                activeClassName="bg-theme-color text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-credit-card"></i>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                                         </label>
                                     </div> */}
                                     <div className='flex justify-between mt-6'>
-                                        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                        <button type="button" class="bg-theme-color hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                                         Add New Card
                                         </button>
                                     </div>

@@ -17,6 +17,7 @@ const  Header = () => {
 
   const [token, setToken] = useState("");
   const [profileImage , setProfileImage] = useState("")
+  const [profileName , setProfileName] = useState("")
   useEffect(() => {
 
     const token = localStorage.getItem("token");
@@ -27,11 +28,7 @@ const  Header = () => {
       if(loginDetails && loginDetails.length)
       {
         setProfileImage(loginDetails[0].imageUrl)
-<<<<<<< HEAD
-        
-=======
-        // debugger
->>>>>>> baf7b44aa2c1fcd2f860e74f84f03ea92d90b020
+        setProfileName(loginDetails[0].first_name)
       }
     }
     }, []);
@@ -110,7 +107,7 @@ const  Header = () => {
                   
                     <Menu.Items className="profile-dropdown origin-top-right absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div class="user-login py-2.5 px-4">
-				    					<h6 class="name mb-0">John Deo</h6>
+				    					<h6 class="name mb-0">{profileName ? profileName : "jon doe"}</h6>
 					    				<p class="profession mb-0">Software Engineer</p>
 				    				</div>
                     <div className='user-profile'>
@@ -151,7 +148,7 @@ const  Header = () => {
                 </Menu>
                 : <Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                    <Menu.Button className="inline-block px-6 py-2.5 bg-theme-color text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                       {/* <span className="sr-only">Open user menu</span> */}
                       Account
                     </Menu.Button>

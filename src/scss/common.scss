@@ -977,3 +977,23 @@ span.form-icon i {
         background-color: rgb(207, 207, 207);
     }
 }
+.button_modified 
+{
+   width: 40px;
+   height: 40px;
+   border-radius: 100% !important;
+   align-content: center;
+   text-align: center;
+   border-color: red !important;
+   &:hover div{
+    background-color: rgb(207, 207, 207);
+}
+  
+}
+.button_modified  div
+{
+    background-color: transparent !important;
+    &:hover {
+        background-color: rgb(207, 207, 207);
+    }
+}

@@ -8,7 +8,7 @@ const LoginLogic = createLogic({
     type: LoginActionTypes.LOGIN_REQUEST,
     async process(data, dispatch, done) {
         const { action } = data;
-        let apiResponse = await Axios.post('http://localhost:8080/signin',
+        let apiResponse = await Axios.post('http://localhost:8080/auth/signin',
             action.payload)
             .then((response) => {
                 dispatch(push("/dashboard"));

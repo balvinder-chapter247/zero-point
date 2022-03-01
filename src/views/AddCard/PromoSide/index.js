@@ -38,7 +38,7 @@ const PromoInput = () => {
                         <span>Grand Total</span>
                         <span>$600</span>
                     </div>
-                    <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+                    <button className="bg-theme-color font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
             </div>
         </>
