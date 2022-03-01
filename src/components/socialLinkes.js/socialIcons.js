@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const SocialLinkesIcons = () => {
     useEffect(() => {
-        responseGoogle()
+        responseGoogle();
     }, [])
     const history = useHistory()
     const responseGoogle = response => {
@@ -33,23 +33,24 @@ const SocialLinkesIcons = () => {
         if (response) {
             const token = JSON.stringify(response.accessToken)
             localStorage.setItem("token", token);
-            const {first_name , last_name ,email} = response
+            const { first_name, last_name, email } = response
             const userValues = [
                 {
-                    "first_name":first_name,
+                    "first_name": first_name,
                     "last_name": last_name,
                     "email": email,
                     "password": "N.A",
                     "confirm_password": "N.A",
-                    "imageUrl":response.picture.data.url
+                    "imageUrl": response.picture.data.url
                 }
             ]
-            localStorage.setItem("registeredUsers",JSON.stringify(userValues))
+            localStorage.setItem("registeredUsers", JSON.stringify(userValues))
             history.push('/dashboard')
         }
     }
     const componentClicked = (data) => {
         console.log(data);
+        responseFacebook()
     }
 
     return (
@@ -59,7 +60,6 @@ const SocialLinkesIcons = () => {
             </div>
 
             <div className='login-social flex justify-center'>
-                <a href="#!" className="text-gray-600 ">
                     <GoogleLogin
                         clientId="206617876485-q5hv177ma6825brfe6acjaea2plpo6vp.apps.googleusercontent.com"
                         buttonText=""
@@ -68,16 +68,15 @@ const SocialLinkesIcons = () => {
                         cookiePolicy="single_host_origin"
                         className='button_modified'
                     />
-                </a>
                 <FacebookLogin
-                appId=""
-                autoLoad={true}
-                fields="first_name,last_name,email,picture"
-                onClick={componentClicked}
-                callback={responseFacebook}
-                cssClass="icon fb"
-                icon="fa-facebook" />
-                
+                    appId="473658004253289"
+                    autoLoad={true}
+                    fields="first_name,last_name,email,picture"
+                    onClick={componentClicked}
+                    // callback={responseFacebook}
+                    cssClass="icon fb"
+                    icon="fa-facebook" />
+
                 {/* <a href="#!" className="text-gray-600 icon fb">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                         className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
