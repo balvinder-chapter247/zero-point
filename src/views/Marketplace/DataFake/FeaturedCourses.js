@@ -1,21 +1,30 @@
 const featuredCourses = [
     {
         id: "1",
-        courseImage: "https://economictimes.indiatimes.com/thumb/msid-85206159,width-1200,height-900,resizemode-4,imgsize-81692/fitness.jpg",
+        courseTag: "Art & Design",
+        courseTagColor: "skyblue",
+        courseImage: "./images/blog-1.jpg",
         courseName: "Overcomming Negative Family Patterns",
-        courseOwner: "Jassica Miller",      
+        courseOwner: "Jassica Miller",   
+        courseDate: "April 02, 2021", 
     },
     {
         id: "2",
-        courseImage: "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg",
+        courseTag: "Marketing",
+        courseTagColor: "purple",
+        courseImage: "./images/blog-2.jpg",
         courseName: "Yoga Super Shered for Men",
         courseOwner: "Jassica Miller 2",
+        courseDate: "May 12, 2022", 
     },
     {
         id: "3",
-        courseImage: "https://www.theladders.com/wp-content/uploads/happy_190405.jpg",
+        courseTag: "UX Design",
+        courseTagColor: "pink",
+        courseImage: "./images/blog-3.jpg",
         courseName: "Fit and Fierce Over 40",
         courseOwner: "Jassica Miller",
+        courseDate: "June 22, 2022", 
     },
       
   ];

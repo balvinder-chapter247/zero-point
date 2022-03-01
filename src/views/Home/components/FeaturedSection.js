@@ -7,7 +7,7 @@ const FeaturedSection = () => {
       <div className='container mx-auto px-4'>
         <div className='grid md:grid-cols-12 gap-4 items-center featured-content'>
             <div className=' col-span-6 md:w-11/12'>
-                <h2 className='title relative'>Course Details Features</h2>
+                <h2 className=''>Course Details Features</h2>
                 <p>
                 You Don’t Need Additional Plugins. Just Drag an Element, Configure it and Launch Your Site.
                 </p>
@@ -31,7 +31,7 @@ const FeaturedSection = () => {
                 <img className="w-full object-cover rounded-md" src="./images/course-details-1.jpg" alt='' />
             </div>
             <div className='col-span-6 md:ml-auto md:w-11/12'>
-                <h2 className='title relative'>Course Search Feature</h2>
+                <h2 className=''>Course Search Feature</h2>
                 <p>
                 You Don’t Need Additional Plugins. Just Drag an Element, Configure it and Launch Your Site.
                 </p>

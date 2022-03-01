@@ -25,7 +25,10 @@ const Home = () => {
                 <div className="container mx-auto px-4">
                     <div className='grid grid-cols-12'>
                         <div className='col-span-12'>
-                            <h3 className="font-bold text-2xl">Newest Courses</h3>
+                            <div className='common_heading text-center'>
+                                <h2 className="font-bold mb-0">Newest Courses</h2>
+                                <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                            </div>
                             <NewCourses data={NewestCourse} />
                         </div>
                     </div>

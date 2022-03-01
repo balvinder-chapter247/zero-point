@@ -3,7 +3,7 @@ const TopCourses = (TopCoursesData) => {
     return (
         <>
             <div className="top-courses">
-                <h3 className="font-bold text-2xl pb-4">Top Courses this Month</h3>
+                <h2 className="font-bold">Top Courses this Month</h2>
                 <ol className='list-decimal pl-6'>
                     {data && data.length ?
                         <>

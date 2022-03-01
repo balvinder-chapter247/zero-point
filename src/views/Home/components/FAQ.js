@@ -9,7 +9,10 @@ const FAQ = (FaqData) => {
       <div className='container mx-auto px-4'>
         <div className="grid grid-cols-6 gap-4">
           <div className="col-start-2 col-span-4">
-            <h2 className='text-center pb-4'>Frequently Asked Questions</h2>
+            <div className='common_heading text-center'>
+                <h2 className="font-bold mb-0">Frequently Asked Questions</h2>
+                <p>You don't have to struggle alone, you've got our assistance and help.</p>
+            </div>
             <div className="accordion" id="faqAccordion">
               {
                 data && data.length ? 
