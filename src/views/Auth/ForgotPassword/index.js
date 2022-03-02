@@ -85,18 +85,17 @@ const ForgotPassword = () => {
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
-
+                                                    iconClassName={"fas fa-envelope"}
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
-                                                    placeholder="your@email.com"
+                                                    placeholder="Email"
                                                 />
                                             </div>
-
-                                            <div className='mt-6'>
-                                                <div className='text-center'>
-                                                    <button className="w-full bg-theme-color hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Submit</button>
-                                                </div>
+                                            <div className=''>
+                                            <div className='text-center'>
+                                                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold  py-2 px-8 rounded-full uppercase">Submit</button>
+                                            </div>
                                             </div>
                                         </form>
                                         <SocialLinkesIcons/>
@@ -107,7 +106,7 @@ const ForgotPassword = () => {
                     </div>
                 </div>
                 <ToastContainer
-                    position="left-bottom"
+                    position="left-right"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}

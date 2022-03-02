@@ -50,7 +50,7 @@ const SocialLinkesIcons = () => {
     }
     const componentClicked = (data) => {
         console.log(data);
-        responseFacebook()
+        
     }
 
     return (
@@ -60,20 +60,20 @@ const SocialLinkesIcons = () => {
             </div>
 
             <div className='login-social flex justify-center'>
-                    <GoogleLogin
-                        clientId="206617876485-q5hv177ma6825brfe6acjaea2plpo6vp.apps.googleusercontent.com"
-                        buttonText=""
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy="single_host_origin"
-                        className='button_modified'
-                    />
+                <GoogleLogin
+                    clientId=""
+                    buttonText=""
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy="single_host_origin"
+                    className='button_modified'
+                />
                 <FacebookLogin
-                    appId="473658004253289"
-                    autoLoad={true}
+                    appId=""
+                    // autoLoad={true}
                     fields="first_name,last_name,email,picture"
                     onClick={componentClicked}
-                    // callback={responseFacebook}
+                    callback={responseFacebook}
                     cssClass="icon fb"
                     icon="fa-facebook" />
 

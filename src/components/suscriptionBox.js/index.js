@@ -16,8 +16,7 @@ const SuscriptionBox = () => {
 
     ///For validating error everytime change in inputs
     useEffect(() => {
-       if(formState.values.email)
-       {
+
         const errors = validate(formState.values, SuscriptionSchema);
         setFormState((formState) => ({
             ...formState,
@@ -25,7 +24,7 @@ const SuscriptionBox = () => {
             errors: errors || {},
         }));
         console.log(formState.values)
-       }
+
     }, [formState.values]);
 
     ///Handle change for storing input values to state.
@@ -70,6 +69,14 @@ const SuscriptionBox = () => {
                     let test = localStorage.setItem("registeredEmails",
                         JSON.stringify(tempArray));
                     Toaster({ type: "success", text: "susbcribed succesfully" })
+                    setFormState((formState) =>
+                    ({
+                        isValid: false,
+                        values: {},
+                        touched: {},
+                        errors: {}
+                    })
+                    )
                 }
             }
             else {
@@ -78,18 +85,23 @@ const SuscriptionBox = () => {
                 let test = localStorage.setItem("registeredEmails",
                     JSON.stringify(tempArray));
                 Toaster({ type: "success", text: "susbcribed succesfully" })
-            }
-
+                setFormState((formState) =>
+                ({
+                    isValid: false,
+                    values: {},
+                    touched: {},
+                    errors: {}
+                })
+                )
+            }   
         }
-        console.log(formState,"check this lkj")
+        console.log(formState, "check this lkj")
         setFormState((formState) => ({
             ...formState,
-            values:{},
             touched: {
                 ...formState.touched,
-               
+                ...formState.errors
             },
-            errors:{},
         }));
     };
 
@@ -99,43 +111,32 @@ const SuscriptionBox = () => {
         <>
             <form className="newsletter-form" onSubmit={handleSubmit}>
                 <div className="text-black">
-                        <div className="flex justify-center">
-                            <input type="email"
-                                className="px-4 py-2 w-full focus:shadow focus:outline-none"
-                                placeholder="Email Address"
-                                name='email'
-                                value={formState.values.email || ""}
-                                onChange={handleChange} />
-                            
-                                <button className="text-white bg-theme-color px-6 py-3 font-medium uppercase text-sm btn"
-                                    type="submit">
-                                    Subscribe
-                                </button>
-                        </div>
-                        <div className="text-red-600 text-sm font-medium text-left">
-                            {
-                                hasError("email") ?
-                                    <span className="errorText">
-                                        {formState.errors.email[0]}
-                                    </span>
-                                    :
-                                    null
-                            }
-                        </div>
-                    
+                    <div className="flex justify-center">
+                        <input type="email"
+                            className="px-4 py-2 w-full focus:shadow focus:outline-none"
+                            placeholder="Email Address"
+                            name='email'
+                            value={formState.values.email || ""}
+                            onChange={handleChange} />
+
+                        <button className="text-white bg-theme-color px-6 py-3 font-medium uppercase text-sm btn"
+                            type="submit">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div className="text-red-600 text-sm font-medium text-left  pt-1 ">
+                        {
+                            hasError("email") ?
+                                <span className="errorText px-3">
+                                    {formState.errors.email[0]}
+                                </span>
+                                :
+                                null
+                        }
+                    </div>
                 </div>
             </form>
-            <ToastContainer
-                position="bottom-left"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+           
             {/* Same as */}
         </>
     )

@@ -36,7 +36,7 @@ const Addeditems = (props) => {
                                         <span className="text-center w-1/5 font-semibold text-sm">${item.Price}</span>
                                         <div className="flex justify-center w-1/5">
                                         <i className="fa-solid fa-trash-can delete-button"  data-tip="Remove item"/>
-                                        <ReactTooltip />
+                                        <ReactTooltip effect='float'/>
                                         </div>
                                     </div>
                                 </>

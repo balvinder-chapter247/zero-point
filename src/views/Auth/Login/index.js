@@ -59,6 +59,7 @@ const Login = () => {
         if (formState.isValid) {
             dispatch(LoginRequest(formState.values));
         }
+        console.log(formState,"login")
         setFormState((formState) => ({
             ...formState,
             touched: {
@@ -136,7 +137,7 @@ const Login = () => {
                     </div>
                 </div>
                 <ToastContainer
-                    position="left-bottom"
+                    position="right"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}

@@ -135,7 +135,7 @@ const AddInputs = () => {
                 );
             })}
             <ToastContainer
-                position="bottom-left"
+                position="right"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}

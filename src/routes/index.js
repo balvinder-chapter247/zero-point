@@ -6,7 +6,7 @@ import { AppRoutes } from './AppRoutes';
 import { createBrowserHistory as createHistory } from 'history';
 import {restrictRoutes, publicRoutes, privateRoutes} from './RouterList';
 import { RestrictRoute, PublicRoute, PrivateRoute } from './routes';
-import FullPageLoader from '../components/FullPageLoader/FullPageLoader'
+import FullPageLoader from '../components/FullPageLoader/FullPageLoader';
 const Routing = () => {
   const history = createHistory();
   const store = configureStore(history)
