@@ -147,9 +147,9 @@ const CourseLanding = () => {
                   <li className='leading-4 font-medium p-1 rounded text-sm'>25% OFF</li>
                 </ul>
                 <ul className='price-courses p-8'>
-                  <li> <i className="fa fa-user"></i> Instructor <span className='float-right'>Penny Tool</span></li>
+                  <li><i className="fa fa-user"></i> Instructor <span className='float-right'>Penny Tool</span></li>
                   <li><i className="fa fa-tag"></i> Subject <span className='float-right'>IT &amp; Software</span></li>
-                  <li> <i className="fa fa-users"></i> Enrolled <span className='float-right'>146 students</span></li>
+                  <li><i className="fa fa-users"></i> Enrolled <span className='float-right'>146 students</span></li>
                   <li><i className="fa fa-clock"></i> Duration <span className='float-right'>2 weeks</span></li>
                   <li><i className="fa fa-book"></i> Lectures <span className='float-right'>4 lectures</span></li>
                   <li><i className="fa fa-map"></i> Language <span className='float-right'> English</span></li>
@@ -168,12 +168,12 @@ const CourseLanding = () => {
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-1.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating text-yellow flex inline-block">
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
+                    <ul className="rating flex inline-block">
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
                     </ul>
                     <div className='font-medium text-sm'>
                     <Link to="#" className='course_name'>Development</Link>
@@ -184,12 +184,12 @@ const CourseLanding = () => {
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-2.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating text-yellow flex inline-block">
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
+                    <ul className="rating flex inline-block">
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
                     </ul>
                     <div className='font-medium text-sm'>
                     <Link to="#" className='course_name'>Data Science</Link>
@@ -200,12 +200,12 @@ const CourseLanding = () => {
                 <div className='sidebar-course flex items-center mt-6'>
                   <img src="./images/course-3.jpg" className='course_img object-cover mr-4' alt='' />
                   <div>
-                    <ul className="rating text-yellow flex inline-block">
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
-                      <li><i className='fa fa-star'></i></li>
+                    <ul className="rating flex inline-block">
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
+                      <li className='text-yellow'><i className='fa fa-star'></i></li>
                     </ul>
                     <div className='font-medium text-sm'>
                     <Link to="#" className='course_name'>UI Design</Link>

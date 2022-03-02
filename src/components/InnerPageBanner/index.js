@@ -9,9 +9,9 @@ const InnerPageBanner = ({title}) => {
             <h1>{title}</h1>
             <nav className="rounded-md w-full">
                 <ol className="list-reset flex justify-center">
-                    <li><Link to="" className="">Home</Link></li>
-                    <li><span className="mx-2">/</span></li>
-                    <li className="">{title}</li>
+                    <li className='text-white'><Link to="" className="">Home</Link></li>
+                    <li className='text-white'><span className="mx-2">/</span></li>
+                    <li className="text-white">{title}</li>
                 </ol>
             </nav>
         </div>

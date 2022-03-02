@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import InstagramLogin from 'react-instagram-login';
 import GoogleLogin from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 
@@ -52,6 +53,10 @@ const SocialLinkesIcons = () => {
         console.log(data);
     }
 
+    const responseInstagram = (response) => {
+        console.log("insta login",response);
+    }
+
     return (
         <>
             <GoogleLogin
@@ -64,7 +69,12 @@ const SocialLinkesIcons = () => {
             <div className='text-center mb-4 mt-6'>
                 <h6 className='font-medium'>Login with Social</h6>
             </div>
-
+            {/* <InstagramLogin
+                clientId="5fd2f11482844c5eba963747a5f34556"
+                buttonText="Login"
+                onSuccess={responseInstagram}
+                onFailure={responseInstagram}
+            /> */}
             <div className='login-social flex justify-center'>
                 <a href="#!" className="text-gray-600 icon google">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
@@ -75,8 +85,8 @@ const SocialLinkesIcons = () => {
                     </svg>
                 </a>
                 <FacebookLogin
-                appId=""
-                autoLoad={true}
+                appId="473658004253289"
+                autoLoad={false}
                 fields="first_name,last_name,email,picture"
                 onClick={componentClicked}
                 callback={responseFacebook}

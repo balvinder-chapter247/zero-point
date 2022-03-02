@@ -9,7 +9,7 @@ const BannerSection = () =>
                 <h1 className="mb-0">Enlightenment At Your Fingertip</h1>
                 <h5>Start your personal journey today.</h5>
                 <div className='subscribe-banner mt-8'>
-                    <p>Ready to get learn? Enter your email below to get things kicked off</p>
+                    <p className='text-white'>Ready to get learn? Enter your email below to get things kicked off</p>
                     <div className="grid grid-cols-6 gap-4">
                         <div className="col-span-2 col-start-3">
                             <SuscriptionBox />

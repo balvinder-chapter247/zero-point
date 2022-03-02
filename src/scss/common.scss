@@ -11,7 +11,18 @@
 }
 
 body {
-    font-family: 'Heebo', sans-serif;
+    // font-family: 'Outfit', sans-serif;
+    // font-family: "Heebo", sans-serif;
+    // font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    color: #222;
+}
+
+p,
+li {
+    color: #36373c;
+    // color: #2b2b2e;
 }
 
 h1 {
@@ -38,9 +49,12 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
     font-weight: 600;
     margin-bottom: 1rem;
+    // font-family: 'Outfit', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-family: "Heebo", sans-serif;
 }
 
@@ -216,6 +230,15 @@ button.icon.fb.metro {
     border-radius: 0.25rem !important;
 }
 
+.required {
+    color: #db1616;
+    margin-left: 1px;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
 .input-group i {
     position: absolute;
     right: 0;
@@ -360,6 +383,10 @@ span.form-icon i {
 .course-item {
     border-radius: 0.25rem;
     box-shadow: 0 30px 40px 0 rgb(1 11 60 / 6%);
+}
+
+.course_content .course_name {
+    font-size: 18px;
 }
 
 .course-item .course_image,
@@ -558,6 +585,30 @@ span.form-icon i {
     top: 0;
 }
 
+.blue-btn {
+    background-image: linear-gradient(to left, #0a6bcf, #0b2bc9);
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-position: 100% 0%;
+    border-radius: 4px;
+    &:hover {
+        background-position: 0% 100%;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+}
+
+.pagination a:hover {
+    background: #0b2bc9;
+    color: #fff;
+}
+
 // Marketplace page css start
 .featured_course_item {
     box-shadow: 0 30px 40px 0 rgb(1 11 60 / 10%);
@@ -681,6 +732,10 @@ span.form-icon i {
     border: 1px solid #ccc;
     border-radius: 8px;
     background: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background: #e7e7e7;
+    }
 }
 
 .p-0 {
@@ -861,14 +916,13 @@ span.form-icon i {
     }
 }
 
-.blue-btn {
-    background-color: $blue;
-    transition: all 0.4s ease-in-out;
-    &:hover {
-        box-shadow: 0px 5px 14px 0px rgb(4 23 118 / 46%);
-    }
-}
-
+// .blue-btn {
+//     background-color: $blue;
+//     transition: all 0.4s ease-in-out;
+//     &:hover {
+//         box-shadow: 0px 5px 14px 0px rgb(4 23 118 / 46%);
+//     }
+// }
 .sidebar-course .course_img {
     width: 60px;
     height: 60px;
@@ -943,36 +997,32 @@ span.form-icon i {
 }
 
 .backToTopButton {
-    background-color: #0b2bc9;
+    background: #0b2bc9;
+    background-image: linear-gradient(to right bottom, #1678dd, #1530b5);
     right: 40px;
-    border-radius: 100% !important;
+    border-radius: 50%;
     bottom: 40px;
     position: fixed;
     z-index: 2;
     cursor: pointer;
-    border-radius: 7px;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.25s ease-in-out;
-    box-shadow: 0 9px 25px 0 rgba(128, 124, 173, 0.28);
-    border: none;
+    transition: all 0.5s ease-in-out;
     outline: none;
+    border: none;
     &:hover {
-        border-style: solid;
-        border-color: #0b2bc9;
-        background-color: white;
-    }
-    &:hover svg {
-        fill: #0b2bc9 !important;
+        background-image: linear-gradient(to right top, #1678dd, #1061d7);
+        transition: all 0.5s ease-in-out;
     }
 }
 
 .backToTopButton svg {
     fill: white;
     margin-bottom: 2px;
+    width: 22px;
 }
 
 .delete-button {
@@ -982,6 +1032,10 @@ span.form-icon i {
 
 .width-100 .modified {
     width: 100% !important;
+}
+
+.input_group input {
+    color: #36373c;
 }
 
 .remove_div_input {
@@ -1002,4 +1056,20 @@ span.form-icon i {
     &:hover {
         background-color: rgb(207, 207, 207);
     }
+}
+
+.__react_component_tooltip {
+    background: #000 !important;
+    border-radius: 6px;
+    max-width: 220px;
+    text-align: center;
+    padding: 6px !important;
+    &::after {
+        border-top-color: #000 !important;
+    }
+}
+
+.cvv {
+    width: 70px;
+    padding-top: 30px;
 }

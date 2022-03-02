@@ -16,7 +16,7 @@ const MyCourses =()=>
                     <div className="container mx-auto px-4 flex items-center justify-between pb-4">
                         <h2 className="font-bold text-3xl mb-0">My Courses</h2>
                         <Link to="add-course">
-                            <button className="px-4 py-3 font-semibold text-sm bg-theme-color hover:bg-blue-700 text-white rounded shadow-sm">Create Course +</button>
+                            <button className="px-4 py-3 rounded blue-btn">Create Course +</button>
                         </Link>
                     </div>
                 </div>

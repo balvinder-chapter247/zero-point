@@ -71,7 +71,7 @@ const ForgotPassword = () => {
                             <div className='grid grid-cols-3 items-center my-10'>
                                 <div className='text-center left text-white p-6'>
                                     <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
-                                    <p>Enter your personal details and start journey with us</p>
+                                    <p className='text-white'>Enter your personal details and start journey with us</p>
                                     <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Login</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-8'>

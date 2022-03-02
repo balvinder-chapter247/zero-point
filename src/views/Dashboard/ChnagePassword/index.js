@@ -94,6 +94,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="Current Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     type={passwordShown ? "text" : "password"}
                                     name="password"
@@ -109,6 +110,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="New Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     className="block text-sm font-medium"
                                     type={newPasswordShown ? "text" : "password"}
@@ -125,6 +127,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="Confirm New Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     className="block text-sm font-medium"
                                     type={confirmPasswordShown ? "text" : "password"}
