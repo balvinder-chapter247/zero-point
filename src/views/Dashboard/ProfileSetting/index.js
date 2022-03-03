@@ -90,6 +90,7 @@ const ProfileSetting = () => {
                     <div className=''>
                         <InputForms
                             labelText="First Name"
+                            labelRequired="*"
                             labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
@@ -105,6 +106,7 @@ const ProfileSetting = () => {
                     <div className=''>
                         <InputForms
                             labelText="Last Name"
+                            labelRequired="*"
                             labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='text'
@@ -120,6 +122,7 @@ const ProfileSetting = () => {
                     <div className=''>
                         <InputForms
                             labelText="Email"
+                            labelRequired="*"
                             labelclassName="block font-medium mb-2 text-gray-700"
                             className="block font-medium"
                             type='email'
@@ -175,8 +178,8 @@ const ProfileSetting = () => {
                         />
                     </div>
                 </div>
-                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
-                    Update</button>
+                <button type='submit' className="blue-btn mt-6 py-2 px-8">
+                Update</button>
             </form>
         </div>
     )

@@ -27,7 +27,7 @@ const NewCourses = (newCourseData) => {
                                                     <span className='pl-1'>{courseList.courseRating}</span>
                                                 </div>
                                             </div>
-                                            <h5 className='leading-6'>
+                                            <h5 className='leading-6 course_name'>
                                             <Link to="" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
                                             </h5>
                                             <div className="course-owner flex items-center text-gray-600">

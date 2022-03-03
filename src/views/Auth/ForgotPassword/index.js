@@ -68,10 +68,10 @@ const ForgotPassword = () => {
                 <div className='auth-banner relative flex items-center'>
                     <div className='container mx-auto  px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
-                            <div className='grid grid-cols-3 items-center my-10 bg-theme-color'>
+                            <div className='grid grid-cols-3 items-center my-10'>
                                 <div className='text-center left text-white p-6'>
-                                    <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
-                                    <p>Enter your personal details and start journey with us</p>
+                                    <h1 className='font-bold text-3xl mb-6'>Back to Login!</h1>
+                                    <p className='text-white'>To keep connected with us please login with your personal info</p>
                                     <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Login</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-8'>
@@ -92,10 +92,9 @@ const ForgotPassword = () => {
                                                     placeholder="Email"
                                                 />
                                             </div>
-                                            <div className=''>
                                             <div className='text-center'>
-                                                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold  py-2 px-8 rounded-full uppercase">Submit</button>
-                                            </div>
+                                                <button type='submit' className="bg-theme-color block w-full hover:bg-blue-700 text-white font-semibold py-2 px-8 mt-6 rounded-full">
+                                                Request reset link</button>
                                             </div>
                                         </form>
                                         <SocialLinkesIcons/>

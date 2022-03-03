@@ -24,7 +24,7 @@ const MyCourseList = (myCourseData) => {
                                     <div className="p-6">
                                         <div className='course_content'>
                                             <Link to="#" className={`blog_tag ${courseList.courseTagColor}`}>{courseList.courseTag}</Link>
-                                            <h5 className='leading-6'>
+                                            <h5 className='leading-6 course_name'>
                                                 <Link to="#" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
                                             </h5>
                                         </div>

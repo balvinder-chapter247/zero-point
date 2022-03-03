@@ -89,7 +89,7 @@ const AddCourse = () => {
                     <div className="course-header border-b">
                         <div className="container mx-auto px-4 flex items-center justify-between pb-4">
                             <h2 className="font-bold text-3xl mb-0">Add Course</h2>
-                            <button className="px-4 py-3 font-semibold text-sm bg-theme-color hover:bg-blue-700 text-white rounded shadow-sm">Edit in Builder</button>
+                            <button className="px-4 py-3 font-semibold text-sm blue-btn text-white rounded shadow-sm">Edit in Builder</button>
                         </div>
                     </div>
 
@@ -98,7 +98,9 @@ const AddCourse = () => {
                             <div className='bg-white p-4 pb-8 mt-6 rounded-lg'>
                                 <form onSubmit={handleSubmit}>
                                     <div className="grid md:grid-cols-3 gap-4">
-                                        <div className="">
+                                    <div className='col-span-2'>
+                                       <div className="grid md:grid-cols-2 gap-4">
+                                       <div className="">
                                             <label className="block text-gray-700 font-bold mb-2">
                                                 <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                                     Title</span>
@@ -217,45 +219,49 @@ const AddCourse = () => {
                                             m-0
                                             focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none" type="file" />
                                         </div>
+                                       </div> 
+                                    </div>
+                                    <div className='learning_objectives'>
                                         {/* Learning objective section starts here */}
                                         <AddInputs />
                                         {/* Learning objective section end here */}
-                                        <div className='col-span-3 mt-2'>
-                                            <label className="block text-gray-700 text-sm font-bold mb-2">
-                                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
-                                                    Details</span>
-                                            </label>
-                                            <CKEditor
-                                                editor={ClassicEditor}
-                                                // data="Enter Description"
-                                               
-                                                
-                                                name='details'
-                                                value={formState.values.details || ""}
-                                                errorMessage={hasError("details") ?
-                                                    formState.errors.details[0] : null}
-                                                onChange={handleChange}
-                                                enterMode='CKEDITOR.ENTER_BR'
-                                                shiftEnterMode='CKEDITOR.ENTER_P'
-                                                onReady={(editor) => {
-                                                    // You can store the "editor" and use when it is needed.
-                                                    console.log('Editor is ready to use!', editor);
-                                                }}
-                                                onChange={(event, editor) => {
-                                                    const data = editor.getData();
-                                                    console.log({ event, editor, data });
-                                                    //   setFormData({ ...formData, description: data });
-                                                }}
-                                                onBlur={(event, editor) => {
-                                                    // console.log( 'Blur.', editor );
-                                                }}
-                                                onFocus={(event, editor) => {
-                                                    // console.log( 'Focus.', editor );
-                                                }}
-                                            />
-                                        </div>
                                     </div>
-                                    <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-2 px-8 rounded">
+                                        
+                                        
+                                    <div className='col-span-3 mt-2'>
+                                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                Details</span>
+                                        </label>
+                                        <CKEditor
+                                            editor={ClassicEditor}
+                                            
+                                            name='details'
+                                            value={formState.values.details || ""}
+                                            errorMessage={hasError("details") ?
+                                                formState.errors.details[0] : null}
+                                            onChange={handleChange}
+                                            enterMode='CKEDITOR.ENTER_BR'
+                                            shiftEnterMode='CKEDITOR.ENTER_P'
+                                            onReady={(editor) => {
+                                                // You can store the "editor" and use when it is needed.
+                                                console.log('Editor is ready to use!', editor);
+                                            }}
+                                            onChange={(event, editor) => {
+                                                const data = editor.getData();
+                                                console.log({ event, editor, data });
+                                                //   setFormData({ ...formData, description: data });
+                                            }}
+                                            onBlur={(event, editor) => {
+                                                // console.log( 'Blur.', editor );
+                                            }}
+                                            onFocus={(event, editor) => {
+                                                // console.log( 'Focus.', editor );
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                                    <button type='submit' className="blue-btn text-white font-semibold mt-6 py-2 px-8">
                                         Submit</button>
                                 </form>
                             </div>

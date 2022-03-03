@@ -92,11 +92,11 @@ const Signup = () => {
                 <div className='auth-banner relative flex items-center'>
                     <div className='container mx-auto px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
-                            <div className='grid grid-cols-3 items-center my-10 bg-theme-color'>
+                            <div className='grid grid-cols-3 items-center my-10'>
                                 <div className='text-center left text-white p-6'>
                                     <h1 className='font-bold text-3xl mb-6'>Welcome Back!</h1>
-                                    <p>To keep connected with us please login with your personal info</p>
-                                    <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign In</Link>
+                                    <p className='text-white'>To keep connected with us please login with your personal info</p>
+                                    <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 font-medium">Login</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-6'>
                                     <div className='login-signup-box'>
@@ -105,7 +105,6 @@ const Signup = () => {
                                             <div className='grid grid-cols-2 gap-4'>
                                                 <div className='mb-3'>
                                                     <InputForms
-                                                        className="flex items-center relative"
                                                         type='text'
                                                         name="first_name"
                                                         value={formState.values.first_name || ""}
@@ -119,7 +118,6 @@ const Signup = () => {
 
                                                 <div className='mb-3'>
                                                     <InputForms
-                                                        className="flex items-center relative"
                                                         type='text'
                                                         name="last_name"
                                                         value={formState.values.last_name || ""}
@@ -133,7 +131,6 @@ const Signup = () => {
                                             </div>
                                             <div className='mb-3'>
                                                 <InputForms
-                                                    className="flex items-center relative"
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
@@ -146,7 +143,6 @@ const Signup = () => {
                                             </div>
                                             <div className='mb-3'>
                                                 <InputForms
-                                                    className="flex items-center relative"
                                                     type={passwordShown ? "text" : "password"}
                                                     name="password"
                                                     value={formState.values.password || ""}
@@ -160,7 +156,6 @@ const Signup = () => {
                                             </div>
                                             <div className='mb-3'>
                                                 <InputForms
-                                                    className="flex items-center relative"
                                                     type={confirmPasswordShown ? "text" : "password"}
                                                     name="confirm_password"
                                                     value={formState.values.confirm_password || ""}
@@ -173,7 +168,7 @@ const Signup = () => {
                                                 />
                                             </div>
                                             <div className='text-center'>
-                                                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full uppercase">Sign Up</button>
+                                                <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold mt-4 py-2 px-8 rounded-full">Sign Up</button>
                                             </div>
                                         </form>
                                         <SocialLinkesIcons />

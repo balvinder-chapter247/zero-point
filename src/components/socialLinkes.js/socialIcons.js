@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import InstagramLogin from 'react-instagram-login';
 import GoogleLogin from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 
@@ -53,12 +54,21 @@ const SocialLinkesIcons = () => {
         
     }
 
+    const responseInstagram = (response) => {
+        console.log("insta login",response);
+    }
+
     return (
         <>
             <div className='text-center mb-4 mt-6'>
                 <h6 className='font-medium'>Login with Social</h6>
             </div>
-
+            {/* <InstagramLogin
+                clientId="5fd2f11482844c5eba963747a5f34556"
+                buttonText="Login"
+                onSuccess={responseInstagram}
+                onFailure={responseInstagram}
+            /> */}
             <div className='login-social flex justify-center'>
                 <GoogleLogin
                     clientId="206617876485-q5hv177ma6825brfe6acjaea2plpo6vp.apps.googleusercontent.com"
@@ -69,14 +79,14 @@ const SocialLinkesIcons = () => {
                     className='button_modified'
                 />
                 <FacebookLogin
-                    appId="473658004253289"
-                    // autoLoad={true}
-                    fields="first_name,last_name,email,picture"
-                    onClick={componentClicked}
-                    callback={responseFacebook}
-                    cssClass="icon fb"
-                    icon="fa-facebook" />
-
+                appId="473658004253289"
+                autoLoad={false}
+                fields="first_name,last_name,email,picture"
+                onClick={componentClicked}
+                callback={responseFacebook}
+                cssClass="icon fb"
+                icon="fa-facebook" />
+                
                 {/* <a href="#!" className="text-gray-600 icon fb">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                         className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"

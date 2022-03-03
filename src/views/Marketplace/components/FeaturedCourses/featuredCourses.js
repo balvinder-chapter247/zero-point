@@ -16,7 +16,7 @@ const FeaturedCourses = (featuredCoursesData) => {
                                     <div className="p-6">
                                         <div className='course_content'>
                                             <Link to="#" className={`blog_tag ${featuredCoursesList.courseTagColor}`}>{featuredCoursesList.courseTag}</Link>
-                                            <h5 className='leading-6'>
+                                            <h5 className='leading-6 course_name'>
                                                 <Link to="#" className="font-medium block hover:text-blue-700">{featuredCoursesList.courseName}</Link>
                                             </h5>
                                         </div>

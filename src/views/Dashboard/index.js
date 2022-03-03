@@ -26,8 +26,8 @@ const Dashboard = () => {
                             <TabGroup.TabList>
                             <TabGroup.Tab
                                 index={0}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150 focus-visible:none"
-                                activeClassName="bg-theme-color text-white"
+                                className="w-full text-left py-3 px-4 focus-visible:none"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-user"></i>
@@ -35,8 +35,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={1}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-theme-color text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-lock"></i>
@@ -44,8 +44,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={2}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-theme-color text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-exchange-alt"></i>
@@ -53,8 +53,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={3}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-theme-color text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-credit-card"></i>
@@ -114,7 +114,7 @@ const Dashboard = () => {
                                     {/* <h6 className='font-medium text-lg mb-4'>Select Payment Method</h6> */}
                                     <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
                                         <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                        type="radio" name="flexRadioDefault" id="card1" />
+                                        type="radio" checked name="flexRadioDefault" id="card1" />
                                         <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card1">
                                             <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
                                             <div className=''>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                                         </label>
                                     </div> */}
                                     <div className='flex justify-between mt-6'>
-                                        <button type="button" class="bg-theme-color hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                                         Add New Card
                                         </button>
                                     </div>
@@ -186,10 +186,11 @@ const Dashboard = () => {
             </div>
             <div class="modal-body relative p-4">
                 <form>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className='col-span-2'>
+                    <div className="grid grid-cols-3 gap-4">
+                        <div className='col-span-3'>
                             <InputForms
                                 labelText="Card Number"
+                                labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
                                 className="block text-sm font-medium"
                                 type='text'
@@ -201,6 +202,7 @@ const Dashboard = () => {
                         <div className=''>
                             <InputForms
                                 labelText="Expiry"
+                                labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
                                 className="block text-sm font-medium"
                                 type='text'
@@ -211,17 +213,23 @@ const Dashboard = () => {
                         </div>
                         <div className=''>
                             <InputForms
-                                labelText="CVV"
+                                labelText="CVV / CVC"
+                                labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
                                 className="block text-sm font-medium"
                                 type='password'
                                 name="cvv"
+                                iconClassName={"fas fa-question-circle"}
+                                dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
                                 value=""
                                 placeholder="***"
                             />
                         </div>
-                        <div className=''>
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        {/* <div className='cvv'>
+                            <img src='./images/cvv.png' alt='' />
+                        </div> */}
+                        <div className='col-span-3'>
+                            <button className="blue-btn py-2 px-8" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Save</button>
                         </div>
                     </div>

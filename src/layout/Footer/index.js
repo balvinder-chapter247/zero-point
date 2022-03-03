@@ -153,7 +153,7 @@ const Footer = () => {
                     <div className='container px-4 mx-auto'>
                         <div className="text-center">
                             <div>
-                                <span>© 2020 <a className=" font-semibold" href="https://tailwind-elements.com/">XeroPoint.</a> All Rights Reserved.</span>
+                                <span>© 2022 <a className=" font-semibold" href="https://tailwind-elements.com/">XeroPoint.</a> All Rights Reserved.</span>
                             </div>
                         </div>
                     </div>

@@ -83,11 +83,11 @@ const Login = () => {
                 <div className='auth-banner relative flex items-center'>
                     <div className='container mx-auto px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
-                            <div className='grid grid-cols-3 items-center my-10 bg-theme-color'>
+                            <div className='grid grid-cols-3 items-center my-10'>
                                 <div className='text-center left text-white p-6 '>
                                     <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
-                                    <p>Enter your personal details and start journey with us</p>
-                                    <Link to='sign-up' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign Up</Link>
+                                    <p className='text-white'>Enter your personal details and start journey with us</p>
+                                    <Link to='sign-up' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 font-medium">Sign Up</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-8'>
                                     <div className='login-signup-box'>
@@ -95,7 +95,6 @@ const Login = () => {
                                         <form onSubmit={handleSubmit}>
                                             <div className='mb-3'>
                                                 <InputForms
-                                                    className="flex items-center relative"
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
@@ -103,12 +102,11 @@ const Login = () => {
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
-                                                    placeholder="test@gmail.com"
+                                                    placeholder="Email"
                                                 />
                                             </div>
                                             <div className='mb-3'>
                                                 <InputForms
-                                                    className="flex items-center relative"
                                                     type={passwordShown ? "text" : "password"}
                                                     name="password"
                                                     value={formState.values.password || ""}
@@ -122,7 +120,7 @@ const Login = () => {
                                             </div>
                                             <div className='flex items-center justify-between mt-6'>
                                                 <div className='text-center'>
-                                                    <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
+                                                    <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full">Login</button>
                                                 </div>
                                                 <div className='text-center'>
                                                     <Link to='forgot-password' className="forgot-password-link font-medium">Forgot your Password?</Link>

@@ -94,6 +94,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="Current Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     type={passwordShown ? "text" : "password"}
                                     name="password"
@@ -109,6 +110,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="New Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     className="block text-sm font-medium"
                                     type={newPasswordShown ? "text" : "password"}
@@ -125,6 +127,7 @@ const ChangePassword = () => {
                         <div className='mb-3'>
                                 <InputForms
                                     labelText="Confirm New Password"
+                                    labelRequired="*"
                                     labelclassName="block font-medium mb-2 text-gray-700"
                                     className="block text-sm font-medium"
                                     type={confirmPasswordShown ? "text" : "password"}
@@ -138,7 +141,7 @@ const ChangePassword = () => {
                                     placeholder="New Password"
                                 />
                         </div>
-                        <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold my-4 uppercase py-2 px-8 rounded">
+                        <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold my-4 py-2 px-8 rounded">
                     Change Password</button>
                     </div>
                 </div>

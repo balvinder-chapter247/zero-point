@@ -53,14 +53,14 @@ const AddInputs = () => {
 
     return (
         <>
-            <div className="">
-                <label className="block text-gray-700 text-sm font-bold ">
+            <div className="mb-3">
+                <label className="block text-gray-700 font-bold mb-2">
                     <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                         Learning Objectives-1</span>
                 </label>
-                <div className="mb-3 items-center"></div>
+                {/* <div className="mb-3 items-center"></div> */}
                 <div className={
-                    `flex justify-center items-center custom mt-2 width-100 ${inputList.length !== 1 ? "mt-2" : null}`}>
+                    `justify-center items-center custom mt-2 width-100 ${inputList.length !== 1 ? "mt-2" : null}`}>
                     <InputForms
                         className="block font-medium"
                         type='text'
@@ -71,65 +71,60 @@ const AddInputs = () => {
                     />
                 </div>
             </div>
-            <div className="">
-                <label className="block text-gray-700 text-sm font-bold ">
+            <div className="mb-3">
+                <label className="block text-gray-700 font-bold mb-2">
                     <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                         Learning Objectives-2</span>
                 </label>
-                <div className="mb-3 items-center"></div>
+                {/* <div className="mb-3 items-center"></div> */}
                 <div className={
-                    `flex justify-center items-center custom mt-2 width-100 `}>
+                    `justify-center items-center custom mt-2 width-100 `}>
                     <InputForms
                         className="block font-medium"
                         type='text'
                         name="objective1"
                         value={form.values}
                         onChange={handleChangeNormal}
-                      
                     />
                 </div>
             </div>
-
+            
             {inputList.map((x, i) => {
                 return (
                     <>
-                        <div className="">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                        <div className="mb-3">
+                            <label className="block text-gray-700 font-bold mb-2">
                                 <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
                                     {`Learning Objectives-${2 + 1 + i}`}</span>
                             </label>
-                            <div className="mb-3 items-center"></div>
+                            
                             <div className={
-                                `flex justify-center items-center  custom mt-2 width-100 `}>
+                                `flex justify-center items-center  custom mt-2 w-full `}>
                                 <InputForms
-                                    className="block font-medium"
+                                    className="block font-medium w-full"
                                     type='text'
                                     name="objective"
                                     value={x.firstName}
                                     onChange={e => handleInputChange(e, i)}
-                                  
                                 />
                                 <div className="remove_div_input">
                                     {inputList.length !== 1 && <button
-                                        className="mr10"
+                                        className="mx-2"
                                         onClick={() => handleRemoveClick(i)}>
                                         <i className="fa-solid fa-trash-can delete-button" data-tip="Remove item" />
                                         <ReactTooltip />
                                     </button>}
-
                                 </div>
-
                             </div>
-                            <div data-tip = {isDisabledAdding ? "You can add max 7" : ""}>
+                        </div>
+                        <div className='add_btn' data-tip = {isDisabledAdding ? "You can add max 7" : ""}>
                             {inputList.length - 1 === i &&
-                                <button onClick={handleAddClick}
-                                    className = {`bg-theme-color hover:bg-blue-700 text-white font-semibold mt-6 uppercase py-1 px-4 rounded negative-margin-top ${isDisabledAdding ? "disabled" : ""}`}
-                                    disabled = {isDisabledAdding}
-                                    
-                                >
-                                    Add +
-                                </button>}
-                            </div>
+                            <button onClick={handleAddClick}
+                                className = {`blue-btn text-white font-semibold mt-4 uppercase py-2 px-4 rounded ${isDisabledAdding ? "disabled" : ""}`}
+                                disabled = {isDisabledAdding}
+                            >
+                                Add +
+                            </button>}
                         </div>
                     </>
                 );

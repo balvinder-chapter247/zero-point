@@ -1,11 +1,14 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip';
 const InputForms = (
     {
         className,
         labelText,
         labelclassName,
+        dataTip,
         inputclassName,
         labeltext,
+        labelRequired,
         iconClassName,
         type = "text",
         id = "",
@@ -26,12 +29,13 @@ const InputForms = (
 ) => {
     return (
         <>
+            <div className='form-group w-full'>
             {
                 labelText && labelText.length ? 
-                <label className={labelclassName}>{labelText}</label>
+                <label className={labelclassName}>{labelText}<span className='required'>{labelRequired}</span></label>
                 : null
             }
-            <div className="input_group relative flex items-center modified mb-2">
+            <div className="input_group relative flex items-center modified w-full">
             <input type={type} name={name}
                 value={value}
                 onChange={onChange}
@@ -41,7 +45,8 @@ const InputForms = (
                 {
                     iconClassName ?
                         <span className='form-icon absolute right-2'>
-                            <i className={iconClassName} onClick={onClick}></i>
+                            <i className={iconClassName} onClick={onClick} data-tip={dataTip ? dataTip : null}></i>
+                            <ReactTooltip />
                         </span>
                         : null
                 }
@@ -57,6 +62,7 @@ const InputForms = (
             <span className='error text-red-500 text-sm font-medium'>
                 {errorMessage}
             </span>
+            </div>
 
         </>
     )
