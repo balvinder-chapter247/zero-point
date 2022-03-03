@@ -71,7 +71,7 @@ const SocialLinkesIcons = () => {
             /> */}
             <div className='login-social flex justify-center'>
                 <GoogleLogin
-                    clientId=""
+                    clientId="206617876485-q5hv177ma6825brfe6acjaea2plpo6vp.apps.googleusercontent.com"
                     buttonText=""
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}

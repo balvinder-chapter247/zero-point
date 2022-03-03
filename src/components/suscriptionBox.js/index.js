@@ -18,13 +18,12 @@ const SuscriptionBox = () => {
     useEffect(() => {
 
         const errors = validate(formState.values, SuscriptionSchema);
+        console.log(formState,"thsi si error")
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
             errors: errors || {},
         }));
-        console.log(formState.values)
-
     }, [formState.values]);
 
     ///Handle change for storing input values to state.
@@ -65,7 +64,6 @@ const SuscriptionBox = () => {
                 else {
                     let tempArray = JSON.parse(localStorage.getItem("registeredEmails"));
                     tempArray.push(email);
-                    console.log(email, "this is temp aary")
                     let test = localStorage.setItem("registeredEmails",
                         JSON.stringify(tempArray));
                     Toaster({ type: "success", text: "susbcribed succesfully" })
@@ -95,7 +93,7 @@ const SuscriptionBox = () => {
                 )
             }   
         }
-        console.log(formState, "check this lkj")
+        
         setFormState((formState) => ({
             ...formState,
             touched: {
@@ -103,6 +101,7 @@ const SuscriptionBox = () => {
                 ...formState.errors
             },
         }));
+    
     };
 
     const hasError = (field) =>
@@ -133,6 +132,7 @@ const SuscriptionBox = () => {
                                 :
                                 null
                         }
+                       
                     </div>
                 </div>
             </form>
