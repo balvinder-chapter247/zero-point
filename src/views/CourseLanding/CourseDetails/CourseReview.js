@@ -1,7 +1,78 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Toaster } from '../../../helper/react-toast'
+import { ToastContainer } from 'react-toastify';
+import validate from 'validate.js';
+import { ReviewSchema } from '../../../validators';
 import InputForms from '../../../common/inputForm'
 
 const CourseReview = () => {
+
+    ///State for our form
+    const [formState, setFormState] = React.useState({
+        isValid: false,
+        values: {},
+        touched: {},
+        errors: {},
+    });
+
+    ///For validating error everytime change in inputs
+    useEffect(() => {
+        const errors = validate(formState.values, ReviewSchema);
+        setFormState((formState) => ({
+            ...formState,
+            isValid: errors ? false : true,
+            errors: errors || {},
+        }));
+    }, [formState.values]);
+
+    ///Handle change for storing input values to state.
+    const handleChange = (event) => {
+        event.persist();
+        setFormState((formState) => ({
+            ...formState,
+            values: {
+                ...formState.values,
+                [event.target.name]:
+                    event.target.type === "checkbox"
+                        ? event.target.checked
+                        : event.target.value,
+            },
+            touched: {
+                ...formState.touched,
+                [event.target.name]: true,
+            },
+        }));
+    };
+
+    ///Submiting values to api.
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (formState.isValid) {
+            const { password } = formState.values;
+            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+            if (registeredUsers) {
+                let tempArray = registeredUsers;
+                localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
+                Toaster({
+                    type: "Success",
+                    text: "You have successfully change your password."
+                })
+            }
+
+        }
+
+        setFormState((formState) => ({
+            ...formState,
+            touched: {
+                ...formState.touched,
+                ...formState.errors,
+            },
+        }));
+    }
+
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
+
   return (
     <>
       <div className='bg-white course-box mt-4'>
@@ -12,12 +83,12 @@ const CourseReview = () => {
         <div className='course_review_rating grid grid-cols-6 bg-gray-100 rounded mt-4 mb-12'>
             <div className='course_rating text-center col-span-2'>
             <h2 className='mb-0'>4.5</h2>
-            <ul className="rating text-yellow flex justify-center">
-                <li><i className='fa fa-star'></i></li>
-                <li><i className='fa fa-star'></i></li>
-                <li><i className='fa fa-star'></i></li>
-                <li><i className='fa fa-star'></i></li>
-                <li><i className='fa fa-star'></i></li>
+            <ul className="rating flex justify-center">
+                <li className='text-yellow '><i className='fa fa-star'></i></li>
+                <li className='text-yellow '><i className='fa fa-star'></i></li>
+                <li className='text-yellow '><i className='fa fa-star'></i></li>
+                <li className='text-yellow '><i className='fa fa-star'></i></li>
+                <li className='text-yellow '><i className='fa fa-star'></i></li>
             </ul>
             <p>4.5 Ratings</p>
             </div>
@@ -101,76 +172,106 @@ const CourseReview = () => {
             <h2 className='mb-0'>Write a Review</h2>
             <p>Your email address will not be published. Required fields are marked *</p>
             <div className='ratings flex items-center pt-1 pb-3'>
-            <h6 className='mb-0 font-medium'>Ratings:</h6>
-            <div className="text-sm ml-3"> 
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-            </div>
-            </div>
-            <form>
-            <div className='grid grid-cols-2 gap-4'>
-                <div className=''>
-                    <label className="block font-medium mb-2 text-gray-700">Name</label>
-                    <InputForms
-                        className="block font-medium"
-                        type='text'
-                        name="name"
-                        value=''
-                        placeholder="Name"
-                    />
+                <h6 className='mb-0 font-medium'>Ratings:</h6>
+                <div className="text-sm ml-3"> 
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
                 </div>
-                <div className=''>
-                    <label className="block font-medium mb-2 text-gray-700">Email</label>
-                    <InputForms
-                        className="block font-medium"
-                        type='text'
-                        name="email"
-                        value=''
-                        placeholder="Email"
-                    />
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className='grid grid-cols-2 gap-4'>
+                    <div className=''>
+                        <InputForms
+                            labelText="Name"
+                            labelRequired="*"
+                            labelclassName="block font-medium mb-2 text-gray-700"
+                            className="block font-medium"
+                            type='text'
+                            name="name"
+                            value={formState.values.name || ""}
+                            errorMessage={hasError("name") ?
+                                formState.errors.name[0] : null}
+                            onChange={handleChange}
+                            placeholder="Name"
+                        />
+                    </div>
+                    <div className=''>
+                        <InputForms
+                            labelText="Email"
+                            labelRequired="*"
+                            labelclassName="block font-medium mb-2 text-gray-700"
+                            className="block font-medium"
+                            type='text'
+                            name="email"
+                            value={formState.values.email || ""}
+                            errorMessage={hasError("email") ?
+                                formState.errors.email[0] : null}
+                            onChange={handleChange}
+                            placeholder="Email"
+                        />
+                    </div>
+                    <div className='col-span-2'>
+                        <InputForms
+                            labelText="Subject"
+                            labelRequired="*"
+                            labelclassName="block font-medium mb-2 text-gray-700"
+                            className="block font-medium"
+                            type='text'
+                            name="subject"
+                            value={formState.values.subject || ""}
+                            errorMessage={hasError("subject") ?
+                                formState.errors.subject[0] : null}
+                            onChange={handleChange}
+                            placeholder="Subject"
+                        />
                 </div>
                 <div className='col-span-2'>
-                <label className="block font-medium mb-2 text-gray-700">Subject</label>
-                <InputForms
-                    className="block font-medium"
-                    type='text'
-                    name="subject"
-                    value=''
-                    placeholder="Subject"
-                />
-            </div>
-            <div className='col-span-2'>
-            
-            <label className="block font-medium mb-2 text-gray-700">Message</label>
-            <textarea
-                className="
-                block
-                w-full
-                px-3
-                py-1.5
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-500 focus:outline-none
-                "
-                id="exampleFormControlTextarea1"
-                rows="3"
-                placeholder="Your message"
-            ></textarea>
-            </div>
-            <button type="submit" className="blue-btn text-white font-semibold mt-4 uppercase py-3 px-8 rounded max-w-max">Submit Review</button>
-            </div>
+                    <label className="block font-medium mb-2 text-gray-700">Message<span className='required'>*</span></label>
+                    <textarea
+                        className="
+                        block
+                        w-full
+                        px-3
+                        py-1.5
+                        text-base
+                        font-normal
+                        text-gray-700
+                        bg-white bg-clip-padding
+                        border border-solid border-gray-300
+                        rounded
+                        transition
+                        ease-in-out
+                        m-0
+                        focus:text-gray-700 focus:bg-white focus:border-blue-500 focus:outline-none
+                        "
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                        name="message"
+                        value={formState.values.message || ""}
+                        errorMessage={hasError("message") ?
+                            formState.errors.message[0] : null}
+                        onChange={handleChange}
+                        placeholder="Your Message"
+                    ></textarea>
+                </div>
+                    <button type="submit" className="blue-btn text-white font-semibold mt-4 py-3 px-8 rounded max-w-max">Submit Review</button>
+                </div>
             </form>
         </div>
+        <ToastContainer
+            position="right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
         </div>
     </>
   )

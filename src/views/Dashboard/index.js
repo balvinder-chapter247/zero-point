@@ -26,8 +26,8 @@ const Dashboard = () => {
                             <TabGroup.TabList>
                             <TabGroup.Tab
                                 index={0}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150 focus-visible:none"
-                                activeClassName="bg-blue-500 text-white"
+                                className="w-full text-left py-3 px-4 focus-visible:none"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-user"></i>
@@ -35,8 +35,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={1}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-lock"></i>
@@ -44,8 +44,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={2}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-exchange-alt"></i>
@@ -53,8 +53,8 @@ const Dashboard = () => {
                             </TabGroup.Tab>
                             <TabGroup.Tab
                                 index={3}
-                                className="w-full text-left py-3 px-4 transition-colors duration-150"
-                                activeClassName="bg-blue-500 text-white"
+                                className="w-full text-left py-3 px-4"
+                                activeClassName="bg-blue-gradient text-white"
                                 inactiveClassName="text-black"
                             >
                                 <i className="fas fa-credit-card"></i>

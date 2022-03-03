@@ -141,7 +141,7 @@ const ChangePassword = () => {
                                     placeholder="New Password"
                                 />
                         </div>
-                        <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold my-4 uppercase py-2 px-8 rounded">
+                        <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold my-4 py-2 px-8 rounded">
                     Change Password</button>
                     </div>
                 </div>

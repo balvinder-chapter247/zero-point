@@ -178,8 +178,8 @@ const ProfileSetting = () => {
                         />
                     </div>
                 </div>
-                <button type='submit' className="blue-btn mt-6 uppercase py-2 px-8">
-                    Submit</button>
+                <button type='submit' className="blue-btn mt-6 py-2 px-8">
+                Update</button>
             </form>
         </div>
     )

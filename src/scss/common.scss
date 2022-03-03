@@ -21,8 +21,8 @@ body {
 
 p,
 li {
-    color: #36373c;
-    // color: #2b2b2e;
+    // color: #36373c;
+    color: #434444;
 }
 
 h1 {
@@ -54,7 +54,7 @@ h6 {
     font-weight: 600;
     margin-bottom: 1rem;
     // font-family: 'Outfit', sans-serif;
-    font-family: 'Nunito', sans-serif;
+    // font-family: 'Nunito', sans-serif;
     font-family: "Heebo", sans-serif;
 }
 
@@ -180,6 +180,26 @@ p {
     }
 }
 
+.button_modified {
+    width: 40px;
+    height: 40px;
+    border-radius: 100% !important;
+    align-content: center;
+    text-align: center;
+    border-color: #db4437 !important;
+    margin-right: 6px;
+    &:hover div {
+        background-color: rgb(207, 207, 207);
+    }
+}
+
+.button_modified div {
+    background-color: transparent !important;
+    &:hover {
+        background-color: rgb(207, 207, 207);
+    }
+}
+
 .login-social .icon.fb {
     border-color: #3c5a9a;
     color: #3c5a9a;
@@ -220,7 +240,7 @@ button.icon.fb.metro {
 }
 
 .login-box {
-    background-color: #2464f9;
+    background-color: #0b2bc9;
     max-width: 900px;
     margin: auto;
     box-shadow: 0px 3px 17px -2px #666;
@@ -236,7 +256,8 @@ button.icon.fb.metro {
 }
 
 .form-group label {
-    font-weight: 600;
+    font-weight: 400;
+    font-family: "Heebo", sans-serif;
 }
 
 .input-group i {
@@ -276,7 +297,7 @@ span.form-icon i {
     max-width: 160px;
     &:hover {
         background-color: #fff;
-        color: #2464f9;
+        color: #0b2bc9;
         transition: all 0.4s ease-in-out;
     }
 }
@@ -387,6 +408,10 @@ span.form-icon i {
 
 .course_content .course_name {
     font-size: 18px;
+}
+
+.my_course_item {
+    border-radius: 6px;
 }
 
 .course-item .course_image,
@@ -604,6 +629,12 @@ span.form-icon i {
     }
 }
 
+.bg-blue-gradient {
+    background-image: linear-gradient(to left, #0a6bcf, #0b2bc9);
+    background-position: 100% 0%;
+    background-size: 300% 100%;
+}
+
 .pagination a:hover {
     background: #0b2bc9;
     color: #fff;
@@ -684,6 +715,7 @@ span.form-icon i {
 .tablist button {
     border-bottom: 1px solid #eee;
     border-radius: 4px;
+    text-align: left;
     &:focus-visible {
         outline: none;
     }
@@ -718,7 +750,7 @@ span.form-icon i {
 
 .my-transaction tr th {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     background: #f7f6f6;
     border-top: 1px solid #e5e7eb;
 }
@@ -784,10 +816,11 @@ span.form-icon i {
     font-size: 14px;
     transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
     color: #000;
+    font-weight: 700;
 }
 
 .course-tab .nav-link:hover {
-    color: #2b4eff;
+    color: #0b2bc9;
 }
 
 .course-tab .nav-link.active {
@@ -818,6 +851,10 @@ span.form-icon i {
     border-radius: 4px;
     background: #f2277e;
     margin-left: 20px;
+}
+
+.course_curriculum_content .font-medium {
+    font-family: "Heebo", sans-serif;
 }
 
 .course_rating {
@@ -1039,7 +1076,7 @@ span.form-icon i {
 }
 
 .remove_div_input {
-    padding-left: 8px;
+    // padding-left: 8px;
 }
 
 .color-text-theme {
@@ -1072,4 +1109,33 @@ span.form-icon i {
 .cvv {
     width: 70px;
     padding-top: 30px;
+}
+
+.learning_objectives {
+    max-height: 335px;
+    overflow: auto;
+    position: relative;
+}
+
+.learning_objectives::-webkit-scrollbar {
+    width: 6px;
+}
+
+.learning_objectives::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    padding-left: 10px;
+}
+
+.learning_objectives::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 4px;
+}
+
+.learning_objectives::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.learning_objectives .add_btn .blue-btn {
+    // position: absolute;
+    // bottom: 0px;
 }

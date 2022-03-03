@@ -29,13 +29,13 @@ const InputForms = (
 ) => {
     return (
         <>
-            <div className='form-group'>
+            <div className='form-group w-full'>
             {
                 labelText && labelText.length ? 
                 <label className={labelclassName}>{labelText}<span className='required'>{labelRequired}</span></label>
                 : null
             }
-            <div className="input_group relative flex items-center modified mb-2">
+            <div className="input_group relative flex items-center modified w-full">
             <input type={type} name={name}
                 value={value}
                 onChange={onChange}

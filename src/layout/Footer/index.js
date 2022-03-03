@@ -4,7 +4,7 @@ import Newsletter from '../../components/Newsletter/index.js'
 import SuscriptionBox from '../../components/suscriptionBox.js'
 import ScrollToTop from "react-scroll-to-top";
 import img from '../../assets/Images/backtoTop.jpg'
-
+import { ToastContainer } from 'react-toastify';
 const Footer = () => {
     return (
         <>
@@ -159,6 +159,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+           
         </>
     )
 }

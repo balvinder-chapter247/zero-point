@@ -6,25 +6,25 @@ import { useHistory } from 'react-router-dom';
 
 const SocialLinkesIcons = () => {
     useEffect(() => {
-        responseGoogle()
+        responseGoogle();
     }, [])
     const history = useHistory()
     const responseGoogle = response => {
         if (response && response.tokenObj) {
             const token = JSON.stringify(response.tokenObj.access_token)
             localStorage.setItem("token", token);
-            const {givenName , familyName ,email ,imageUrl} = response.profileObj
+            const { givenName, familyName, email, imageUrl } = response.profileObj
             const userValues = [
                 {
-                    "first_name":givenName,
+                    "first_name": givenName,
                     "last_name": familyName,
                     "email": email,
                     "password": "N.A",
                     "confirm_password": "N.A",
-                    "imageUrl":imageUrl
+                    "imageUrl": imageUrl
                 }
             ]
-            localStorage.setItem("registeredUsers",JSON.stringify(userValues))
+            localStorage.setItem("registeredUsers", JSON.stringify(userValues))
             history.push('/dashboard')
         }
     };
@@ -34,23 +34,24 @@ const SocialLinkesIcons = () => {
         if (response) {
             const token = JSON.stringify(response.accessToken)
             localStorage.setItem("token", token);
-            const {first_name , last_name ,email} = response
+            const { first_name, last_name, email } = response
             const userValues = [
                 {
-                    "first_name":first_name,
+                    "first_name": first_name,
                     "last_name": last_name,
                     "email": email,
                     "password": "N.A",
                     "confirm_password": "N.A",
-                    "imageUrl":response.picture.data.url
+                    "imageUrl": response.picture.data.url
                 }
             ]
-            localStorage.setItem("registeredUsers",JSON.stringify(userValues))
+            localStorage.setItem("registeredUsers", JSON.stringify(userValues))
             history.push('/dashboard')
         }
     }
     const componentClicked = (data) => {
         console.log(data);
+        
     }
 
     const responseInstagram = (response) => {
@@ -59,13 +60,6 @@ const SocialLinkesIcons = () => {
 
     return (
         <>
-            <GoogleLogin
-                clientId=""
-                buttonText="Login with Google"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy="single_host_origin"
-            />
             <div className='text-center mb-4 mt-6'>
                 <h6 className='font-medium'>Login with Social</h6>
             </div>
@@ -76,14 +70,14 @@ const SocialLinkesIcons = () => {
                 onFailure={responseInstagram}
             /> */}
             <div className='login-social flex justify-center'>
-                <a href="#!" className="text-gray-600 icon google">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
-                        className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                        <path fill="currentColor"
-                            d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z">
-                        </path>
-                    </svg>
-                </a>
+                <GoogleLogin
+                    clientId=""
+                    buttonText=""
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy="single_host_origin"
+                    className='button_modified'
+                />
                 <FacebookLogin
                 appId="473658004253289"
                 autoLoad={false}

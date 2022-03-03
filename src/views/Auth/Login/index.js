@@ -7,11 +7,14 @@ import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import SocialLinkesIcons from '../../../components/socialLinkes.js/socialIcons';
 import InputForms from '../../../common/inputForm';
+import { LoginRequest } from '../../../redux/actions';
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
 
     ///for histoty push
-    const history = useHistory()
+    const history = useHistory();
+    const dispatch = useDispatch()
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -54,32 +57,9 @@ const Login = () => {
         event.preventDefault();
         const { email, password } = formState.values;
         if (formState.isValid) {
-            const login = JSON.parse(localStorage.getItem("registeredUsers"));
-            const filterLogin = login.map((e) => {
-                if (e.email === email && e.password === password) {
-                    // debugger
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            })
-            if (filterLogin == "true") {
-                let token = Math.random().toString(36).substr(2);
-                localStorage.setItem("token", JSON.stringify(token));
-                Toaster({
-                    type: "success",
-                    text: "You have Login successfully."
-                });
-                history.push("/dashboard");
-            }
-            else {
-                Toaster({
-                    type: "error",
-                    text: "invalid Email or Password."
-                })
-            }
+            dispatch(LoginRequest(formState.values));
         }
+        console.log(formState,"login")
         setFormState((formState) => ({
             ...formState,
             touched: {
@@ -104,10 +84,10 @@ const Login = () => {
                     <div className='container mx-auto px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
                             <div className='grid grid-cols-3 items-center my-10'>
-                                <div className='text-center left text-white p-6'>
+                                <div className='text-center left text-white p-6 '>
                                     <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
                                     <p className='text-white'>Enter your personal details and start journey with us</p>
-                                    <Link to='sign-up' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Sign Up</Link>
+                                    <Link to='sign-up' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 font-medium">Sign Up</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-8'>
                                     <div className='login-signup-box'>
@@ -140,7 +120,7 @@ const Login = () => {
                                             </div>
                                             <div className='flex items-center justify-between mt-6'>
                                                 <div className='text-center'>
-                                                    <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Sign In</button>
+                                                    <button type='submit' className="bg-theme-color hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full">Login</button>
                                                 </div>
                                                 <div className='text-center'>
                                                     <Link to='forgot-password' className="forgot-password-link font-medium">Forgot your Password?</Link>
@@ -155,7 +135,7 @@ const Login = () => {
                     </div>
                 </div>
                 <ToastContainer
-                    position="left-bottom"
+                    position="right"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}

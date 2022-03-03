@@ -66,12 +66,12 @@ const ForgotPassword = () => {
         <>
             <main className='bg-gray-100'>
                 <div className='auth-banner relative flex items-center'>
-                    <div className='container mx-auto px-4 pt-8 relative'>
+                    <div className='container mx-auto  px-4 pt-8 relative'>
                         <div className='login-box shadow-lg'>
                             <div className='grid grid-cols-3 items-center my-10'>
                                 <div className='text-center left text-white p-6'>
-                                    <h1 className='font-bold text-3xl mb-6'>Hello, Friend!</h1>
-                                    <p className='text-white'>Enter your personal details and start journey with us</p>
+                                    <h1 className='font-bold text-3xl mb-6'>Back to Login!</h1>
+                                    <p className='text-white'>To keep connected with us please login with your personal info</p>
                                     <Link to='login' className="block py-2 px-6 rounded-full signin-btn m-auto mt-6 uppercase font-medium">Login</Link>
                                 </div>
                                 <div className='col-span-2 right bg-white p-8'>
@@ -85,18 +85,16 @@ const ForgotPassword = () => {
                                                     type='email'
                                                     name="email"
                                                     value={formState.values.email || ""}
-
+                                                    iconClassName={"fas fa-envelope"}
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
-                                                    placeholder="your@email.com"
+                                                    placeholder="Email"
                                                 />
                                             </div>
-
-                                            <div className='mt-6'>
-                                                <div className='text-center'>
-                                                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full uppercase">Submit</button>
-                                                </div>
+                                            <div className='text-center'>
+                                                <button type='submit' className="bg-theme-color block w-full hover:bg-blue-700 text-white font-semibold py-2 px-8 mt-6 rounded-full">
+                                                Request reset link</button>
                                             </div>
                                         </form>
                                         <SocialLinkesIcons/>
@@ -107,7 +105,7 @@ const ForgotPassword = () => {
                     </div>
                 </div>
                 <ToastContainer
-                    position="left-bottom"
+                    position="left-right"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}

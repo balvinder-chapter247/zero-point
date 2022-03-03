@@ -3,12 +3,14 @@ export const SignupSchema = {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
           maximum:30,
+          minimum:3
         },
     },
     last_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
           maximum:30,
+          minimum:3
         },
     },
     email: {
@@ -21,7 +23,7 @@ export const SignupSchema = {
     password: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:30,
+          maximum:20,
           minimum:8,
         },
     },
@@ -29,7 +31,7 @@ export const SignupSchema = {
         presence: { allowEmpty: false, message: 'is required' },
         equality: "password",
         length: {
-          maximum:30,
+          maximum:20,
           minimum:8,
         },
     },
