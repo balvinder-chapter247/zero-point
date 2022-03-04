@@ -1,5 +1,4 @@
 export const ChangePasswordSchema = {
-    
     password: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {

@@ -12,6 +12,8 @@ const ForgotPassword=React.lazy(() => import('../views/Auth/ForgotPassword'));
 const Dashboard=React.lazy(() => import('../views/Dashboard'));
 const AddCart=React.lazy(() => import('../views/AddCard'));
 const CourseLanding=React.lazy(() => import('../views/CourseLanding'));
+const ContactUs=React.lazy(() => import('../views/ContactUs'));
+const AboutUs=React.lazy(() => import('../views/AboutUs'));
 
 export const restrictRoutes = [
   {
@@ -28,6 +30,22 @@ export const restrictRoutes = [
     exact: true,
     name: 'marketplace',
     component: Marketplace,
+    layout: Layout,
+  },
+  {
+    key: 'contactus',
+    path: AppRoutes.CONTACTUS,
+    exact: true,
+    name: 'contactus',
+    component: ContactUs,
+    layout: Layout,
+  },
+  {
+    key: 'aboutus',
+    path: AppRoutes.ABOUTUS,
+    exact: true,
+    name: 'aboutus',
+    component: AboutUs,
     layout: Layout,
   },
 ];

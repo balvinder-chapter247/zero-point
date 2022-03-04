@@ -9,5 +9,7 @@ export const AppRoutes = {
   FORGOT_PASSWORD:'/forgot-password',
   DASHBOARD:'/dashboard',
   ADD_CART:'/add-cart',
-  COURSE_DETAILS:'/course-details'
+  COURSE_DETAILS:'/course-details',
+  CONTACTUS:'/contact-us',
+  ABOUTUS:'/about-us',
 };
