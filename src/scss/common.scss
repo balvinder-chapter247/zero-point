@@ -346,6 +346,10 @@ span.form-icon i {
     margin-bottom: 45px;
 }
 
+.common_heading h2 {
+    line-height: 1.2;
+}
+
 .common_heading p {
     color: #474748;
 }
@@ -1183,6 +1187,10 @@ span.form-icon i {
 .contact_info_text .link {
     color: #4e4e4e;
     font-weight: 400;
+    transition: all .4s ease-in-out;
+    &:hover {
+        color: #0b2bc9;
+    }
 }
 
 .contact_social {
@@ -1242,4 +1250,118 @@ span.form-icon i {
 .contact-map iframe {
     width: 100%;
     max-width: 100%;
+}
+
+// About us page css start
+.single_features_box {
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 30px 31px;
+    -moz-transition: .5s;
+    transition: .5s;
+    &:hover {
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
+.single_features_box .icon {
+    width: 45px;
+    margin: 0 auto 20px;
+}
+
+.single_features_box h5 {
+    line-height: 1.3;
+    margin-bottom: 5px;
+}
+
+.single_features_box .content {
+    margin-bottom: 20px;
+}
+
+.single_features_box .start-btn {
+    font-weight: 700;
+    color: #0b2bc9;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+        color: #000;
+    }
+}
+
+.testimonial_sec {
+    background-color: #f9f9f9;
+    padding-bottom: 90px;
+}
+
+.testimonial_sec .slick-dots {
+    display: none !important;
+}
+
+.slider_box {
+    // padding: 0 15px;
+}
+
+.slider_item {
+    background-color: #fff;
+    margin: 0 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.slider_box .slider_img {
+    min-width: 33.33%;
+    border-radius: 5px 5px 0 0;
+}
+
+.slider_box .slider_img img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    height: 280px;
+    object-fit: cover;
+}
+
+.slider_content {
+    padding: 20px 15px 25px;
+    text-align: center;
+}
+
+.slider_content .contact_social {
+    text-align: center;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.slider_content .contact_social .social-link {
+    width: 32px;
+    height: 32px;
+}
+
+.testimonial_sec .slick-arrow {
+    background: transparent;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    border: solid #0b2bc9;
+    border-width: 0px 4px 4px 0px;
+    display: inline-block;
+    padding: 6px;
+}
+
+.testimonial_sec .slick-arrow.slick-prev {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.testimonial_sec .slick-arrow.slick-next {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.slick-prev:before,
+.slick-next:before {
+    display: none;
 }

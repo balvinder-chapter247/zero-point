@@ -47,7 +47,17 @@ const CourseReview = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formState.isValid) {
-      console.log("hello");
+      let ReviewMessage = JSON.parse(localStorage.getItem("ReviewMessage"));
+        let tempArray = [];
+        tempArray.push(formState.values);
+        localStorage.setItem("ReviewMessage", JSON.stringify(tempArray));
+
+        {
+            Toaster({
+                type: "success",
+                text: "You have successfully sent your message."
+            })
+        }
     }
     setFormState((formState) => ({
       ...formState,
