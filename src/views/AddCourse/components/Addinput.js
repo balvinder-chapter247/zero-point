@@ -55,7 +55,7 @@ const AddInputs = () => {
         <>
             <div className="mb-3">
                 <label className="block text-gray-700 font-bold mb-2">
-                    <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                    <span className=" block">
                         Learning Objectives-1</span>
                 </label>
                 {/* <div className="mb-3 items-center"></div> */}
@@ -73,7 +73,7 @@ const AddInputs = () => {
             </div>
             <div className="mb-3">
                 <label className="block text-gray-700 font-bold mb-2">
-                    <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                    <span className="">
                         Learning Objectives-2</span>
                 </label>
                 {/* <div className="mb-3 items-center"></div> */}
@@ -94,7 +94,7 @@ const AddInputs = () => {
                     <>
                         <div className="mb-3">
                             <label className="block text-gray-700 font-bold mb-2">
-                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                <span className="">
                                     {`Learning Objectives-${2 + 1 + i}`}</span>
                             </label>
                             

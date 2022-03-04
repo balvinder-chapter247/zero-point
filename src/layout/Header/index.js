@@ -37,6 +37,9 @@ const  Header = () => {
   const handleLogout = () =>
   {
     localStorage.removeItem("token");
+    localStorage.removeItem("registeredUsers")
+    localStorage.removeItem("registeredEmails")
+
     history.push('/login')
   }
 
