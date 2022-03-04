@@ -15,7 +15,7 @@ export const ProfileSettingSchema = {
     },
     email: {
       presence: { allowEmpty: false, message: 'is required' },
-      email: true,
+      email: {message: 'is not valid'},
       length: {
         maximum:30,
       },
