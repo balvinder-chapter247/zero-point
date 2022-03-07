@@ -15,15 +15,15 @@ const ProfileSetting = () => {
         errors: {},
     });
 
-    useEffect(() => {
+    const handleError = ()=>
+    {
         const errors = validate(formState.values, ProfileSettingSchema);
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
             errors: errors || {},
         }));
-    }, [formState.values]);
-
+    }
     const handleChange = (event) => {
         event.persist();
         setFormState((formState) => ({
@@ -35,6 +35,11 @@ const ProfileSetting = () => {
                         ? event.target.checked
                         : event.target.value,
             },
+            errors:
+            {
+                ...formState.errors,
+                [event.target.name]:false
+            },
             touched: {
                 ...formState.touched,
                 [event.target.name]: true,
@@ -44,6 +49,7 @@ const ProfileSetting = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleError();
         if (formState.isValid) {
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
                 let tempArray = [...registeredUsers, formState.values];
@@ -100,6 +106,7 @@ const ProfileSetting = () => {
                             errorMessage={hasError("first_name") ?
                                 formState.errors.first_name[0] : null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="First Name"
                         />
                     </div>
@@ -116,6 +123,7 @@ const ProfileSetting = () => {
                             errorMessage={hasError("last_name") ?
                                 formState.errors.last_name[0] : null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="Last Name"
                         />
                     </div>
@@ -131,6 +139,7 @@ const ProfileSetting = () => {
                             errorMessage={hasError("email") ?
                                 formState.errors.email[0] : null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="your@email.com"
                         />
 
@@ -146,6 +155,7 @@ const ProfileSetting = () => {
                            
                             errorMessage={null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="321-112-1141"
                         />
                     </div>
@@ -160,6 +170,7 @@ const ProfileSetting = () => {
                 
                             errorMessage={null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="Address"
                         />
                     </div>
@@ -174,6 +185,7 @@ const ProfileSetting = () => {
                            
                             errorMessage={null}
                             onChange={handleChange}
+                            onBlur={handleError}
                             placeholder="City"
                         />
                     </div>

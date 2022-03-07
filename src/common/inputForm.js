@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip';
 const InputForms = (
     {
         className,
+        onBlur,
         labelText,
         labelclassName,
         dataTip,
@@ -39,6 +40,7 @@ const InputForms = (
             <input type={type} name={name}
                 value={value}
                 onChange={onChange}
+                onBlur={onBlur ? onBlur : ""}
                 className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
                 placeholder={placeholder} />
                 

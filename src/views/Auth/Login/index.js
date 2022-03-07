@@ -24,14 +24,24 @@ const Login = () => {
     });
 
     ///For validating error everytime change in inputs
-    useEffect(() => {
+    // useEffect(() => {
+    //     const errors = validate(formState.values, LoginSchema);
+    //     setFormState((formState) => ({
+    //         ...formState,
+    //         isValid: errors ? false : true,
+    //         errors: errors || {},
+    //     }));
+    // }, [formState.values]);
+
+    const handleError = ()=>
+    {
         const errors = validate(formState.values, LoginSchema);
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
             errors: errors || {},
         }));
-    }, [formState.values]);
+    }
 
     ///Handle change for storing input values to state.
     const handleChange = (event) => {
@@ -45,6 +55,11 @@ const Login = () => {
                         ? event.target.checked
                         : event.target.value,
             },
+            errors:
+            {
+                ...formState.errors,
+                [event.target.name]:false
+            },
             touched: {
                 ...formState.touched,
                 [event.target.name]: true,
@@ -55,6 +70,7 @@ const Login = () => {
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
+        handleError();
         const { email, password } = formState.values;
         if (formState.isValid) {
             dispatch(LoginRequest(formState.values));
@@ -77,7 +93,7 @@ const Login = () => {
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
 
-    return (
+    return ( 
         <>
             <main className='bg-gray-100'>
                 <div className='auth-banner relative flex items-center'>
@@ -102,6 +118,7 @@ const Login = () => {
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Email"
                                                 />
                                             </div>
@@ -115,6 +132,7 @@ const Login = () => {
                                                     errorMessage={hasError("password") ?
                                                         formState.errors.password[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Password"
                                                 />
                                             </div>

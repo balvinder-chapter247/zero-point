@@ -28,17 +28,6 @@ const Signup = () => {
         errors: {},
     });
    
-    ///For validating error everytime change in inputs
-    useEffect(() => {
-
-        const errors = validate(formState.values, SignupSchema);
-        setFormState((formState) => ({
-            ...formState,
-            isValid: errors ? false : true,
-            errors: errors || {},
-        }));
-    }, [formState.values]);
-
     ///Handle change for storing input values to state.
     const handleChange = (event) => {
         event.persist();
@@ -51,6 +40,11 @@ const Signup = () => {
                         ? event.target.checked
                         : event.target.value,
             },
+            errors:
+            {
+                ...formState.errors,
+                [event.target.name]:false
+            },
             touched: {
                 ...formState.touched,
                 [event.target.name]: true,
@@ -58,12 +52,26 @@ const Signup = () => {
         }));
     };
 
+    ////handling error on blur 
+    const handleError = ()=>
+    {
+        
+        const errors = validate(formState.values, SignupSchema);
+        setFormState((formState) => ({
+            ...formState,
+            isValid: errors ? false : true,
+            errors: errors || {},
+        }));
+    }
+
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
+        handleError();
         if (formState.isValid) {
             dispatch(SignUpRequest(formState.values));
         }
+        
         setFormState((formState) => ({
             ...formState,
             touched: {
@@ -125,6 +133,7 @@ const Signup = () => {
                                                         errorMessage={hasError("last_name") ?
                                                             formState.errors.last_name[0] : null}
                                                         onChange={handleChange}
+                                                        onBlur={handleError}
                                                         placeholder="Last Name"
                                                     />
                                                 </div>
@@ -138,6 +147,7 @@ const Signup = () => {
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Email"
                                                 />
                                             </div>
@@ -151,6 +161,7 @@ const Signup = () => {
                                                     errorMessage={hasError("password") ?
                                                         formState.errors.password[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Password"
                                                 />
                                             </div>
@@ -164,6 +175,7 @@ const Signup = () => {
                                                     errorMessage={hasError("confirm_password") ?
                                                         formState.errors.confirm_password[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Confirm Password"
                                                 />
                                             </div>

@@ -10,6 +10,7 @@ import ChangePassword from './ChnagePassword';
 import MyTransactions from './MyTransactions';
 import TransactionData from './DataFake/TransactionData';
 import InputForms from '../../common/inputForm';
+import { CardSavingschema } from '../../validators/SaveCard';
 
 const Dashboard = () => {
 

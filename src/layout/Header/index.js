@@ -18,6 +18,7 @@ const  Header = () => {
   const [token, setToken] = useState("");
   const [profileImage , setProfileImage] = useState("")
   const [profileName , setProfileName] = useState("")
+    
   useEffect(() => {
 
     const token = localStorage.getItem("token");
