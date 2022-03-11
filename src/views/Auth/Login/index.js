@@ -23,16 +23,6 @@ const Login = () => {
         errors: {},
     });
 
-    ///For validating error everytime change in inputs
-    // useEffect(() => {
-    //     const errors = validate(formState.values, LoginSchema);
-    //     setFormState((formState) => ({
-    //         ...formState,
-    //         isValid: errors ? false : true,
-    //         errors: errors || {},
-    //     }));
-    // }, [formState.values]);
-
     const handleError = ()=>
     {
         const errors = validate(formState.values, LoginSchema);

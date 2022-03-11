@@ -231,10 +231,10 @@ const AddCourse = () => {
                                             transition
                                             ease-in-out
                                             m-0
-                                            focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none" 
-                                            type="file"
-                                            name="bannerImage"
-                                           />
+                                            focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none"
+                                                        type="file"
+                                                        name="bannerImage"
+                                                    />
                                                 </div>
                                                 <div>
 
@@ -245,13 +245,10 @@ const AddCourse = () => {
                                                 </span> */}
                                             </div>
                                         </div>
-                                        <div className='learning_objectives'>
-                                            {/* Learning objective section starts here */}
-                                            
-                                            <AddInputs />
-                                            {/* Learning objective section end here */}
-                                        </div>
 
+                                        {/* Learning objective section starts here */}
+                                        <AddInputs />
+                                        {/* Learning objective section end here */}
 
                                         <div className='col-span-3 mt-2'>
                                             <label className="block text-gray-700 text-sm font-bold mb-2">

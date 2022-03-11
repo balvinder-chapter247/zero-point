@@ -120,6 +120,7 @@ const Signup = () => {
                                                         errorMessage={hasError("first_name") ?
                                                             formState.errors.first_name[0] : null}
                                                         onChange={handleChange}
+                                                        onBlur={handleError}
                                                         placeholder="First Name"
                                                     />
                                                 </div>

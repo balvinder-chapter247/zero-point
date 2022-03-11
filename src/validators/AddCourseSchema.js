@@ -2,32 +2,38 @@ export const AddCourseSchema = {
     title: {
       presence: { allowEmpty: false, message: 'is required' },
       length: {
-        maximum:30,
+        maximum:25,
+        minimum:5,
+        message: 'must be between 5 to 25 characters long.'
       },
     },
     category: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-            maximum:30,
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
         },
+       
     },
     sub_category: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-            maximum:30,
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
         },
     },
     level: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-            maximum:30,
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
         },
     },
     price: {
         presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
     },
     learning_objectives: {
         presence: { allowEmpty: false, message: 'is required' },
@@ -42,6 +48,8 @@ export const AddCourseSchema = {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
             maximum:300,
+            minimum:20,
+            message: 'must be between 20 to 300 characters long.'
         },
     },
     
