@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import FacebookLogin from 'react-facebook-login';
 import InstagramLogin from 'react-instagram-login';
 import GoogleLogin from 'react-google-login';
@@ -64,7 +65,7 @@ const SocialLinkesIcons = () => {
                 <h6 className='font-medium'>Login with Social</h6>
             </div>
             {/* <InstagramLogin
-                clientId="5fd2f11482844c5eba963747a5f34556"
+                clientId=""
                 buttonText="Login"
                 onSuccess={responseInstagram}
                 onFailure={responseInstagram}

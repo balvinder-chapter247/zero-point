@@ -4,7 +4,7 @@ export const ContactUsSchema = {
       length: {
         maximum:30,
         minimum:3,
-        message: 'must be between 3 to 30 characters long.'
+        message: 'between 3 to 30 characters long.'
       },
     },
     email: {
@@ -20,7 +20,7 @@ export const ContactUsSchema = {
       length: {
         minimum:3,
         maximum:30,
-        message: 'must be between 3 to 30 characters long.'
+        message: 'between 3 to 30 characters long.'
       },
     },
     message: {
@@ -28,7 +28,7 @@ export const ContactUsSchema = {
       length: {
         maximum:300,
         minimum:20,
-        message: 'must be between 20 to 300 characters long.'
+        message: 'between 20 to 300 characters long.'
       },
     },
   };

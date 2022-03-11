@@ -47,7 +47,6 @@ const  Header = () => {
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -124,6 +123,16 @@ const  Header = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
+                            to="my-courses"
+                            className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
+                          >
+                          <i class="fa fa-book"></i> My Courses
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
                             to="/add-cart"
                             className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
                           >
@@ -149,7 +158,6 @@ const  Header = () => {
                 : <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="inline-block px-6 py-2.5 bg-theme-color text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                      {/* <span className="sr-only">Open user menu</span> */}
                       Account
                     </Menu.Button>
                   </div>

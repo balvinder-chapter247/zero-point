@@ -14,6 +14,7 @@ const AddCart=React.lazy(() => import('../views/AddCard'));
 const CourseLanding=React.lazy(() => import('../views/CourseLanding'));
 const ContactUs=React.lazy(() => import('../views/ContactUs'));
 const AboutUs=React.lazy(() => import('../views/AboutUs'));
+const CourseBuilder=React.lazy(() => import('../views/CourseBuilder'));
 
 export const restrictRoutes = [
   {
@@ -48,6 +49,14 @@ export const restrictRoutes = [
     component: AboutUs,
     layout: Layout,
   },
+  {
+    key: 'course-builder',
+    path: AppRoutes.COURSE_BUILDER,
+    exact: true,
+    name: 'course-builder',
+    component: CourseBuilder,
+    layout: Layout,
+  },
 ];
 
 export const publicRoutes = [
@@ -75,7 +84,14 @@ export const publicRoutes = [
     component: ForgotPassword,
     layout: Layout,
   },
-
+  // {
+  //   key: 'course-builder',
+  //   path: AppRoutes.COURSE_BUILDER,
+  //   exact: true,
+  //   name: 'course-builder',
+  //   component: CourseBuilder,
+  //   layout: Layout,
+  // },
 ];
 
 export const privateRoutes = [
@@ -127,4 +143,12 @@ export const privateRoutes = [
     component: CourseLanding,
     layout: Layout,
   },
+  // {
+  //   key: 'course-builder',
+  //   path: AppRoutes.COURSE_BUILDER,
+  //   exact: true,
+  //   name: 'course-builder',
+  //   component: CourseBuilder,
+  //   layout: Layout,
+  // },
 ];

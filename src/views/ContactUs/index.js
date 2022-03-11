@@ -55,7 +55,6 @@ const ContactUs = () => {
         let tempArray = ContactMessage;
         tempArray.push(formState.values);
         localStorage.setItem("ContactMessage", JSON.stringify(tempArray));
-
         {
             Toaster({
                 type: "success",

@@ -3,25 +3,21 @@ export const AddCourseSchema = {
       presence: { allowEmpty: false, message: 'is required' },
       length: {
         maximum:30,
+        minimum:3,
+        message: 'between 3 to 30 characters long.'
       },
     },
     category: {
         presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
+        
     },
     sub_category: {
         presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
+        
     },
     lavel: {
         presence: { allowEmpty: false, message: 'is required' },
-        length: {
-            maximum:30,
-        },
+ 
     },
     price: {
         presence: { allowEmpty: false, message: 'is required' },
@@ -33,6 +29,7 @@ export const AddCourseSchema = {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
             maximum:30,
+            message: 'between 3 to 30 characters long.'
         },
     },
     // banner_image: {
@@ -47,5 +44,5 @@ export const AddCourseSchema = {
     //         maximum:30,
     //     },
     // },
-    
+
 };

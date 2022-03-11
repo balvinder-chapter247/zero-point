@@ -4,6 +4,7 @@ export const ChangePasswordSchema = {
         length: {
           maximum:30,
           minimum:8,
+          message: 'between 8 to 30 characters long.'
         },
     },
     new_password: {
@@ -11,6 +12,7 @@ export const ChangePasswordSchema = {
         length: {
           maximum:30,
           minimum:8,
+          message: 'between 8 to 30 characters long.'
         },
     },
     confirm_new_password: {
