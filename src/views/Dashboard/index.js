@@ -16,7 +16,7 @@ import InputForms from '../../common/inputForm';
 import InputMask from 'react-input-mask';
 
 const Dashboard = () => {
-/*
+
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -59,20 +59,40 @@ const Dashboard = () => {
         event.preventDefault();
         console.log(formState);
         if (formState.isValid) {
-           
-            let addCourse = JSON.parse(localStorage.getItem("addCourse"));
-            let tempArray = [];
+            const { card_number } = formState.values;
+            let addNewCard = JSON.parse(localStorage.getItem("addNewCard"));
+            if(addNewCard){
+                const result = addNewCard.map(e => e.card_number);
+                const foundCard = result.includes(card_number)
+                if (foundCard) {
+                    Toaster({
+                        type: "error",
+                        text: "You have already Add this card."
+                    })
+                }
+                else{
+                    Toaster({
+                        type: "success",
+                        text: "New Card Added Successfully."
+                    })
+                    // localStorage.removeItem("addNewCard");
+                    let tempArray = addNewCard;
+                    tempArray.push(formState.values);
+                    localStorage.setItem("addNewCard", JSON.stringify(tempArray));
+                }
+            } else {
+                let tempArray = [];
+                tempArray.push(formState.values);
+                localStorage.setItem("addNewCard", JSON.stringify(tempArray));
 
-            // localStorage.removeItem("addCourse");
-            tempArray.push(formState.values);
-            localStorage.setItem("addCourse", JSON.stringify(tempArray));
-
-            {
-                Toaster({
-                    type: "success",
-                    text: "Course Added Successfully."
-                })
+                {
+                    Toaster({
+                        type: "success",
+                        text: "New Card Added Successfully."
+                    })
+                }
             }
+            
         }
         setFormState((formState) => ({
             ...formState,
@@ -85,10 +105,14 @@ const Dashboard = () => {
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;
-*/
-  const [cardNumber, setNumber] = useState('');
-  const handleInput = ({ target: { value } }) => setNumber(value);
 
+
+    const [addedCard, setAddedCard] = useState([]);
+    useEffect(() => {
+        let addedCard = JSON.parse(localStorage.getItem("addNewCard"));
+            setAddedCard(addedCard);
+    }, []);
+        
    
   return (
     <>
@@ -187,57 +211,47 @@ const Dashboard = () => {
                         
                         <div className='payment-method'>
                             <div className='grid grid-cols-6 gap-4'>
-                                <div className='col-span-4'>
+                                <div className='col-span-6'>
                                     {/* <h6 className='font-medium text-lg mb-4'>Select Payment Method</h6> */}
-                                    <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
-                                        <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                        type="radio" checked name="flexRadioDefault" id="card1" />
-                                        <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card1">
-                                            <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
-                                            <div className=''>
-                                                <span className='card-number block text-sm font-medium'>5225 XXXX XXXX 6246</span>
-                                                <span className='card-name block text-sm'>MasterCard</span>
-                                            </div>
-                                            <span className='delete ml-auto hover:text-red-500'>
-                                                <i className="fa fa-trash-alt" aria-hidden="true"></i>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
-                                        <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                        type="radio" name="flexRadioDefault" id="card2" />
-                                        <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="card2">
-                                            <img src='./images/visacard.png' className='w-12 ml-2 mr-4' />
-                                            <div className=''>
-                                                <span className='card-number block text-sm font-medium'>4242 XXXX XXXX 4242</span>
-                                                <span className='card-name block text-sm'>VISA</span>
-                                            </div>
-                                            <span className='delete ml-auto hover:text-red-500'>
-                                                <i className="fa fa-trash-alt" aria-hidden="true"></i>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    {/* <div className="form-check rounded bg-gray-100 p-0 mb-3 w-full">
-                                        <div className='flex items-center px-4 py-4'>
-                                            <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                            type="radio" name="flexRadioDefault" id="newcard" />
-                                            <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for="newcard">
+                                    {
+                                        addedCard && addedCard.length ?
+                                        <>
+                                            {
+                                                addedCard.map((cardItem, i) => 
+
+                                                <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
+                                                   
+                                                    <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                                                    type="radio" checked name="flexRadioDefault" id={`Card${i}`} />
+                                                    <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center" for={`Card${i}`}>
+                                                        <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
+                                                        <div className=''>
+                                                            <span className='card-number block text-sm font-medium'>{cardItem.card_number}</span>
+                                                            <span className='card-name block text-sm'>MasterCard</span>
+                                                        </div>
+                                                        <span className='delete ml-auto hover:text-red-500'>
+                                                            <i className="fa fa-trash-alt" aria-hidden="true"></i>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            )}
+                                            <div className='flex justify-between mt-6'>
+                                                <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                                                 Add New Card
-                                            </label>
+                                                </button>
+                                            </div>
+                                        </> : 
+                                        <div className='text-center'>
+                                            <img src="./images/no-credit-card.png" className='w-16 mx-auto pb-2' />
+                                            <p>There are no card added.</p>
+                                            <div className='mt-6'>
+                                                <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                Add New Card
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div> */}
+                                    }
                                     
-                                    {/* <div className="form-check flex items-center px-4 py-2 mb-3 w-full">
-                                        <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center ml-6" for="card2">
-                                            <img src='./images/demo-card.png' className='w-12 ml-2 mr-4' />
-                                            Add New Card
-                                        </label>
-                                    </div> */}
-                                    <div className='flex justify-between mt-6'>
-                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                                        Add New Card
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -263,15 +277,8 @@ const Dashboard = () => {
             </div>
             <div class="modal-body relative p-4">
             
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-3 gap-4">
-                        {/* <CardInput 
-                            value={cardNumber}
-                            className="form-control" 
-                            onChange={handleInput}
-                            mask="0000 0000 0000 0000" 
-                            >
-                        </CardInput> */}
                         <div className='col-span-3'>
                             <label class="block font-medium mb-2 text-gray-700">Card Number<span class="required">*</span></label>
                             <InputMask
@@ -280,36 +287,15 @@ const Dashboard = () => {
                             maskChar={null}
                             name="card_number"
                             placeholder="Card Number"
-                            onChange={handleInput}
+                            value={formState.values.card_number || ""}
+                            onChange={handleChange}
+                            // onChange={handleInput}
                             />
+                            <span className='error text-red-500 text-sm font-medium'>
+                                {hasError("card_number") ?
+                                formState.errors.card_number[0] : null}
+                            </span>
                         </div>
-                        {/* <div className='col-span-3'>
-                            <InputForms
-                                labelText="Card Number"
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block text-sm font-medium"
-                                type='number'
-                                name="card_number"
-                                value={formState.values.card_number || ""}
-                                    errorMessage={hasError("password") ?
-                                        formState.errors.password[0] : null}
-                                    onChange={handleChange}
-                                placeholder="Card Number"
-                            />
-                        </div> */}
-                        {/* <div className='col-span-3'>
-                            <InputForms
-                                labelText="Card Number"
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block text-sm font-medium"
-                                type='text'
-                                name="card_number"
-                                value=""
-                                placeholder="Card Number"
-                            />
-                        </div> */}
                         <div className=''>
                             <label class="block font-medium mb-2 text-gray-700">Expiry<span class="required">*</span></label>
                             <InputMask
@@ -318,18 +304,14 @@ const Dashboard = () => {
                                 name="expiry"
                                 maskChar={null}
                                 placeholder="MM/YY"
-                                onChange={handleInput}
+                                value={formState.values.expiry || ""}
+                                onChange={handleChange}
+                                // onChange={handleInput}
                                 />
-                            {/* <InputForms
-                                labelText="Expiry"
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block text-sm font-medium"
-                                type='text'
-                                name="expiry"
-                                value=""
-                                placeholder="MM/YY"
-                            /> */}
+                            <span className='error text-red-500 text-sm font-medium'>
+                                {hasError("expiry") ?
+                                formState.errors.expiry[0] : null}
+                            </span>
                         </div>
                         <div className=''>
                             <label class="block font-medium mb-2 text-gray-700">CVV / CVC<span class="required">*</span></label>
@@ -340,28 +322,21 @@ const Dashboard = () => {
                                 maskChar={null}
                                 type='password'
                                 placeholder="***"
-                                onChange={handleInput}
+                                value={formState.values.cvv || ""}
+                                onChange={handleChange}
                                 iconClassName={"fas fa-question-circle"}
                                 dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
                                 />
-                            {/* <InputForms
-                                labelText="CVV / CVC"
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block text-sm font-medium"
-                                type='password'
-                                name="cvv"
-                                iconClassName={"fas fa-question-circle"}
-                                dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
-                                value=""
-                                placeholder="***"
-                            /> */}
+                            <span className='error text-red-500 text-sm font-medium'>
+                                {hasError("cvv") ?
+                                formState.errors.cvv[0] : null}
+                            </span>
                         </div>
                         {/* <div className='cvv'>
                             <img src='./images/cvv.png' alt='' />
                         </div> */}
                         <div className='col-span-3'>
-                            <button className="blue-btn py-2 px-8" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="submit" className="blue-btn py-2 px-8" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Save</button>
                         </div>
                     </div>
