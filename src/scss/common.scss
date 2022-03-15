@@ -1482,6 +1482,19 @@ span.form-icon i {
     margin-top: 6px;
 }
 
+.select_type_item:hover {
+    cursor: pointer;
+    .icon_black {
+        display: none;
+    }
+    .icon_blue {
+        display: block;
+    }
+    .type_name {
+        color: $blue;
+    }
+}
+
 .course_module {
     .accordion-button {
         font-weight: 500;

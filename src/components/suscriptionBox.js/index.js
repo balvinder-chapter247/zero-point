@@ -18,7 +18,7 @@ const SuscriptionBox = () => {
     useEffect(() => {
 
         const errors = validate(formState.values, SuscriptionSchema);
-        console.log(formState,"thsi si error")
+        // console.log(formState,"thsi si error")
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
@@ -126,7 +126,7 @@ const SuscriptionBox = () => {
                     <div className="text-red-600 text-sm font-medium text-left  pt-1 ">
                         {
                             hasError("email") ?
-                                <span className="errorText px-3">
+                                <span className="errorText">
                                     {formState.errors.email[0]}
                                 </span>
                                 :
