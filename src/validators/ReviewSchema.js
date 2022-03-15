@@ -2,7 +2,7 @@ export const ReviewSchema = {
     name: {
       presence: { allowEmpty: false, message: 'is required' },
       length: {
-        maximum:30,
+        maximum:25,
         minimum:3,
         message:"should be between 3 to 25 characters long."
       },

@@ -14,40 +14,45 @@ const SuscriptionBox = () => {
         errors: {},
     });
 
-    ///For validating error everytime change in inputs
-    useEffect(() => {
+  ///Handle change for storing input values to state.
+  const handleChange = (event) => {
+    event.persist();
+    setFormState((formState) => ({
+        ...formState,
+        values: {
+            ...formState.values,
+            [event.target.name]:
+                event.target.type === "checkbox"
+                    ? event.target.checked
+                    : event.target.value,
+        },
+        errors:
+        {
+            ...formState.errors,
+            [event.target.name]:false
+        },
+        touched: {
+            ...formState.touched,
+            [event.target.name]: true,
+        },
+    }));
+};
 
-        const errors = validate(formState.values, SuscriptionSchema);
-        // console.log(formState,"thsi si error")
-        setFormState((formState) => ({
-            ...formState,
-            isValid: errors ? false : true,
-            errors: errors || {},
-        }));
-    }, [formState.values]);
-
-    ///Handle change for storing input values to state.
-    const handleChange = (event) => {
-        event.persist();
-        setFormState((formState) => ({
-            ...formState,
-            values: {
-                ...formState.values,
-                [event.target.name]:
-                    event.target.type === "checkbox"
-                        ? event.target.checked
-                        : event.target.value,
-            },
-            touched: {
-                ...formState.touched,
-                [event.target.name]: true,
-            },
-        }));
-    };
+  const handleError = ()=>
+  {
+      
+      const errors = validate(formState.values, SuscriptionSchema);
+      setFormState((formState) => ({
+          ...formState,
+          isValid: errors ? false : true,
+          errors: errors || {},
+      }));
+  }
 
     ///Submiting values to api.
     const handleSubmit = async (event) => {
         event.preventDefault();
+        handleError();
 
         if (formState.isValid) {
             const { email } = formState.values;
@@ -116,6 +121,7 @@ const SuscriptionBox = () => {
                             placeholder="Email Address"
                             name='email'
                             value={formState.values.email || ""}
+                            onBlur={handleError}
                             onChange={handleChange} />
 
                         <button className="text-white bg-theme-color px-6 py-3 font-medium uppercase text-sm btn"

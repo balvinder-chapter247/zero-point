@@ -2,17 +2,17 @@ export const ProfileSettingSchema = {
     first_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:30,
+          maximum:25,
           minimum:3,
-          message:"should be between 3 to 30 characters long."
+          message:"should be between 3 to 25 characters long."
         },
     },
     last_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:18,
+          maximum:20,
           minimum:3,
-          message:"should be between 3 to 18 characters long."
+          message:"should be between 3 to 20 characters long."
         },
     },
     email: {

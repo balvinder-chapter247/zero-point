@@ -256,6 +256,51 @@ button.icon.fb.metro {
     }
 }
 
+button.signup_btn {
+    box-shadow: none !important;
+    height: 45px;
+    border-radius: 4px !important;
+    margin: 0 7px;
+    padding: 0 15px;
+    font-size: 14px !important;
+    box-shadow: rgb(0 0 0 / 46%) 0px 0px 3px !important;
+    &.google {
+        font-weight: 600 !important;
+        & span {
+            font-weight: 600 !IMPORTANT;
+            font-family: 'Nunito', sans-serif !important;
+            color: #000;
+        }
+        & div {
+            margin-right: 0 !important;
+        }
+    }
+    &.fb {
+        background: #2b53a1 !important;
+        color: #fff !important;
+        & i {
+            margin-right: 9px;
+        }
+    }
+}
+
+.or span {
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.or:before {
+    background: #00000038;
+    height: 1px;
+    position: absolute;
+    content: '';
+    width: 80%;
+    left: 0;
+    right: 0;
+    top: 11px;
+    margin: auto;
+}
+
 .forgot-password-link:hover {
     color: $blue;
     transition: 0.4s ease-in-out;
@@ -364,6 +409,10 @@ span.form-icon i {
 
 .bg-light-gray {
     background-color: #f9f9f9;
+}
+
+span.error {
+    display: block;
 }
 
 // FAQ section css start

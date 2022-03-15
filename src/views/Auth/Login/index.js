@@ -58,14 +58,39 @@ const Login = () => {
     };
 
     ///Submiting values to api.
+ 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        handleError();
         const { email, password } = formState.values;
+        handleError();
         if (formState.isValid) {
-            dispatch(LoginRequest(formState.values));
+            const login = JSON.parse(localStorage.getItem("registeredUsers"));
+            // dispatch(LoginRequest(formState.values));
+            const filterLogin = login.map((e) => {
+                if (e.email === email && e.password === password) {
+                    // debugger
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+            if (filterLogin == "true") {
+                let token = Math.random().toString(36).substr(2);
+                localStorage.setItem("token", JSON.stringify(token));
+                Toaster({
+                    type: "success",
+                    text: "You have Login successfully."
+                });
+                history.push("/dashboard");
+            }
+            else {
+                Toaster({
+                    type: "error",
+                    text: "invalid Email or Password."
+                })
+            }
         }
-        console.log(formState,"login")
         setFormState((formState) => ({
             ...formState,
             touched: {

@@ -16,15 +16,16 @@ const ForgotPassword = () => {
         errors: {},
     });
 
-    useEffect(() => {
-
+    const handleError = ()=>
+    {
+        
         const errors = validate(formState.values, ForgetPasswordSchema);
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
             errors: errors || {},
         }));
-    }, [formState.values]);
+    }
 
     const handleChange = (event) => {
         event.persist();
@@ -37,16 +38,20 @@ const ForgotPassword = () => {
                         ? event.target.checked
                         : event.target.value,
             },
+            errors:
+            {
+                ...formState.errors,
+                [event.target.name]:false
+            },
             touched: {
                 ...formState.touched,
                 [event.target.name]: true,
             },
         }));
-    }
-
+    };
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        handleError();
         if (formState.isValid) {
             console.log("hello")
         }
@@ -89,6 +94,7 @@ const ForgotPassword = () => {
                                                     errorMessage={hasError("email") ?
                                                         formState.errors.email[0] : null}
                                                     onChange={handleChange}
+                                                    onBlur={handleError}
                                                     placeholder="Email"
                                                 />
                                             </div>

@@ -4,7 +4,7 @@
       length: {
         minimum: 17,
         maximum: 19,
-        message:"should be between 17 to 19 characters long."
+        message:"should be between 14 to 16 characters long."
       },
     },
     expiry: {
