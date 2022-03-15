@@ -65,14 +65,55 @@ const Signup = () => {
     }
 
     ///Submiting values to api.
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         handleError();
         if (formState.isValid) {
-            
-            dispatch(SignUpRequest(formState.values));
+            const { email } = formState.values;
+            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
+            if (registeredUsers) {
+                // dispatch(SignUpRequest(formState.values));    Api is made and integration is done.
+                const result = registeredUsers.map(e => e.email);
+                const foundEmail = result.includes(email)
+
+                if (foundEmail) {
+                    Toaster({
+                        type: "error",
+                        text: "You have already Registerd."
+                    })
+                }
+                else {
+                    Toaster({
+                        type: "success",
+                        text: "You have successfully registered."
+                    })
+                    localStorage.removeItem("registeredUsers");
+                    let tempArray = [];
+                    tempArray.push(formState.values);
+                    localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
+                    history.push('/login')
+                }
+            } else {
+                Toaster({
+                    type: "success",
+                    text: "You have successfully registered."
+                })
+                let tempArray = [];
+
+                tempArray.push(formState.values);
+                localStorage.setItem("registeredUsers", JSON.stringify(tempArray));
+               
+                {
+                    Toaster({
+                        type: "success",
+                        text: "You have successfully registered."
+                    })
+                }
+
+                history.push('/login')
+            }
         }
-        
         setFormState((formState) => ({
             ...formState,
             touched: {
@@ -81,6 +122,7 @@ const Signup = () => {
             },
         }));
     };
+
 
     const hasError = (field) =>
         formState.touched[field] && formState.errors[field] ? true : false;

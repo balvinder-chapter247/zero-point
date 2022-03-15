@@ -19,37 +19,47 @@ const ContactUs = () => {
   });
 
   ///For validating error everytime change in inputs
-  useEffect(() => {
-    const errors = validate(formState.values, ContactUsSchema);
-    setFormState((formState) => ({
-      ...formState,
-      isValid: errors ? false : true,
-      errors: errors || {},
-    }));
-  }, [formState.values]);
+ 
 
   ///Handle change for storing input values to state.
   const handleChange = (event) => {
     event.persist();
     setFormState((formState) => ({
-      ...formState,
-      values: {
-        ...formState.values,
-        [event.target.name]:
-          event.target.type === "checkbox"
-            ? event.target.checked
-            : event.target.value,
-      },
-      touched: {
-        ...formState.touched,
-        [event.target.name]: true,
-      },
+        ...formState,
+        values: {
+            ...formState.values,
+            [event.target.name]:
+                event.target.type === "checkbox"
+                    ? event.target.checked
+                    : event.target.value,
+        },
+        errors:
+        {
+            ...formState.errors,
+            [event.target.name]:false
+        },
+        touched: {
+            ...formState.touched,
+            [event.target.name]: true,
+        },
     }));
-  };
+};
+
+  const handleError = ()=>
+  {
+      
+      const errors = validate(formState.values, ContactUsSchema);
+      setFormState((formState) => ({
+          ...formState,
+          isValid: errors ? false : true,
+          errors: errors || {},
+      }));
+  }
 
   ///Submiting values to api.
   const handleSubmit = (event) => {
     event.preventDefault();
+    handleError();
     if (formState.isValid) {
       let ContactMessage = JSON.parse(localStorage.getItem("ContactMessage"));
         let tempArray = ContactMessage;
@@ -61,7 +71,7 @@ const ContactUs = () => {
                 text: "You have successfully sent your message."
             })
         }
-    }
+    } 
     setFormState((formState) => ({
       ...formState,
       touched: {
@@ -102,6 +112,7 @@ const ContactUs = () => {
                           hasError("name") ? formState.errors.name[0] : null
                         }
                         onChange={handleChange}
+                        onBlur={handleError}
                         placeholder="Name"
                       />
                     </div>
@@ -118,6 +129,7 @@ const ContactUs = () => {
                       errorMessage={
                         hasError("email") ? formState.errors.email[0] : null
                       }
+                      onBlur={handleError}
                       onChange={handleChange}
                       placeholder="Email"
                     />
@@ -136,6 +148,7 @@ const ContactUs = () => {
                       hasError("subject") ? formState.errors.subject[0] : null
                     }
                     onChange={handleChange}
+                    onBlur={handleError}
                     placeholder="Subject"
                   />
                 </div>
@@ -165,6 +178,7 @@ const ContactUs = () => {
                     name="message"
                     value={formState.values.message || ""}
                     onChange={handleChange}
+                    onBlur={handleError}
                     placeholder="Your Message"
                   ></textarea>
                   <div>
