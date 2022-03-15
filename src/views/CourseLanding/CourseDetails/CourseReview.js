@@ -48,7 +48,7 @@ const CourseReview = () => {
     event.preventDefault();
     if (formState.isValid) {
       let ReviewMessage = JSON.parse(localStorage.getItem("ReviewMessage"));
-        let tempArray = [];
+        let tempArray = ReviewMessage;
         tempArray.push(formState.values);
         localStorage.setItem("ReviewMessage", JSON.stringify(tempArray));
 

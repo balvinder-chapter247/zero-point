@@ -7,6 +7,14 @@ export const AddCourseSchema = {
         message: 'must be between 5 to 25 characters long.'
       },
     },
+    sub_title: {
+        presence: { allowEmpty: false, message: 'is required' },
+        length: {
+          maximum:25,
+          minimum:5,
+          message: 'must be between 5 to 25 characters long.'
+        },
+      },
     category: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
@@ -39,11 +47,12 @@ export const AddCourseSchema = {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
             maximum:30,
+            message: 'between 3 to 30 characters long.'
         },
     },
-    // bannerImage: {
-    //     presence: { allowEmpty: false, message: 'is required' },
-    // },
+    courseImage: {
+        presence: { allowEmpty: false, message: 'is required' },
+    },
     details: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {

@@ -12,4 +12,5 @@ export const AppRoutes = {
   COURSE_DETAILS:'/course-details',
   CONTACTUS:'/contact-us',
   ABOUTUS:'/about-us',
+  COURSE_BUILDER:'/course-builder',
 };

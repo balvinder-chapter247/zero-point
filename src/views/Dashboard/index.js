@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-// import { Toaster } from '../../helper/react-toast'
-// import { ToastContainer } from 'react-toastify';
-// import validate from 'validate.js';
-// import { ProfileSettingSchema } from "../../validators";
+import React, { useState, useEffect } from 'react';
+import { Toaster } from '../../helper/react-toast'
+import { ToastContainer } from 'react-toastify';
+import validate from 'validate.js';
+import { AddNewCardSchema } from "../../validators";
 import { TabGroup } from '@statikly/funk'
 import InnerPageBanner from '../../components/InnerPageBanner'
 import ProfileSetting from './ProfileSetting';
@@ -11,9 +11,86 @@ import MyTransactions from './MyTransactions';
 import TransactionData from './DataFake/TransactionData';
 import InputForms from '../../common/inputForm';
 import { CardSavingschema } from '../../validators/SaveCard';
+// import Cards from 'reactjs-credit-card';
+// import 'react-credit-cards/lib/styles.scss';
+
+import InputMask from 'react-input-mask';
 
 const Dashboard = () => {
+/*
+    ///State for our form
+    const [formState, setFormState] = React.useState({
+        isValid: false,
+        values: {},
+        touched: {},
+        errors: {},
+    });
 
+    ///For validating error everytime change in inputs
+    useEffect(() => {
+        const errors = validate(formState.values, AddNewCardSchema);
+        setFormState((formState) => ({
+            ...formState,
+            isValid: errors ? false : true,
+            errors: errors || {},
+        }));
+    }, [formState.values]);
+
+    ///Handle change for storing input values to state.
+    const handleChange = (event) => {
+        event.persist();
+        setFormState((formState) => ({
+            ...formState,
+            values: {
+                ...formState.values,
+                [event.target.name]:
+                    event.target.type === "checkbox"
+                        ? event.target.checked
+                        : event.target.value,
+            },
+            touched: {
+                ...formState.touched,
+                [event.target.name]: true,
+            },
+        }));
+    };
+
+    ///Submiting values to api.
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+        if (formState.isValid) {
+           
+            let addCourse = JSON.parse(localStorage.getItem("addCourse"));
+            let tempArray = [];
+
+            // localStorage.removeItem("addCourse");
+            tempArray.push(formState.values);
+            localStorage.setItem("addCourse", JSON.stringify(tempArray));
+
+            {
+                Toaster({
+                    type: "success",
+                    text: "Course Added Successfully."
+                })
+            }
+        }
+        setFormState((formState) => ({
+            ...formState,
+            touched: {
+                ...formState.touched,
+                ...formState.errors,
+            },
+        }));
+    };
+
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
+*/
+  const [cardNumber, setNumber] = useState('');
+  const handleInput = ({ target: { value } }) => setNumber(value);
+
+   
   return (
     <>
     <main className="bg-gray-100">
@@ -186,9 +263,43 @@ const Dashboard = () => {
                 data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body relative p-4">
+            
                 <form>
                     <div className="grid grid-cols-3 gap-4">
+                        {/* <CardInput 
+                            value={cardNumber}
+                            className="form-control" 
+                            onChange={handleInput}
+                            mask="0000 0000 0000 0000" 
+                            >
+                        </CardInput> */}
                         <div className='col-span-3'>
+                            <label class="block font-medium mb-2 text-gray-700">Card Number<span class="required">*</span></label>
+                            <InputMask
+                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                            mask="9999 9999 9999 9999"
+                            maskChar={null}
+                            name="card_number"
+                            placeholder="Card Number"
+                            onChange={handleInput}
+                            />
+                        </div>
+                        {/* <div className='col-span-3'>
+                            <InputForms
+                                labelText="Card Number"
+                                labelRequired="*"
+                                labelclassName="block font-medium mb-2 text-gray-700"
+                                className="block text-sm font-medium"
+                                type='number'
+                                name="card_number"
+                                value={formState.values.card_number || ""}
+                                    errorMessage={hasError("password") ?
+                                        formState.errors.password[0] : null}
+                                    onChange={handleChange}
+                                placeholder="Card Number"
+                            />
+                        </div> */}
+                        {/* <div className='col-span-3'>
                             <InputForms
                                 labelText="Card Number"
                                 labelRequired="*"
@@ -199,9 +310,18 @@ const Dashboard = () => {
                                 value=""
                                 placeholder="Card Number"
                             />
-                        </div>
+                        </div> */}
                         <div className=''>
-                            <InputForms
+                            <label class="block font-medium mb-2 text-gray-700">Expiry<span class="required">*</span></label>
+                            <InputMask
+                                className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                                mask="99/99"
+                                name="expiry"
+                                maskChar={null}
+                                placeholder="MM/YY"
+                                onChange={handleInput}
+                                />
+                            {/* <InputForms
                                 labelText="Expiry"
                                 labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
@@ -210,10 +330,22 @@ const Dashboard = () => {
                                 name="expiry"
                                 value=""
                                 placeholder="MM/YY"
-                            />
+                            /> */}
                         </div>
                         <div className=''>
-                            <InputForms
+                            <label class="block font-medium mb-2 text-gray-700">CVV / CVC<span class="required">*</span></label>
+                            <InputMask
+                                className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                                mask="9999"
+                                name="cvv"
+                                maskChar={null}
+                                type='password'
+                                placeholder="***"
+                                onChange={handleInput}
+                                iconClassName={"fas fa-question-circle"}
+                                dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
+                                />
+                            {/* <InputForms
                                 labelText="CVV / CVC"
                                 labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
@@ -224,7 +356,7 @@ const Dashboard = () => {
                                 dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
                                 value=""
                                 placeholder="***"
-                            />
+                            /> */}
                         </div>
                         {/* <div className='cvv'>
                             <img src='./images/cvv.png' alt='' />

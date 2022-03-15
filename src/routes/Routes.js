@@ -11,6 +11,7 @@ export const RestrictRoute = (props) => {
                 <Layout>
                     <Component {...routeRenderProps} />
                 </Layout>
+              
             )}
         />
     );

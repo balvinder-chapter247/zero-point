@@ -69,6 +69,7 @@ const Signup = () => {
         event.preventDefault();
         handleError();
         if (formState.isValid) {
+            
             dispatch(SignUpRequest(formState.values));
         }
         
