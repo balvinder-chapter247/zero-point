@@ -18,6 +18,7 @@ const  Header = () => {
   const [token, setToken] = useState("");
   const [profileImage , setProfileImage] = useState("")
   const [profileName , setProfileName] = useState("")
+    
   useEffect(() => {
 
     const token = localStorage.getItem("token");
@@ -37,6 +38,9 @@ const  Header = () => {
   const handleLogout = () =>
   {
     localStorage.removeItem("token");
+    localStorage.removeItem("registeredUsers")
+    localStorage.removeItem("registeredEmails")
+
     history.push('/login')
   }
 

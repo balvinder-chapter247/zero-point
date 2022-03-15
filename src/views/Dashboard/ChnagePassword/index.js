@@ -15,14 +15,15 @@ const ChangePassword = () => {
         errors: {},
     });
 
-    useEffect(() => {
+    const handleError = ()=>
+    {
         const errors = validate(formState.values, ChangePasswordSchema);
         setFormState((formState) => ({
             ...formState,
             isValid: errors ? false : true,
             errors: errors || {},
         }));
-    }, [formState.values]);
+    }
 
     const handleChange = (event) => {
         event.persist();
@@ -35,6 +36,11 @@ const ChangePassword = () => {
                         ? event.target.checked
                         : event.target.value,
             },
+            errors:
+            {
+                ...formState.errors,
+                [event.target.name]:false
+            },
             touched: {
                 ...formState.touched,
                 [event.target.name]: true,
@@ -45,6 +51,7 @@ const ChangePassword = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleError();
         if (formState.isValid) {
             const { password } = formState.values;
             let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
@@ -104,6 +111,7 @@ const ChangePassword = () => {
                                     errorMessage={hasError("password") ?
                                         formState.errors.password[0] : null}
                                     onChange={handleChange}
+                                    onBlur={handleError}
                                     placeholder="Current Password"
                                 />
                         </div>
@@ -121,6 +129,7 @@ const ChangePassword = () => {
                                     errorMessage={hasError("new_password") ?
                                         formState.errors.new_password[0] : null}
                                     onChange={handleChange}
+                                    onBlur={handleError}
                                     placeholder="New Password"
                                 />
                         </div>
@@ -138,6 +147,7 @@ const ChangePassword = () => {
                                     errorMessage={hasError("confirm_new_password") ?
                                         formState.errors.confirm_new_password[0] : null}
                                     onChange={handleChange}
+                                    onBlur={handleError}
                                     placeholder="New Password"
                                 />
                         </div>

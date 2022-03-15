@@ -1274,6 +1274,14 @@ span.form-icon i {
         -webkit-transform: translateY(-10px);
         -moz-transform: translateY(-10px);
         transform: translateY(-10px);
+        background-image: linear-gradient(to right bottom, #1678dd, #1530b5);
+        color: #fff;
+        p {
+            color: #fff;
+        }
+        .start-btn {
+            color: #fff;
+        }
     }
 }
 
@@ -1306,9 +1314,10 @@ span.form-icon i {
 .single_features_box .start-btn {
     font-weight: 700;
     color: #0b2bc9;
-    transition: all 0.4s ease-in-out;
+    // transition: all 0.4s ease-in-out;
     &:hover {
-        color: #000;
+        font-size: 17px;
+        transition: all 0.4s ease-in-out;
     }
 }
 

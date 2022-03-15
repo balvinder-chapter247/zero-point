@@ -11,7 +11,6 @@ const LoginLogic = createLogic({
         let apiResponse = await Axios.post('http://localhost:8080/auth/signin',
             action.payload)
             .then((response) => {
-                dispatch(push("/dashboard"));
                 dispatch(LoginSuccess());
                 Toaster(
                     {
@@ -21,6 +20,7 @@ const LoginLogic = createLogic({
                 )
                 const token = response.data.token;
                 localStorage.setItem("token",token)
+                dispatch(push("/dashboard"));
                 done();
             }
             ).catch((error) => {

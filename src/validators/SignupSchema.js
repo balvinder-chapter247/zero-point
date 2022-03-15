@@ -2,17 +2,18 @@ export const SignupSchema = {
     first_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:30,
+          maximum:25,
           minimum:3,
-          message: 'between 3 to 30 characters long.'
+          message:"should be between 3 to 25 characters long."
         },
+        
     },
     last_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:30,
+          maximum:18,
           minimum:3,
-          message: 'between 3 to 30 characters long.'
+          message:"should be between 3 to 18 characters long."
         },
     },
     email: {
@@ -20,6 +21,7 @@ export const SignupSchema = {
       email: {message: 'is not valid'},
       length: {
         maximum:30,
+        message:"should not be more than 30 characters long."
       },
     },
     password: {
@@ -27,7 +29,7 @@ export const SignupSchema = {
         length: {
           maximum:20,
           minimum:8,
-          message: 'between 8 to 20 characters long.'
+          message:"should be between 8 to 20 characters long."
         },
     },
     confirm_password: {
@@ -36,6 +38,7 @@ export const SignupSchema = {
         length: {
           maximum:20,
           minimum:8,
+          message:"should be between 8 to 20 characters long."
         },
     },
 };

@@ -126,7 +126,7 @@ const SuscriptionBox = () => {
                     <div className="text-red-600 text-sm font-medium text-left  pt-1 ">
                         {
                             hasError("email") ?
-                                <span className="errorText">
+                                <span className="errorText ">
                                     {formState.errors.email[0]}
                                 </span>
                                 :

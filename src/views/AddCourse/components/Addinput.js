@@ -48,7 +48,7 @@ const AddInputs = () => {
         setInputList([...inputList, { objective: "" }]);
     };
     const handleChangeNormal = () => {
-        // console.log("hello")
+       
     }
 
     return (
@@ -58,8 +58,12 @@ const AddInputs = () => {
                     <div className="obj_group">
                         <div className={
                             `justify-center items-center custom  width-100 ${inputList.length !== 1 ? "" : null}`}>
+                            <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                    Learning Objectives-1</span>
+                            </label>
                             <InputForms
-                                labelText=" Learning Objectives-1"
+
                                 labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
                                 className="block font-medium"
@@ -73,8 +77,12 @@ const AddInputs = () => {
                     <div className="obj_group">
                         <div className={
                             `justify-center items-center custom mt-2 width-100 `}>
+                            <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                    Learning Objectives-2</span>
+                            </label>
                             <InputForms
-                                labelText=" Learning Objectives-2"
+
                                 labelRequired="*"
                                 labelclassName="block font-medium mb-2 text-gray-700"
                                 className="block font-medium"
@@ -90,11 +98,15 @@ const AddInputs = () => {
                         return (
                             <>
                                 <div className="obj_group">
-                                   
+                                    <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                        <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                            {`Learning Objectives-${2 + 1 + i}`}</span>
+                                    </label>
+
                                     <div className={
                                         `flex justify-center items-center  custom w-full `}>
                                         <InputForms
-                                            labelText={`Learning Objectives-${2 + 1 + i}`}
+
                                             labelRequired="*"
                                             labelclassName="block font-medium mb-2 text-gray-700"
                                             className="block font-medium w-full"
