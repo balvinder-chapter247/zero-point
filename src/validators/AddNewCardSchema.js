@@ -19,7 +19,7 @@ export const AddNewCardSchema = {
       presence: { allowEmpty: false, message: 'is required' },
       length: {
         minimum:17,
-        message: 'between 14 to 16 characters long.'
+        message: 'must be between 14 to 16 characters long.'
       },
     },
     expiry: {
@@ -34,7 +34,7 @@ export const AddNewCardSchema = {
       length: {
         minimum:3,
         maximum:4,
-        message: 'or cvc minimum 3 to 4 characters long.'
+        message: 'must be either 3 or 4 characters long.'
     },
   },
 

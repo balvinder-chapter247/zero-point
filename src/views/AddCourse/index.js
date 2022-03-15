@@ -305,7 +305,7 @@ const AddCourse = () => {
                                         </div>
 
                                         {/* Learning objective section starts here */}
-                                        <AddInputs />
+                                        <AddInputs  />
                                         {/* Learning objective section end here */}
 
                                         <div className='col-span-3 mt-2'>

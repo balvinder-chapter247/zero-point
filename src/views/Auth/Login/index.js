@@ -55,7 +55,7 @@ const Login = () => {
                 [event.target.name]: true,
             },
         }));
-    };
+    }; 
 
     ///Submiting values to api.
  
