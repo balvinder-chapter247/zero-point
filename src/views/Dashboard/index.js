@@ -15,6 +15,7 @@ import { CardSavingschema } from '../../validators/SaveCard';
 // import 'react-credit-cards/lib/styles.scss';
 
 import InputMask from 'react-input-mask';
+import ReactTooltip from 'react-tooltip';
 const customStyles = {
   content: {
     top: '50%',
@@ -245,47 +246,45 @@ const Dashboard = () => {
                                                         {/* <h6 className='font-medium text-lg mb-4'>Select Payment Method</h6> */}
                                                         {
                                                             addedCard && addedCard.length ?
-                                                                <>
-                                                                    {
-                                                                        addedCard.map((cardItem, i) =>
+                                                            <>
+                                                                {
+                                                                addedCard.map((cardItem, i) =>
+                                                                <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
 
-                                                                            <div className="form-check flex items-center rounded bg-gray-100 px-4 py-2 mb-3 w-full">
-
-                                                                                <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                                                    type="radio"
-                                                                                    checked
-                                                                                    name="flexRadioDefault"
-                                                                                    id={`Card${i}`} />
-                                                                                <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center"
-                                                                                    for={`Card${i}`}>
-                                                                                    <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
-                                                                                    <div className=''>
-                                                                                        <span className='card-number block text-sm font-medium'>{cardItem.card_number}</span>
-                                                                                        <span className='card-name block text-sm'>MasterCard</span>
-                                                                                    </div>
-                                                                                    <span className='delete ml-auto hover:text-red-500'>
-                                                                                        <i className="fa fa-trash-alt" aria-hidden="true" onClick={() => { handleDelete(cardItem.card_number) }}></i>
-                                                                                    </span>
-                                                                                </label>
-                                                                            </div>
-                                                                        )}
-                                                                    <div className='flex justify-between mt-6'>
-                                                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                                                                            Add New Card
-                                                                        </button>
-                                                                    </div>
-                                                                </> :
-                                                                <div className='text-center'>
-                                                                    <img src="./images/no-credit-card.png" className='w-16 mx-auto pb-2' />
-                                                                    <p>There are no card added.</p>
-                                                                    <div className='mt-6'>
-                                                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                                                                            Add New Card
-                                                                        </button>
-                                                                    </div>
+                                                                    <input className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                                                        type="radio"
+                                                                        checked
+                                                                        name="flexRadioDefault"
+                                                                        id={`Card${i}`} />
+                                                                    <label className="form-check-label inline-block cursor-pointer text-gray-800 flex w-full items-center"
+                                                                        for={`Card${i}`}>
+                                                                        <img src='./images/mastercard.png' className='w-12 ml-2 mr-4' />
+                                                                        <div className=''>
+                                                                            <span className='card-number block text-sm font-medium'>{cardItem.card_number}</span>
+                                                                            <span className='card-name block text-sm'>MasterCard</span>
+                                                                        </div>
+                                                                        <span className='delete ml-auto hover:text-red-500'>
+                                                                            <i className="fa fa-trash-alt" aria-hidden="true" onClick={() => { handleDelete(cardItem.card_number) }}></i>
+                                                                        </span>
+                                                                    </label>
                                                                 </div>
+                                                                )}
+                                                                <div className='flex justify-between mt-6'>
+                                                                    <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                                        Add New Card
+                                                                    </button>
+                                                                </div>
+                                                            </> :
+                                                            <div className='text-center'>
+                                                                <img src="./images/no-credit-card.png" className='w-16 mx-auto pb-2' />
+                                                                <p>There are no card added.</p>
+                                                                <div className='mt-6'>
+                                                                    <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                                        Add New Card
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         }
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -312,8 +311,8 @@ const Dashboard = () => {
                         <div class="modal-body relative p-4">
 
                             <form onSubmit={handleSubmit}>
-                                <div className="grid grid-cols-3 gap-4">
-                                    <div className='col-span-3'>
+                                <div className="grid grid-cols-12 gap-4">
+                                    <div className='col-span-12'>
                                         <label class="block font-medium mb-2 text-gray-700">Card Number<span class="required">*</span></label>
                                         <InputMask
                                             className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
@@ -331,26 +330,88 @@ const Dashboard = () => {
                                                 formState.errors.card_number[0] : null}
                                         </span>
                                     </div>
-                                    <div className=''>
+                                    <div className="col-span-5 expiry_date">
+                                        <label className="block font-medium mb-2 text-gray-700">
+                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                Expiry</span>
+                                        </label>
+                                        <div className='flex gap-3'>
+                                            <div className=''>
+                                                <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                                    name='expiry_month'
+                                                    value={formState.values.expiry_month || ""}
+
+                                                    onChange={handleChange}
+                                                >
+                                                    <option selected>MM</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                                <div>
+                                                    <span className='error text-red-500 text-sm font-medium'>
+                                                        {hasError("expiry_month") ?
+                                                            formState.errors.expiry_month[0] : null}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className=''>
+                                                <select className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded-md w-full"
+                                                    name='expiry_year'
+                                                    value={formState.values.expiry_year || ""}
+
+                                                    onChange={handleChange}
+                                                >
+                                                    <option selected>YY</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                </select>
+                                                <div>
+                                                    <span className='error text-red-500 text-sm font-medium'>
+                                                        {hasError("expiry_year") ?
+                                                            formState.errors.expiry_year[0] : null}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* <div className=''>
                                         <label class="block font-medium mb-2 text-gray-700">Expiry<span class="required">*</span></label>
                                         <InputMask
                                             className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
-                                            mask="19/39"
+                                            mask="99/99"
                                             name="expiry"
                                             maskChar={null}
                                             placeholder="MM/YY"
                                             value={formState.values.expiry || ""}
                                             onChange={handleChange}
                                             onBlur={handleError}
-                                        // onChange={handleInput}
                                         />
                                         <span className='error text-red-500 text-sm font-medium'>
                                             {hasError("expiry") ?
                                                 formState.errors.expiry[0] : null}
                                         </span>
-                                    </div>
-                                    <div className=''>
+                                    </div> */}
+                                    
+                                    <div className='col-span-3'>
                                         <label class="block font-medium mb-2 text-gray-700">CVV / CVC<span class="required">*</span></label>
+                                        <div className='cvv_input relative'>
                                         <InputMask
                                             className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
                                             mask="9999"
@@ -361,9 +422,12 @@ const Dashboard = () => {
                                             value={formState.values.cvv || ""}
                                             onChange={handleChange}
                                             onBlur={handleError}
-                                            iconClassName={"fas fa-question-circle"}
-                                            dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
                                         />
+                                        <span className='absolute input_datatip'>
+                                            <i className="fas fa-question-circle" data-tip="The CVV / CVC Number is the last 3 or 4 digits on the back of your cards" />
+                                            <ReactTooltip />
+                                        </span>
+                                        </div>
                                         <span className='error text-red-500 text-sm font-medium'>
                                             {hasError("cvv") ?
                                                 formState.errors.cvv[0] : null}
@@ -372,7 +436,7 @@ const Dashboard = () => {
                                     {/* <div className='cvv'>
                             <img src='./images/cvv.png' alt='' />
                         </div> */}
-                                    <div className='col-span-3'>
+                                    <div className='col-span-12'>
                                         <button type="submit" className="blue-btn py-2 px-8" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             Save</button>
                                     </div>

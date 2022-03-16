@@ -124,7 +124,7 @@ const  Header = () => {
                           </Link>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="my-courses"
@@ -133,7 +133,7 @@ const  Header = () => {
                           <i class="fa fa-book"></i> My Courses
                           </Link>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
                           <Link

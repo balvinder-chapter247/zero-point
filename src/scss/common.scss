@@ -264,8 +264,15 @@ button.signup_btn {
     padding: 0 15px;
     font-size: 14px !important;
     box-shadow: rgb(0 0 0 / 46%) 0px 0px 3px !important;
+    transition: all 0.4s ease-in-out;
     &.google {
         font-weight: 600 !important;
+        &:hover {
+            background: #d32525d9 !important;
+            & span {
+                color: #fff !important;
+            }
+        }
         & span {
             font-weight: 600 !IMPORTANT;
             font-family: 'Nunito', sans-serif !important;
@@ -273,10 +280,14 @@ button.signup_btn {
         }
         & div {
             margin-right: 0 !important;
+            background: transparent !important;
         }
     }
     &.fb {
         background: #2b53a1 !important;
+        &:hover {
+            background: #11357c !important;
+        }
         color: #fff !important;
         & i {
             margin-right: 9px;
@@ -413,6 +424,8 @@ span.form-icon i {
 
 span.error {
     display: block;
+    line-height: 17px;
+    margin-top: 2px;
 }
 
 // FAQ section css start
@@ -852,6 +865,19 @@ span.error {
     // border-bottom-right-radius: 8px;
 }
 
+.expiry_date select {
+    min-width: 75px;
+    max-width: 75px;
+}
+
+.input_datatip {
+    top: 11px;
+    right: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #626262;
+}
+
 // Course landing page css start
 .course-details-left {
     padding-right: 4rem;
@@ -1193,7 +1219,6 @@ span.error {
         margin-bottom: 0.98rem;
         .remove_div_input {
             position: relative;
-            
         }
     }
 }

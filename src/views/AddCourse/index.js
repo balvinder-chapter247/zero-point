@@ -265,7 +265,7 @@ const AddCourse = () => {
 
                                                 <div className="">
                                                     <label className="block text-gray-700 text-sm font-bold mb-2">
-                                                        <span className="">
+                                                        <span className="after:content-['*'] after:ml-0.5 after:text-red-500">
                                                             Banner Image</span>
                                                     </label>
                                                     <input className="form-control

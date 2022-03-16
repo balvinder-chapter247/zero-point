@@ -22,12 +22,18 @@ export const AddNewCardSchema = {
         message: 'must be between 14 to 16 characters long.'
       },
     },
-    expiry: {
+    // expiry: {
+    //   presence: { allowEmpty: false, message: 'is required' },
+    //   length: {
+    //     minimum:5,
+    //     message: 'date is wrong.'
+    //   },
+    // },
+    expiry_month:{
       presence: { allowEmpty: false, message: 'is required' },
-      length: {
-        minimum:5,
-        message: 'date is wrong.'
-      },
+    },
+    expiry_year:{
+      presence: { allowEmpty: false, message: 'is required' },
     },
     cvv: {
       presence: { allowEmpty: false, message: 'or cvc is required' },
