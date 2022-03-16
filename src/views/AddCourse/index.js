@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import validate from 'validate.js';
 import { toast, ToastContainer } from 'react-toastify';
 import { Toaster } from '../../helper/react-toast';
@@ -11,6 +11,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AddInputs from './components/Addinput';
 import { Link } from "react-router-dom";
 import Category from './components/SelectValue';
+import ReactTooltip from 'react-tooltip';
+
 
 const category = [
     { optionValue: "Programming", label: "Programming" },
@@ -108,8 +110,7 @@ const AddCourse = () => {
         }));
 
     }
-    const manageImageFile =(event)=>
-    {  
+    const manageImageFile = (event) => {
         const imageFilepath = event.target.files[0] || ""
         setFormState((formState) => ({
             ...formState,
@@ -124,6 +125,48 @@ const AddCourse = () => {
             },
         }));
     }
+    const [inputList, setInputList] = useState([{ objective: "" }]);
+    const [form, setFormValue] = useState(
+        {
+            values: ""
+        }
+    )
+
+    // handle input change
+    const handleInputChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...inputList];
+        list[index][name] = value;
+        setInputList(list);
+    };
+
+    // handle click event of the Remove button
+    const handleRemoveClick = index => {
+        const list = [...inputList];
+        list.splice(index, 1);
+        setInputList(list);
+    };
+
+    ///For disable button after 7 objectives
+    const [isDisabledAdding, setIsDisabledAdding] = useState(false)
+    useEffect(() => {
+        
+        if (inputList.length >= 4) {
+            setIsDisabledAdding(true);
+            Toaster(
+                {
+                    type: "info",
+                    text: "You reached max limit of adding objectives."
+                }
+            )
+        }
+        else setIsDisabledAdding(false)
+    }, [inputList])
+
+    const handleAddClick = () => {
+        setInputList([...inputList, { objective: "" }]);
+    };
+
 
     return (
         <>
@@ -285,12 +328,12 @@ const AddCourse = () => {
                                             focus:text-gray-700 focus:bg-white focus:border-blue-400 focus:outline-none"
                                                         type="file"
                                                         name="bannerImage"
-                                                       
-                                                       
+
+
                                                         onChange={manageImageFile}
                                                     />
                                                     <span className='error text-red-500 text-sm font-medium'>
-                                                    {hasError("courseImage") ?
+                                                        {hasError("courseImage") ?
                                                             formState.errors.courseImage[0] : null}
                                                     </span>
                                                 </div>
@@ -305,7 +348,126 @@ const AddCourse = () => {
                                         </div>
 
                                         {/* Learning objective section starts here */}
-                                        <AddInputs  />
+                                        <div className='learning_objectives'>
+                                            <div className='objective_items'>
+                                                <div className="obj_group">
+                                                    <div className={
+                                                        `justify-center items-center custom  width-100 ${inputList.length !== 1 ? "" : null}`}>
+                                                        <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                                Learning Objectives-1</span>
+                                                        </label>
+                                                        <InputForms
+
+                                                            labelRequired="*"
+                                                            labelclassName="block font-medium mb-2 text-gray-700"
+                                                            className="block font-medium"
+                                                            type='text'
+                                                            value={formState.values.objective1 || ""}
+                                                            errorMessage={hasError("objective1") ?
+                                                                formState.errors.objective1[0] : null}
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="obj_group">
+                                                    <div className={
+                                                        `justify-center items-center custom mt-2 width-100 `}>
+                                                        <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                                Learning Objectives-2</span>
+                                                        </label>
+                                                        <InputForms
+
+                                                            labelRequired="*"
+                                                            labelclassName="block font-medium mb-2 text-gray-700"
+                                                            className="block font-medium"
+                                                            type='text'
+                                                            value={formState.values.objective2 || ""}
+                                                            errorMessage={hasError("objective2") ?
+                                                                formState.errors.objective2[0] : null}
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="obj_group">
+                                                    <div className={
+                                                        `justify-center items-center custom mt-2 width-100 `}>
+                                                        <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                                            <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                                Learning Objectives-3</span>
+                                                        </label>
+                                                        <InputForms
+
+                                                            labelRequired="*"
+                                                            labelclassName="block font-medium mb-2 text-gray-700"
+                                                            className="block font-medium"
+                                                            type='text'
+                                                            value={formState.values.objective3 || ""}
+                                                            errorMessage={hasError("objective3") ?
+                                                                formState.errors.objective3[0] : null}
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                
+                                                { inputList.map((x, i) => {
+                                                    return (
+                                                        <>
+                                                            <div className="obj_group">
+                                                                <label className="block text-gray-700 text-sm  font-bold mb-2">
+                                                                    <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
+                                                                        {`Learning Objectives-${3 + 1 + i}`}</span>
+                                                                </label>
+
+                                                                <div className={
+                                                                    `flex justify-center items-center  custom w-full `}>
+                                                                    <InputForms
+
+                                                                        labelRequired="*"
+                                                                        labelclassName="block font-medium mb-2 text-gray-700"
+                                                                        className="block font-medium w-full"
+                                                                        type='text'
+                                                                        name="objective"
+                                                                        value={x.firstName}
+                                                                        onChange={e => handleInputChange(e, i)}
+                                                                    />
+                                                                    <div className="remove_div_input">
+                                                                        {inputList.length !== 1 && <div
+                                                                            className="mx-2"
+                                                                            onClick={() => handleRemoveClick(i)}>
+                                                                            <i className="fa-solid fa-trash-can delete-button" data-tip="Remove item" />
+                                                                            <ReactTooltip />
+                                                                        </div>}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </>
+                                                    );
+                                                })}
+                                                {/* <AddInputs setClick={click => clickChild = click}/> */}
+                                            </div>
+                                            <div className='add_btn' data-tip={isDisabledAdding ? "You can add max 7" : ""}>
+                                                <button type='button' onClick={handleAddClick}
+                                                    className={`blue-btn text-white font-semibold mt-4 py-2 px-4 rounded ${isDisabledAdding ? "disabled" : ""}`}
+                                                    disabled={isDisabledAdding}
+                                                >
+                                                    Add Objectives
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <ToastContainer
+                                            position="right"
+                                            autoClose={5000}
+                                            hideProgressBar={false}
+                                            newestOnTop={false}
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnFocusLoss
+                                            draggable
+                                            pauseOnHover
+                                        />
+
                                         {/* Learning objective section end here */}
 
                                         <div className='col-span-3 mt-2'>

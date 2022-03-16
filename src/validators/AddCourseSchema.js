@@ -61,5 +61,29 @@ export const AddCourseSchema = {
             message: 'must be between 20 to 300 characters long.'
         },
     },
+    objective1: {
+        presence: { allowEmpty: false, message: 'is required' },
+        length: {
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
+        },
+    },
+    objective2: {
+        presence: { allowEmpty: false, message: 'is required' },
+        length: {
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
+        },
+    },
+    objective3: {
+        presence: { allowEmpty: false, message: 'is required' },
+        length: {
+            maximum:20,
+            minimum:5,
+            message: 'must be between 5 to 20 characters long.'
+        },
+    },
     
 };

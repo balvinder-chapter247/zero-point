@@ -5,7 +5,13 @@ import { useEffect } from 'react';
 import { Toaster } from '../../../helper/react-toast';
 import { ToastContainer } from 'react-toastify';
 
-const AddInputs = () => {
+const AddInputs = (props) => {
+
+    useEffect(()=>
+    {
+        console.log(props,"this is props")
+        props.setClick(handleAddClick)
+    },[])
     const [inputList, setInputList] = useState([{ objective: "" }]);
     const [form, setFormValue] = useState(
         {
@@ -53,102 +59,7 @@ const AddInputs = () => {
 
     return (
         <>
-            <div className='learning_objectives'>
-                <div className='objective_items'>
-                    <div className="obj_group">
-                        <div className={
-                            `justify-center items-center custom  width-100 ${inputList.length !== 1 ? "" : null}`}>
-                            <label className="block text-gray-700 text-sm  font-bold mb-2">
-                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
-                                    Learning Objectives-1</span>
-                            </label>
-                            <InputForms
-
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block font-medium"
-                                type='text'
-                                name="objective1"
-                                value={form.values}
-                                onChange={handleChangeNormal}
-                            />
-                        </div>
-                    </div>
-                    <div className="obj_group">
-                        <div className={
-                            `justify-center items-center custom mt-2 width-100 `}>
-                            <label className="block text-gray-700 text-sm  font-bold mb-2">
-                                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
-                                    Learning Objectives-2</span>
-                            </label>
-                            <InputForms
-
-                                labelRequired="*"
-                                labelclassName="block font-medium mb-2 text-gray-700"
-                                className="block font-medium"
-                                type='text'
-                                name="objective1"
-                                value={form.values}
-                                onChange={handleChangeNormal}
-                            />
-                        </div>
-                    </div>
-
-                    {inputList.map((x, i) => {
-                        return (
-                            <>
-                                <div className="obj_group">
-                                    <label className="block text-gray-700 text-sm  font-bold mb-2">
-                                        <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block">
-                                            {`Learning Objectives-${2 + 1 + i}`}</span>
-                                    </label>
-
-                                    <div className={
-                                        `flex justify-center items-center  custom w-full `}>
-                                        <InputForms
-
-                                            labelRequired="*"
-                                            labelclassName="block font-medium mb-2 text-gray-700"
-                                            className="block font-medium w-full"
-                                            type='text'
-                                            name="objective"
-                                            value={x.firstName}
-                                            onChange={e => handleInputChange(e, i)}
-                                        />
-                                        <div className="remove_div_input">
-                                            {inputList.length !== 1 && <div
-                                                className="mx-2"
-                                                onClick={() => handleRemoveClick(i)}>
-                                                <i className="fa-solid fa-trash-can delete-button" data-tip="Remove item" />
-                                                <ReactTooltip />
-                                            </div>}
-                                        </div>
-                                    </div>
-                                </div>
-                            </>
-                        );
-                    })}
-                </div>
-                <div className='add_btn' data-tip={isDisabledAdding ? "You can add max 7" : ""}>
-                    <button type='button' onClick={handleAddClick}
-                        className={`blue-btn text-white font-semibold mt-4 py-2 px-4 rounded ${isDisabledAdding ? "disabled" : ""}`}
-                        disabled={isDisabledAdding}
-                    >
-                        Add Objectives
-                    </button>
-                </div>
-            </div>
-            <ToastContainer
-                position="right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+         
         </>
     )
 }
