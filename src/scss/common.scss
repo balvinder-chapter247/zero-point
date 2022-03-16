@@ -645,7 +645,25 @@ span.form-icon i {
         transition: all .4s ease-in-out;
     }
 }
-
+.red-btn {
+    background-color: rgb(224, 63, 63);
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-position: 100% 0%;
+    border-radius: 4px;
+    padding: 0.6rem 1.2rem;
+    &:hover {
+        background-position: 0% 100%;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+}
 .blue-btn.sm {
     padding: 6px 15px;
     font-size: 14px;

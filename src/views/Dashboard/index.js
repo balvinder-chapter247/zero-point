@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Toaster } from '../../helper/react-toast'
 import { ToastContainer } from 'react-toastify';
 import validate from 'validate.js';
@@ -15,21 +15,14 @@ import { CardSavingschema } from '../../validators/SaveCard';
 // import 'react-credit-cards/lib/styles.scss';
 
 import InputMask from 'react-input-mask';
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 
 const Dashboard = () => {
-
+    ///Hanndling modal here
+    const [showModal, setShowModal] = React.useState(false);
+    const modalOpen = () => {
+        setShowModal(true)
+    }
+ 
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -94,7 +87,7 @@ const Dashboard = () => {
                         type: "error",
                         text: "You have already added this card."
                     })
-
+                   
                 }
                 else {
                     Toaster({
@@ -106,6 +99,7 @@ const Dashboard = () => {
                     tempArray.push(formState.values);
                     localStorage.setItem("addNewCard", JSON.stringify(tempArray));
                     setCardSaved(tempArray)
+                    setShowModal(false)
                 }
             } else {
                 let tempArray = [];
@@ -118,6 +112,7 @@ const Dashboard = () => {
                         text: "New Card added Successfully."
                     })
                     setCardSaved(tempArray)
+                    setShowModal(false)
                 }
             }
 
@@ -279,7 +274,7 @@ const Dashboard = () => {
                                                                     <img src="./images/no-credit-card.png" className='w-16 mx-auto pb-2' />
                                                                     <p>There are no card added.</p>
                                                                     <div className='mt-6'>
-                                                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                                        <button type="button" class="blue-btn py-2 px-4 rounded" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onClick={modalOpen}>
                                                                             Add New Card
                                                                         </button>
                                                                     </div>
@@ -298,90 +293,118 @@ const Dashboard = () => {
                 </section>
             </main>
 
-            <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
-                <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-                    <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                        <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                            <h5 class="text-xl font-medium leading-normal text-gray-800 mb-0" id="exampleModalScrollableLabel">
-                                Add New Card
-                            </h5>
-                            <button type="button"
-                                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                                data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body relative p-4">
 
-                            <form onSubmit={handleSubmit}>
-                                <div className="grid grid-cols-3 gap-4">
-                                    <div className='col-span-3'>
-                                        <label class="block font-medium mb-2 text-gray-700">Card Number<span class="required">*</span></label>
-                                        <InputMask
-                                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
-                                            mask="9999 9999 9999 9999"
-                                            maskChar={null}
-                                            name="card_number"
-                                            placeholder="9999 9999 9999 9999"
-                                            value={formState.values.card_number || ""}
-                                            onChange={handleChange}
-                                            onBlur={handleError}
-                                        // onChange={handleInput}
-                                        />
-                                        <span className='error text-red-500 text-sm font-medium'>
-                                            {hasError("card_number") ?
-                                                formState.errors.card_number[0] : null}
+            {showModal ? (
+                <>
+
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                {/*header*/}
+                                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                                    <h3 className="text-3xl font-semibold">
+                                        Add New Card
+                                    </h3>
+                                    <button
+                                        className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                            ×
                                         </span>
-                                    </div>
-                                    <div className=''>
-                                        <label class="block font-medium mb-2 text-gray-700">Expiry<span class="required">*</span></label>
-                                        <InputMask
-                                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
-                                            mask="19/39"
-                                            name="expiry"
-                                            maskChar={null}
-                                            placeholder="MM/YY"
-                                            value={formState.values.expiry || ""}
-                                            onChange={handleChange}
-                                            onBlur={handleError}
-                                        // onChange={handleInput}
-                                        />
-                                        <span className='error text-red-500 text-sm font-medium'>
-                                            {hasError("expiry") ?
-                                                formState.errors.expiry[0] : null}
-                                        </span>
-                                    </div>
-                                    <div className=''>
-                                        <label class="block font-medium mb-2 text-gray-700">CVV / CVC<span class="required">*</span></label>
-                                        <InputMask
-                                            className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
-                                            mask="9999"
-                                            name="cvv"
-                                            maskChar={null}
-                                            type='password'
-                                            placeholder="***"
-                                            value={formState.values.cvv || ""}
-                                            onChange={handleChange}
-                                            onBlur={handleError}
-                                            iconClassName={"fas fa-question-circle"}
-                                            dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
-                                        />
-                                        <span className='error text-red-500 text-sm font-medium'>
-                                            {hasError("cvv") ?
-                                                formState.errors.cvv[0] : null}
-                                        </span>
-                                    </div>
-                                    {/* <div className='cvv'>
-                            <img src='./images/cvv.png' alt='' />
-                        </div> */}
-                                    <div className='col-span-3'>
-                                        <button type="submit" className="blue-btn py-2 px-8" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            Save</button>
-                                    </div>
+                                    </button>
                                 </div>
-                            </form>
+                                {/*body*/}
+                                <div className="relative p-6 flex-auto">
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="grid grid-cols-3 gap-4">
+                                            <div className='col-span-3'>
+                                                <label class="block font-medium mb-2 text-gray-700">Card Number<span class="required">*</span></label>
+                                                <InputMask
+                                                    className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                                                    mask="9999 9999 9999 9999"
+                                                    maskChar={null}
+                                                    name="card_number"
+                                                    placeholder="9999 9999 9999 9999"
+                                                    value={formState.values.card_number || ""}
+                                                    onChange={handleChange}
+                                                    onBlur={handleError}
+                                                // onChange={handleInput}
+                                                />
+                                                <span className='error text-red-500 text-sm font-medium'>
+                                                    {hasError("card_number") ?
+                                                        formState.errors.card_number[0] : null}
+                                                </span>
+                                            </div>
+                                            <div className=''>
+                                                <label class="block font-medium mb-2 text-gray-700">Expiry<span class="required">*</span></label>
+                                                <InputMask
+                                                    className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                                                    mask="19/39"
+                                                    name="expiry"
+                                                    maskChar={null}
+                                                    placeholder="MM/YY"
+                                                    value={formState.values.expiry || ""}
+                                                    onChange={handleChange}
+                                                    onBlur={handleError}
+                                                // onChange={handleInput}
+                                                />
+                                                <span className='error text-red-500 text-sm font-medium'>
+                                                    {hasError("expiry") ?
+                                                        formState.errors.expiry[0] : null}
+                                                </span>
+                                            </div>
+                                            <div className=''>
+                                                <label class="block font-medium mb-2 text-gray-700">CVV / CVC<span class="required">*</span></label>
+                                                <InputMask
+                                                    className="bg-white border border-slate-300 focus:border-blue-500 focus:outline-none px-3 py-2 rounded w-full"
+                                                    mask="9999"
+                                                    name="cvv"
+                                                    maskChar={null}
+                                                    type='password'
+                                                    placeholder="***"
+                                                    value={formState.values.cvv || ""}
+                                                    onChange={handleChange}
+                                                    onBlur={handleError}
+                                                    iconClassName={"fas fa-question-circle"}
+                                                    dataTip="The CVV / CVC Number is the last three digits on the back of your cards"
+                                                />
+                                                <span className='error text-red-500 text-sm font-medium'>
+                                                    {hasError("cvv") ?
+                                                        formState.errors.cvv[0] : null}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                                            <button
+                                                className="text-red-500 red-btn py-2  background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                type="button"
+                                                onClick={() => setShowModal(false)}
+                                            >
+                                                Close
+                                            </button>
+                                            <button type="submit"
+                                                className="bg-emerald-500 blue-btn py-2 px-8 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                               
+                                            >
+                                                Save Changes
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                {/*footer*/}
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+            ) : null}
+
+
         </>
     )
 }
