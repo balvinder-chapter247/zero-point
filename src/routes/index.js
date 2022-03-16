@@ -5,7 +5,7 @@ import { Router, Switch, Route,Redirect, useParams } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
 import { createBrowserHistory as createHistory } from 'history';
 import {restrictRoutes, publicRoutes, privateRoutes} from './RouterList';
-import { RestrictRoute, PublicRoute, PrivateRoute } from './Routes';
+import { RestrictRoute, PublicRoute, PrivateRoute } from './routes';
 import FullPageLoader from '../components/FullPageLoader/FullPageLoader';
 const Routing = () => {
   const history = createHistory();
