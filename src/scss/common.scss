@@ -256,6 +256,62 @@ button.icon.fb.metro {
     }
 }
 
+button.signup_btn {
+    box-shadow: none !important;
+    height: 45px;
+    border-radius: 4px !important;
+    margin: 0 7px;
+    padding: 0 15px;
+    font-size: 14px !important;
+    box-shadow: rgb(0 0 0 / 46%) 0px 0px 3px !important;
+    transition: all 0.4s ease-in-out;
+    &.google {
+        font-weight: 600 !important;
+        &:hover {
+            background: #d32525d9 !important;
+            & span {
+                color: #fff !important;
+            }
+        }
+        & span {
+            font-weight: 600 !IMPORTANT;
+            font-family: 'Nunito', sans-serif !important;
+            color: #000;
+        }
+        & div {
+            margin-right: 0 !important;
+            background: transparent !important;
+        }
+    }
+    &.fb {
+        background: #2b53a1 !important;
+        &:hover {
+            background: #11357c !important;
+        }
+        color: #fff !important;
+        & i {
+            margin-right: 9px;
+        }
+    }
+}
+
+.or span {
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.or:before {
+    background: #00000038;
+    height: 1px;
+    position: absolute;
+    content: '';
+    width: 80%;
+    left: 0;
+    right: 0;
+    top: 11px;
+    margin: auto;
+}
+
 .forgot-password-link:hover {
     color: $blue;
     transition: 0.4s ease-in-out;
@@ -364,6 +420,12 @@ span.form-icon i {
 
 .bg-light-gray {
     background-color: #f9f9f9;
+}
+
+span.error {
+    display: block;
+    line-height: 17px;
+    margin-top: 2px;
 }
 
 // FAQ section css start
@@ -821,6 +883,19 @@ span.form-icon i {
     // border-bottom-right-radius: 8px;
 }
 
+.expiry_date select {
+    min-width: 75px;
+    max-width: 75px;
+}
+
+.input_datatip {
+    top: 11px;
+    right: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #626262;
+}
+
 // Course landing page css start
 .course-details-left {
     padding-right: 4rem;
@@ -1162,7 +1237,6 @@ span.form-icon i {
         margin-bottom: 0.98rem;
         .remove_div_input {
             position: relative;
-            
         }
     }
 }
@@ -1292,6 +1366,14 @@ span.form-icon i {
         -webkit-transform: translateY(-10px);
         -moz-transform: translateY(-10px);
         transform: translateY(-10px);
+        background-image: linear-gradient(to right bottom, #1678dd, #1530b5);
+        color: #fff;
+        p {
+            color: #fff;
+        }
+        .start-btn {
+            color: #fff;
+        }
     }
 }
 
@@ -1324,9 +1406,10 @@ span.form-icon i {
 .single_features_box .start-btn {
     font-weight: 700;
     color: #0b2bc9;
-    transition: all 0.4s ease-in-out;
+    // transition: all 0.4s ease-in-out;
     &:hover {
-        color: #000;
+        font-size: 17px;
+        transition: all 0.4s ease-in-out;
     }
 }
 
@@ -1498,6 +1581,19 @@ span.form-icon i {
     font-size: 13px;
     font-weight: 600;
     margin-top: 6px;
+}
+
+.select_type_item:hover {
+    cursor: pointer;
+    .icon_black {
+        display: none;
+    }
+    .icon_blue {
+        display: block;
+    }
+    .type_name {
+        color: $blue;
+    }
 }
 
 .course_module {

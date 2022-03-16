@@ -22,7 +22,7 @@ const Dashboard = () => {
     const modalOpen = () => {
         setShowModal(true)
     }
- 
+
     ///State for our form
     const [formState, setFormState] = React.useState({
         isValid: false,
@@ -87,7 +87,7 @@ const Dashboard = () => {
                         type: "error",
                         text: "You have already added this card."
                     })
-                   
+
                 }
                 else {
                     Toaster({
@@ -388,7 +388,7 @@ const Dashboard = () => {
                                             </button>
                                             <button type="submit"
                                                 className="bg-emerald-500 blue-btn py-2 px-8 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                               
+
                                             >
                                                 Save Changes
                                             </button>

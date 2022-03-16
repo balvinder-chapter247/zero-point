@@ -4,7 +4,7 @@ export const ContactUsSchema = {
       length: {
         maximum:25,
         minimum:3,
-        message: 'must be between 3 to 30 characters long.'
+        message: 'must be between 3 to 25 characters long.'
       },
     },
     email: {
@@ -18,9 +18,9 @@ export const ContactUsSchema = {
     subject: {
       presence: { allowEmpty: false, message: 'is required' },
       length: {
-        minimum:3,
+        minimum:5,
         maximum:30,
-        message: 'must  be between 3 to 30 characters long.'
+        message: 'must  be between 5 to 30 characters long.'
       },
     },
     message: {

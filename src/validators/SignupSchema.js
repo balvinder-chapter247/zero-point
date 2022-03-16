@@ -11,9 +11,9 @@ export const SignupSchema = {
     last_name: {
         presence: { allowEmpty: false, message: 'is required' },
         length: {
-          maximum:18,
+          maximum:20,
           minimum:3,
-          message:"should be between 3 to 18 characters long."
+          message:"should be between 3 to 20 characters long."
         },
     },
     email: {
