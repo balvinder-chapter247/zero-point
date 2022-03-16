@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/806.261bc44e.chunk.css","mappings":"AAAA,eACI,gBACJ","sources":["views/MyCourses/MyCourse.css"],"sourcesContent":[".course-detail {\r\n    min-height: 185px;\r\n}"],"names":[],"sourceRoot":""}
