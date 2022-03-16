@@ -1,5 +1,6 @@
 {
     "name": "zero-point",
+    "homepage": "https://balvinder-chapter247.github.io/zero-point",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -46,7 +47,9 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "./node_modules/.bin/netlify-lambda serve src",
+        "predeploy": "npm run build",
+       "deploy": "gh-pages -b master -d build",
+        "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
